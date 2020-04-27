@@ -14,17 +14,16 @@ class ShoppingListController {
     var shoppingLists: [ShoppingList] = []
     
     // Mark: - Crud Functions
-    func create(ingredient: String, measurement: String) {
+    func createList(ingredient: String, measurement: String) {
         let ingredient = ShoppingList(ingredient: ingredient, measurement: measurement)
         shoppingLists.append(ingredient)
         saveToPersistentStore(ingredient: shoppingLists)
     }
     
     func read() {
-        
     }
     
-    func update(shoppingList: ShoppingList, ingredient: String, measurement: String) {
+    func updateList(shoppingList: ShoppingList, ingredient: String, measurement: String) {
         if let index = shoppingLists.firstIndex(of: shoppingList) {
             shoppingLists[index].ingredient = ingredient
             shoppingLists[index].measurement = measurement
@@ -32,7 +31,7 @@ class ShoppingListController {
         }
     }
     
-    func delete(shoppingList: ShoppingList) {
+    func deleteList(shoppingList: ShoppingList) {
         if let index = shoppingLists.firstIndex(of: shoppingList) {
             shoppingLists.remove(at: index)
             saveToPersistentStore(ingredient: shoppingLists)
