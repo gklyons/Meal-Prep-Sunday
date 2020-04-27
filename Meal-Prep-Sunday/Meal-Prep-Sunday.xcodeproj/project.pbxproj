@@ -12,6 +12,7 @@
 		D494A17E245744710086DBFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A17C245744710086DBFA /* Main.storyboard */; };
 		D494A180245744770086DBFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D494A17F245744770086DBFA /* Assets.xcassets */; };
 		D494A183245744770086DBFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A181245744770086DBFA /* LaunchScreen.storyboard */; };
+		EB5CF4DA24574F0300104F17 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CF4D924574F0300104F17 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D494A17F245744770086DBFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D494A182245744770086DBFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D494A184245744770086DBFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB5CF4D924574F0300104F17 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = "Meal-Prep-Sunday/Recipe.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		D494A18C24574A970086DBFA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EB5CF4D924574F0300104F17 /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5CF4DA24574F0300104F17 /* Recipe.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 			);
