@@ -8,17 +8,30 @@
 
 import Foundation
 
-class Recipe {
+struct TopLevelObject: Codable {
+    let searchTerm: String
+    let hits: [RecipeContainer]
     
-    let title: String
-    let image: String
-    let ingredient: String
-    let directions: String
-    
-    init(title: String, image: String, ingredient: String, directions: String) {
-        self.title = title
-        self.image = image
-        self.ingredient = ingredient
-        self.directions = directions
+    enum CodingKeys: String, CodingKey {
+        case searchTerm = "q"
+        case hits
     }
 }
+
+struct RecipeContainer: Codable {
+    let recipe: Recipe
+}
+
+struct Recipe: Codable {
+    let label: String
+    let imageURL: String? = nil
+    let directions: String
+    let ingredients: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case label
+        case directions = "url"
+        case ingredients = "ingredientLines"
+    }
+}
+
