@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72B24576F5700D79193 /* ShoppingList.swift */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
 		D494A17E245744710086DBFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A17C245744710086DBFA /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3583C72B24576F5700D79193 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				D494A1A124576DCF0086DBFA /* Recipe.swift */,
 				EB5CF4DB24576F8600104F17 /* MealPlan.swift */,
+				3583C72B24576F5700D79193 /* ShoppingList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */,
+				3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
