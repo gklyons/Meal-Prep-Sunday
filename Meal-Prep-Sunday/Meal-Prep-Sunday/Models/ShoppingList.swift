@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ShoppingList: Codable {
+class ShoppingList: Equatable, Codable {
     let ingredient: String
     let measurement: String
     
@@ -17,4 +17,8 @@ class ShoppingList: Codable {
         self.ingredient = ingredient
         self.measurement = measurement
     }
+}
+
+func ==(lhs: ShoppingList, rhs: ShoppingList) -> Bool {
+    return lhs.ingredient == rhs.ingredient && lhs.measurement == rhs.measurement
 }

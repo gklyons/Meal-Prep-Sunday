@@ -17,6 +17,7 @@ class ShoppingListController {
     func create(ingredient: String, measurement: String) {
         let ingredient = ShoppingList(ingredient: ingredient, measurement: measurement)
         shoppingLists.append(ingredient)
+        saveToPersistentStore(ingredient: shoppingLists)
     }
     
     func read() {
@@ -27,8 +28,11 @@ class ShoppingListController {
         
     }
     
-    func delete() {
-        
+    func delete(shoppingList: ShoppingList) {
+        if let index = shoppingLists.firstIndex(of: shoppingList) {
+        shoppingLists.remove(at: index)
+            saveToPersistentStore(ingredient: shoppingLists)
+        }
     }
     
     func fileURL() -> URL {
