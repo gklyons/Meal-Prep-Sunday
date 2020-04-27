@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ShoppingList {
+class ShoppingList: Codable {
     let ingredient: String
     let measurement: String
     
