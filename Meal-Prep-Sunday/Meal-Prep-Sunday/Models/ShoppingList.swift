@@ -9,10 +9,10 @@
 import Foundation
 
 class ShoppingList {
-    
     let ingredient: String
     let measurement: String
     
+    @discardableResult
     init(ingredient: String, measurement: String) {
         self.ingredient = ingredient
         self.measurement = measurement

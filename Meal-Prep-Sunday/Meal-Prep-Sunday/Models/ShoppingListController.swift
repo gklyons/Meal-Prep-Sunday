@@ -11,17 +11,19 @@ import Foundation
 class ShoppingListController {
     
     // Mark: - Properties
+    var shoppingLists: [ShoppingList] = []
     
     // Mark: - Crud Functions
-    func create() {
-        
+    func create(ingredient: String, measurement: String) {
+        let ingredient = ShoppingList(ingredient: ingredient, measurement: measurement)
+        shoppingLists.append(ingredient)
     }
     
     func read() {
         
     }
     
-    func update() {
+    func update(ingredient: String, measurement: String) {
         
     }
     
@@ -30,3 +32,4 @@ class ShoppingListController {
     }
     
 }//End of class
+
