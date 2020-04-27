@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class MealPlan {
+    
+    let date: Date
+    let recipe: Recipe
+    
+    init(date: Date, recipe: Recipe) {
+        self.date = date
+        self.recipe = recipe
+    }
+}
