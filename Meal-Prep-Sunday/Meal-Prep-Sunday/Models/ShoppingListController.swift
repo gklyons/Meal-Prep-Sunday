@@ -24,13 +24,17 @@ class ShoppingListController {
         
     }
     
-    func update(ingredient: String, measurement: String) {
-        
+    func update(shoppingList: ShoppingList, ingredient: String, measurement: String) {
+        if let index = shoppingLists.firstIndex(of: shoppingList) {
+            shoppingLists[index].ingredient = ingredient
+            shoppingLists[index].measurement = measurement
+            saveToPersistentStore(ingredient: shoppingLists)
+        }
     }
     
     func delete(shoppingList: ShoppingList) {
         if let index = shoppingLists.firstIndex(of: shoppingList) {
-        shoppingLists.remove(at: index)
+            shoppingLists.remove(at: index)
             saveToPersistentStore(ingredient: shoppingLists)
         }
     }

@@ -9,8 +9,8 @@
 import Foundation
 
 class ShoppingList: Equatable, Codable {
-    let ingredient: String
-    let measurement: String
+    var ingredient: String
+    var measurement: String
     
     @discardableResult
     init(ingredient: String, measurement: String) {
