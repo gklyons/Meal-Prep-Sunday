@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
-		D494A17B245744710086DBFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A17A245744710086DBFA /* ViewController.swift */; };
 		D494A17E245744710086DBFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A17C245744710086DBFA /* Main.storyboard */; };
 		D494A180245744770086DBFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D494A17F245744770086DBFA /* Assets.xcassets */; };
 		D494A183245744770086DBFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A181245744770086DBFA /* LaunchScreen.storyboard */; };
+		D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A124576DCF0086DBFA /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D494A17A245744710086DBFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D494A17D245744710086DBFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D494A17F245744770086DBFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D494A182245744770086DBFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D494A184245744770086DBFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D494A1A124576DCF0086DBFA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,71 @@
 		D494A175245744710086DBFA /* Meal-Prep-Sunday */ = {
 			isa = PBXGroup;
 			children = (
-				D494A176245744710086DBFA /* AppDelegate.swift */,
-				D494A178245744710086DBFA /* SceneDelegate.swift */,
-				D494A17A245744710086DBFA /* ViewController.swift */,
-				D494A17C245744710086DBFA /* Main.storyboard */,
-				D494A17F245744770086DBFA /* Assets.xcassets */,
-				D494A181245744770086DBFA /* LaunchScreen.storyboard */,
-				D494A184245744770086DBFA /* Info.plist */,
+				D494A19E24576D730086DBFA /* Models */,
+				D494A19D24576D6A0086DBFA /* Model Controllers */,
+				D494A19C24576D610086DBFA /* View Controllers */,
+				D494A1A024576D8A0086DBFA /* FireStore */,
+				D494A19F24576D7D0086DBFA /* Helpers + Extensions */,
+				D494A19A24576D140086DBFA /* UI */,
+				D494A19B24576D460086DBFA /* Resources */,
 			);
 			path = "Meal-Prep-Sunday";
+			sourceTree = "<group>";
+		};
+		D494A19A24576D140086DBFA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D494A17C245744710086DBFA /* Main.storyboard */,
+				D494A181245744770086DBFA /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D494A19B24576D460086DBFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D494A176245744710086DBFA /* AppDelegate.swift */,
+				D494A178245744710086DBFA /* SceneDelegate.swift */,
+				D494A17F245744770086DBFA /* Assets.xcassets */,
+				D494A184245744770086DBFA /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D494A19C24576D610086DBFA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D494A19D24576D6A0086DBFA /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		D494A19E24576D730086DBFA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D494A1A124576DCF0086DBFA /* Recipe.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D494A19F24576D7D0086DBFA /* Helpers + Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helpers + Extensions";
+			sourceTree = "<group>";
+		};
+		D494A1A024576D8A0086DBFA /* FireStore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FireStore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D494A17B245744710086DBFA /* ViewController.swift in Sources */,
+				D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 			);
@@ -286,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3N9XPK38Q;
-				INFOPLIST_FILE = "Meal-Prep-Sunday/Info.plist";
+				INFOPLIST_FILE = "Meal-Prep-Sunday/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3N9XPK38Q;
-				INFOPLIST_FILE = "Meal-Prep-Sunday/Info.plist";
+				INFOPLIST_FILE = "Meal-Prep-Sunday/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
