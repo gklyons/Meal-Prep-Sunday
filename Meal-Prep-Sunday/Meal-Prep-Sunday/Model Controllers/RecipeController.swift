@@ -6,7 +6,7 @@
 //  Copyright © 2020 Turtle. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RecipeController {
     
@@ -23,7 +23,7 @@ class RecipeController {
     let appkeyValue = "0feeff9a72c76b85b082a864b382df64"
     let searchKey = "q"
     
-    func fetchRecipe(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
+    func fetchRecipes(searchTerm: String, completion: @escaping (Result<[Recipe], RecipeError>) -> Void) {
         ///1) URL
         guard let baseURL = baseURL else { return }
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -51,7 +51,23 @@ class RecipeController {
         }.resume()
     }
     
-    func fetchImage() {
+    func fetchImage(for recipe: Recipe, completion: @escaping (Result<UIImage, RecipeError>) -> Void) {
+        guard let recipeImage = URL(string: recipe.image!) else {
+            return completion(.failure(.noData)) }
+            print("The image is good at hide & seek! I can't find it!!")
+        
+        URLSession.shared.dataTask(with: recipeImage) { (data, response, error) in
+            if let error = error {
+                completion(.failure(.thrown(error)))
+            }
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            guard let image = UIImage(data: data) else {
+                return completion(.failure(.noData))
+            }
+            completion(.success(image))
+        }.resume()
         
     }
     

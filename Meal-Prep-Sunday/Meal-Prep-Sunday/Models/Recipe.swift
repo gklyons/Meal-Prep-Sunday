@@ -24,14 +24,17 @@ struct RecipeContainer: Codable {
 
 struct Recipe: Codable {
     let label: String
-    let imageURL: String? = nil
+    let image: String?
     let directions: String
     let ingredients: [String]
+    let yield: Int
     
     enum CodingKeys: String, CodingKey {
         case label
         case directions = "url"
+        case image
         case ingredients = "ingredientLines"
+        case yield
     }
 }
 
