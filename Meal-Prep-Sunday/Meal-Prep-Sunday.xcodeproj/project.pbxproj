@@ -14,6 +14,8 @@
 		D494A180245744770086DBFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D494A17F245744770086DBFA /* Assets.xcassets */; };
 		D494A183245744770086DBFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A181245744770086DBFA /* LaunchScreen.storyboard */; };
 		D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A124576DCF0086DBFA /* Recipe.swift */; };
+		D494A1A4245881080086DBFA /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A3245881080086DBFA /* RecipeController.swift */; };
+		D494A1A6245894000086DBFA /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A5245894000086DBFA /* RecipeError.swift */; };
 		EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CF4DB24576F8600104F17 /* MealPlan.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		D494A182245744770086DBFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D494A184245744770086DBFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D494A1A124576DCF0086DBFA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		D494A1A3245881080086DBFA /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		D494A1A5245894000086DBFA /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 		EB5CF4DB24576F8600104F17 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,7 @@
 		D494A19D24576D6A0086DBFA /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D494A1A3245881080086DBFA /* RecipeController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 		D494A19F24576D7D0086DBFA /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D494A1A5245894000086DBFA /* RecipeError.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
+				D494A1A6245894000086DBFA /* RecipeError.swift in Sources */,
+				D494A1A4245881080086DBFA /* RecipeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
