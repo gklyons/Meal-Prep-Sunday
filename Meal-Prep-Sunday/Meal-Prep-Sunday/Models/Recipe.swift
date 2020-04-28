@@ -34,4 +34,3 @@ struct Recipe: Codable {
         case ingredients = "ingredientLines"
     }
 }
-
