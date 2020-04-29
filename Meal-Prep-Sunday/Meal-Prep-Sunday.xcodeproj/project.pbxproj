@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72B24576F5700D79193 /* ShoppingList.swift */; };
+		3583C72E245791DB00D79193 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72D245791DB00D79193 /* ShoppingListController.swift */; };
+		3583C7302458EFE300D79193 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72F2458EFE300D79193 /* Ingredient.swift */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
 		D494A17E245744710086DBFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A17C245744710086DBFA /* Main.storyboard */; };
 		D494A180245744770086DBFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D494A17F245744770086DBFA /* Assets.xcassets */; };
 		D494A183245744770086DBFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A181245744770086DBFA /* LaunchScreen.storyboard */; };
 		D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A124576DCF0086DBFA /* Recipe.swift */; };
+		D494A1A4245881080086DBFA /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A3245881080086DBFA /* RecipeController.swift */; };
+		D494A1A6245894000086DBFA /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1A5245894000086DBFA /* RecipeError.swift */; };
 		EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CF4DB24576F8600104F17 /* MealPlan.swift */; };
 		EB5CF4DE2458912C00104F17 /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CF4DD2458912C00104F17 /* MealPlanController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3583C72B24576F5700D79193 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		3583C72D245791DB00D79193 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShoppingListController.swift; path = "Meal-Prep-Sunday/Models/ShoppingListController.swift"; sourceTree = SOURCE_ROOT; };
+		3583C72F2458EFE300D79193 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +34,8 @@
 		D494A182245744770086DBFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D494A184245744770086DBFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D494A1A124576DCF0086DBFA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		D494A1A3245881080086DBFA /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		D494A1A5245894000086DBFA /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 		EB5CF4DB24576F8600104F17 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
 		EB5CF4DD2458912C00104F17 /* MealPlanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealPlanController.swift; path = "Meal-Prep-Sunday/Models/MealPlanController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -104,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				EB5CF4DD2458912C00104F17 /* MealPlanController.swift */,
+				D494A1A3245881080086DBFA /* RecipeController.swift */,
+				3583C72D245791DB00D79193 /* ShoppingListController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -114,6 +124,7 @@
 				D494A1A124576DCF0086DBFA /* Recipe.swift */,
 				EB5CF4DB24576F8600104F17 /* MealPlan.swift */,
 				3583C72B24576F5700D79193 /* ShoppingList.swift */,
+				3583C72F2458EFE300D79193 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 		D494A19F24576D7D0086DBFA /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D494A1A5245894000086DBFA /* RecipeError.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -204,11 +216,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */,
+				3583C72E245791DB00D79193 /* ShoppingListController.swift in Sources */,
+				3583C7302458EFE300D79193 /* Ingredient.swift in Sources */,
 				3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
 				EB5CF4DE2458912C00104F17 /* MealPlanController.swift in Sources */,
+				D494A1A6245894000086DBFA /* RecipeError.swift in Sources */,
+				D494A1A4245881080086DBFA /* RecipeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
