@@ -59,6 +59,5 @@ class ShoppingListController {
             print("\(error.localizedDescription) -> \(error)")
         }
     }
-    
 }//End of class
 

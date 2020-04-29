@@ -12,14 +12,9 @@ class ShoppingList: Codable {
     
     var ingredients: [Ingredient]
     
-//    @discardableResult
     init(ingredients: [Ingredient]) {
         self.ingredients = ingredients
     }
-    
-//    required init(from decoder:Decoder) throws {
-//        self.ingredients = decoder.self
-//    }
 }
 
 

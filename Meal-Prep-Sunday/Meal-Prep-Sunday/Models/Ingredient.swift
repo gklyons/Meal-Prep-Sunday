@@ -16,7 +16,6 @@ class Ingredient: Codable, Equatable {
     }
 }
 
-//extension Ingredient: Equatable {
 func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
     return lhs.item == rhs.item
     
