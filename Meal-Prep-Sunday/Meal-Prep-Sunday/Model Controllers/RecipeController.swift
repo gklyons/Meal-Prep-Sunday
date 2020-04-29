@@ -13,8 +13,8 @@ class RecipeController {
     static let shared = RecipeController()
     var recipes: [Recipe] = []
     
-    private init() {
-    }
+//    private init() {
+//    }
     
     let baseURL = URL(string: "https://api.edamam.com/search")
     let appIDName = "app_id"
@@ -68,9 +68,5 @@ class RecipeController {
             }
             completion(.success(image))
         }.resume()
-        
     }
-    
-    
-    
 }//End of Class
