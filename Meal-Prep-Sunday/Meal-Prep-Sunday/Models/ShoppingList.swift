@@ -8,17 +8,18 @@
 
 import Foundation
 
-class ShoppingList: Equatable, Codable {
-    var ingredient: String
-    var measurement: String
+class ShoppingList: Codable {
     
-    @discardableResult
-    init(ingredient: String, measurement: String) {
-        self.ingredient = ingredient
-        self.measurement = measurement
+    var ingredients: [Ingredient]
+    
+//    @discardableResult
+    init(ingredients: [Ingredient]) {
+        self.ingredients = ingredients
     }
+    
+//    required init(from decoder:Decoder) throws {
+//        self.ingredients = decoder.self
+//    }
 }
 
-func ==(lhs: ShoppingList, rhs: ShoppingList) -> Bool {
-    return lhs.ingredient == rhs.ingredient && lhs.measurement == rhs.measurement
-}
+

@@ -11,31 +11,24 @@ import Foundation
 class ShoppingListController {
     
     // Mark: - Properties
-    var shoppingLists: [ShoppingList] = []
+    static let shared = ShoppingListController()
+    var shoppingList: ShoppingList?
     
     // Mark: - Crud Functions
-    func createList(ingredient: String, measurement: String) {
-        let ingredient = ShoppingList(ingredient: ingredient, measurement: measurement)
-        shoppingLists.append(ingredient)
-        saveToPersistentStore(ingredient: shoppingLists)
+    func createList(ingredients: Ingredient) {
+        shoppingList?.ingredients.append(ingredients)
+        saveToPersistentStore()
     }
     
-    func read() {
+    func updateIngredient(ingredient: Ingredient, item: String) {
+        ingredient.item = item
+        saveToPersistentStore()
     }
     
-    func updateList(shoppingList: ShoppingList, ingredient: String, measurement: String) {
-        if let index = shoppingLists.firstIndex(of: shoppingList) {
-            shoppingLists[index].ingredient = ingredient
-            shoppingLists[index].measurement = measurement
-            saveToPersistentStore(ingredient: shoppingLists)
-        }
-    }
-    
-    func deleteList(shoppingList: ShoppingList) {
-        if let index = shoppingLists.firstIndex(of: shoppingList) {
-            shoppingLists.remove(at: index)
-            saveToPersistentStore(ingredient: shoppingLists)
-        }
+    func deleteIngredient(ingredients: Ingredient) {
+        guard let index = shoppingList?.ingredients.firstIndex(of: ingredients) else {return}
+        shoppingList?.ingredients.remove(at: index)
+        saveToPersistentStore()
     }
     
     func fileURL() -> URL {
@@ -46,10 +39,10 @@ class ShoppingListController {
         return fullURL
     }
     
-    func saveToPersistentStore(ingredient: [ShoppingList]) {
+    func saveToPersistentStore() {
         let jsonEncoder = JSONEncoder()
         do {
-            let data = try jsonEncoder.encode(shoppingLists)
+            let data = try jsonEncoder.encode(shoppingList)
             try data.write(to: fileURL())
         } catch let error{
             print("\(error.localizedDescription) -> \(error)")
@@ -60,8 +53,8 @@ class ShoppingListController {
         let jsonDecoder = JSONDecoder()
         do {
             let data = try Data(contentsOf: fileURL())
-            let shoppingListDecoded = try jsonDecoder.decode([ShoppingList].self, from: data)
-            self.shoppingLists = shoppingListDecoded
+            let shoppingListDecoded = try jsonDecoder.decode(ShoppingList.self, from: data)
+            self.shoppingList = shoppingListDecoded
         } catch let error {
             print("\(error.localizedDescription) -> \(error)")
         }
