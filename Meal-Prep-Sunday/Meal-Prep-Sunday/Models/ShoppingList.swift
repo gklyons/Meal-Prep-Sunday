@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ShoppingList {
+class ShoppingList: Codable {
     
-    let ingredient: String
-    let measurement: String
+    var ingredients: [Ingredient]
     
-    init(ingredient: String, measurement: String) {
-        self.ingredient = ingredient
-        self.measurement = measurement
+    init(ingredients: [Ingredient]) {
+        self.ingredients = ingredients
     }
 }
+
+
