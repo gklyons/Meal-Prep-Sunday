@@ -10,6 +10,12 @@
 		3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72B24576F5700D79193 /* ShoppingList.swift */; };
 		3583C72E245791DB00D79193 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72D245791DB00D79193 /* ShoppingListController.swift */; };
 		3583C7302458EFE300D79193 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72F2458EFE300D79193 /* Ingredient.swift */; };
+		3583C756246088F000D79193 /* ManualUploadRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C755246088F000D79193 /* ManualUploadRecipeViewController.swift */; };
+		3583C75D246095B000D79193 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C75B246095B000D79193 /* Profile.storyboard */; };
+		3583C75F2460960B00D79193 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C75E2460960B00D79193 /* Home.storyboard */; };
+		3583C7622460963500D79193 /* MealPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7602460963400D79193 /* MealPlan.storyboard */; };
+		3583C7642460964C00D79193 /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7632460964C00D79193 /* RecipeBook.storyboard */; };
+		3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7652460966E00D79193 /* ShoppingList.storyboard */; };
 		CD5F02C29F50D4ADCE8F03EE /* Pods_Meal_Prep_Sunday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
@@ -32,6 +38,12 @@
 		3583C72B24576F5700D79193 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		3583C72D245791DB00D79193 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShoppingListController.swift; path = "Meal-Prep-Sunday/Models/ShoppingListController.swift"; sourceTree = SOURCE_ROOT; };
 		3583C72F2458EFE300D79193 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		3583C755246088F000D79193 /* ManualUploadRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ManualUploadRecipeViewController.swift; path = "Meal-Prep-Sunday/Model Controllers/ManualUploadRecipeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		3583C75C246095B000D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		3583C75E2460960B00D79193 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = SOURCE_ROOT; };
+		3583C7612460963500D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MealPlan.storyboard; sourceTree = "<group>"; };
+		3583C7632460964C00D79193 /* RecipeBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = SOURCE_ROOT; };
+		3583C7662460966E00D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShoppingList.storyboard; sourceTree = "<group>"; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +124,11 @@
 		D494A19A24576D140086DBFA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3583C7652460966E00D79193 /* ShoppingList.storyboard */,
+				3583C7632460964C00D79193 /* RecipeBook.storyboard */,
+				3583C7602460963400D79193 /* MealPlan.storyboard */,
+				3583C75E2460960B00D79193 /* Home.storyboard */,
+				3583C75B246095B000D79193 /* Profile.storyboard */,
 				D494A17C245744710086DBFA /* Main.storyboard */,
 				D494A181245744770086DBFA /* LaunchScreen.storyboard */,
 			);
@@ -133,6 +150,7 @@
 		D494A19C24576D610086DBFA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3583C755246088F000D79193 /* ManualUploadRecipeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -234,10 +252,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3583C75D246095B000D79193 /* Profile.storyboard in Resources */,
 				D494A183245744770086DBFA /* LaunchScreen.storyboard in Resources */,
 				D494A1A82459F8C20086DBFA /* GoogleService-Info.plist in Resources */,
+				3583C75F2460960B00D79193 /* Home.storyboard in Resources */,
 				D494A180245744770086DBFA /* Assets.xcassets in Resources */,
+				3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */,
 				D494A17E245744710086DBFA /* Main.storyboard in Resources */,
+				3583C7622460963500D79193 /* MealPlan.storyboard in Resources */,
+				3583C7642460964C00D79193 /* RecipeBook.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +320,7 @@
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */,
+				3583C756246088F000D79193 /* ManualUploadRecipeViewController.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
 				EB5CF4DE2458912C00104F17 /* MealPlanController.swift in Sources */,
 				D494A1A6245894000086DBFA /* RecipeError.swift in Sources */,
@@ -307,6 +331,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3583C75B246095B000D79193 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3583C75C246095B000D79193 /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		3583C7602460963400D79193 /* MealPlan.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3583C7612460963500D79193 /* Base */,
+			);
+			name = MealPlan.storyboard;
+			sourceTree = "<group>";
+		};
+		3583C7652460966E00D79193 /* ShoppingList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3583C7662460966E00D79193 /* Base */,
+			);
+			name = ShoppingList.storyboard;
+			sourceTree = "<group>";
+		};
 		D494A17C245744710086DBFA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
