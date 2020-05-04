@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Meal-Prep-Sunday/UI/Base.lproj/Home.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:Meal-Prep-Sunday.xcodeproj">
    </FileRef>
    <FileRef
