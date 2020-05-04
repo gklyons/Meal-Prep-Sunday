@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ArW-9H-pYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ArW-9H-pYl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="6pg-kD-1Cl" kind="show" id="AAO-6E-gj8"/>
+                                    <segue destination="6pg-kD-1Cl" kind="presentation" modalPresentationStyle="fullScreen" id="AAO-6E-gj8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,7 +54,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <segue destination="6pg-kD-1Cl" kind="show" id="CLv-R0-VBe"/>
+                                    <segue destination="6pg-kD-1Cl" kind="presentation" modalPresentationStyle="fullScreen" id="CLv-R0-VBe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAI-0W-kD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1406" y="-434"/>
+            <point key="canvasLocation" x="-1412" y="-267"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S1e-6l-RtN">
@@ -92,6 +92,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fWD-hu-YSM"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Spv-Ag-hhG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -121,7 +122,7 @@
         <scene sceneID="U1M-AX-glm">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="Vt3-pN-Fjy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KSE-Dc-2Ll"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="KSE-Dc-2Ll"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYp-fH-No9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +142,7 @@
         <scene sceneID="vPh-j0-1LI">
             <objects>
                 <viewControllerPlaceholder storyboardName="RecipeBook" id="BqY-W1-Nka" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="jN4-w3-tdF"/>
+                    <tabBarItem key="tabBarItem" title="Recipe" image="book" catalog="system" selectedImage="book" id="jN4-w3-tdF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLC-9H-ziL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,13 +152,18 @@
         <scene sceneID="5pr-GL-FmT">
             <objects>
                 <viewControllerPlaceholder storyboardName="ShoppingList" id="D8j-ha-ULv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GKP-fi-Hcx"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="list.dash" catalog="system" id="GKP-fi-Hcx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQn-bC-jN8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="635" y="-528"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book" catalog="system" width="64" height="50"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AAO-6E-gj8"/>
     </inferredMetricsTieBreakers>
