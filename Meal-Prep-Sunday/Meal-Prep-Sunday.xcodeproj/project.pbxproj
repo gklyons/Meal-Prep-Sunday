@@ -15,6 +15,7 @@
 		3583C7622460963500D79193 /* MealPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7602460963400D79193 /* MealPlan.storyboard */; };
 		3583C7642460964C00D79193 /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7632460964C00D79193 /* RecipeBook.storyboard */; };
 		3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7652460966E00D79193 /* ShoppingList.storyboard */; };
+		3583C7692460B53800D79193 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7682460B53700D79193 /* Colors.xcassets */; };
 		CD5F02C29F50D4ADCE8F03EE /* Pods_Meal_Prep_Sunday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 		3583C7612460963500D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MealPlan.storyboard; sourceTree = "<group>"; };
 		3583C7632460964C00D79193 /* RecipeBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = SOURCE_ROOT; };
 		3583C7662460966E00D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShoppingList.storyboard; sourceTree = "<group>"; };
+		3583C7682460B53700D79193 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				D494A176245744710086DBFA /* AppDelegate.swift */,
 				D494A178245744710086DBFA /* SceneDelegate.swift */,
 				D494A17F245744770086DBFA /* Assets.xcassets */,
+				3583C7682460B53700D79193 /* Colors.xcassets */,
 				D494A1A72459F8C20086DBFA /* GoogleService-Info.plist */,
 				D494A184245744770086DBFA /* Info.plist */,
 			);
@@ -254,6 +257,7 @@
 				D494A1A82459F8C20086DBFA /* GoogleService-Info.plist in Resources */,
 				3583C75F2460960B00D79193 /* Home.storyboard in Resources */,
 				D494A180245744770086DBFA /* Assets.xcassets in Resources */,
+				3583C7692460B53800D79193 /* Colors.xcassets in Resources */,
 				3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */,
 				D494A17E245744710086DBFA /* Main.storyboard in Resources */,
 				3583C7622460963500D79193 /* MealPlan.storyboard in Resources */,
