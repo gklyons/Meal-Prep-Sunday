@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Use your camera to take and upload pictures to the Meal Prep app</string>
+	<string>The app needs permission to use your camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Access your photos to select and upload pictures to the Meal Prep app</string>
+	<string>The app needs permission to access your photo library.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
