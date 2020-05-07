@@ -19,7 +19,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var uploadRecipeTableHeight: NSLayoutConstraint!
     
     var recipeList = ["Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl","Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl", "Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl","Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl"]
-    var uploadList = ["Roast", "Pork Chops", "Cake", "Turkey"]
+    var uploadList = ["Roast", "Pork Chops", "Cake", "Turkey", "Roast", "Pork Chops", "Cake", "Turkey", "Roast", "Pork Chops", "Cake", "Turkey"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,6 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         uploadedRecipesTableView.isHidden = true
         savedRecipesButton.layer.borderWidth = 0.8
         uploadedRecipesButton.layer.borderWidth = 0.8
-        savedRecipesTableView.rowHeight = UITableView.automaticDimension
-        savedRecipesTableView.rowHeight = 30
-//        recipeView.backgroundView = UIImageView(image: UIImage(named: "Salad 2x"))
-        recipeView.sendSubviewToBack(UIImageView(image: UIImage(named: "Salad 2x")))
-
     }
     
     override func viewWillLayoutSubviews() {

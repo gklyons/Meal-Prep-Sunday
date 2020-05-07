@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3579DCA0246390DC0067F157 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3579DC9F246390DC0067F157 /* CustomCell.swift */; };
 		3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72B24576F5700D79193 /* ShoppingList.swift */; };
 		3583C72E245791DB00D79193 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72D245791DB00D79193 /* ShoppingListController.swift */; };
 		3583C7302458EFE300D79193 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72F2458EFE300D79193 /* Ingredient.swift */; };
@@ -38,6 +39,7 @@
 		045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_Prep_Sunday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		074A3495A4333381AEFA35F8 /* Pods-Meal-Prep-Sunday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.release.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.release.xcconfig"; sourceTree = "<group>"; };
 		2CC1D902946E2A3FA055DDE3 /* Pods-Meal-Prep-Sunday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.debug.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.debug.xcconfig"; sourceTree = "<group>"; };
+		3579DC9F246390DC0067F157 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		3583C72B24576F5700D79193 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		3583C72D245791DB00D79193 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShoppingListController.swift; path = "Meal-Prep-Sunday/Models/ShoppingListController.swift"; sourceTree = SOURCE_ROOT; };
 		3583C72F2458EFE300D79193 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				EB5CF4DB24576F8600104F17 /* MealPlan.swift */,
 				3583C72B24576F5700D79193 /* ShoppingList.swift */,
 				3583C72F2458EFE300D79193 /* Ingredient.swift */,
+				3579DC9F246390DC0067F157 /* CustomCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				3583C7302458EFE300D79193 /* Ingredient.swift in Sources */,
 				3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
+				3579DCA0246390DC0067F157 /* CustomCell.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,

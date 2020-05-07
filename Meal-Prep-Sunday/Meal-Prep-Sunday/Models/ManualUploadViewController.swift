@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct CellData {
+    let number: String?
+    let message: String?
+}
+
 class ManualUploadViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var leftPhotoImageView: UIImageView!
@@ -21,16 +26,20 @@ class ManualUploadViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var recipeNameTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var directionsTextView: UITextView!
-        
+    @IBOutlet weak var ingredientListTableView: UITableView!
+    
+    var data = [CellData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         directionsTextView.layer.borderWidth = 0.8
         directionsTextView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        data = [CellData.init(number: "2", message: "heads of broccoli")]
+        
+        ingredientListTableView.register(CustomCell.self, forCellReuseIdentifier: "ingredientCell")
     }
-    
-    
-    
     
     @IBAction func leftPhotoButtonTapped(_ sender: Any) {
         let image = UIImagePickerController()
@@ -54,6 +63,8 @@ class ManualUploadViewController: UIViewController, UINavigationControllerDelega
         image.allowsEditing = false
         self.present(image, animated: true)
     }
+    @IBAction func addIngredientButtonTapped(_ sender: Any) {
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -67,10 +78,21 @@ class ManualUploadViewController: UIViewController, UINavigationControllerDelega
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
 
 }//End of Class
 
-//extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ingredientListTableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! CustomCell
+        cell.message = data[indexPath.row].message
+        cell.number = data[indexPath.row].number
+        return cell
+    }
     
-//}
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        data.count
+    }
+    
+}
