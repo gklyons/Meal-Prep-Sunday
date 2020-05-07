@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Use your camera to take and upload pictures to the Meal Prep app</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access your photos to select and upload pictures to the Meal Prep app</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

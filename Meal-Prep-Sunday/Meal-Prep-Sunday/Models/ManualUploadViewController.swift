@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
+import Photos
 
 struct CellData {
     let number: String?
     let message: String?
 }
 
-class ManualUploadViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ManualUploadViewController: UIViewController {
     
     @IBOutlet weak var leftPhotoImageView: UIImageView!
     @IBOutlet weak var leftPhotoButton: UIButton!
@@ -30,6 +32,8 @@ class ManualUploadViewController: UIViewController, UINavigationControllerDelega
     
     var data = [CellData]()
     
+    weak var delegate: ManualUploadViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,44 +46,34 @@ class ManualUploadViewController: UIViewController, UINavigationControllerDelega
     }
     
     @IBAction func leftPhotoButtonTapped(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true)
+        presentImagePickerActionSheet()
+//        let image = UIImagePickerController()
+//        image.delegate = self
+//        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+//        image.allowsEditing = false
+//        self.present(image, animated: true)
     }
     
     @IBAction func middlePhotoButtonTapped(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true)
+        presentImagePickerActionSheet()
+//        let image = UIImagePickerController()
+//        image.delegate = self
+//        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+//        image.allowsEditing = false
+//        self.present(image, animated: true)
     }
+    
     @IBAction func rightPhotoButtonTapped(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true)
+        presentImagePickerActionSheet()
+//        let image = UIImagePickerController()
+//        image.delegate = self
+//        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+//        image.allowsEditing = false
+//        self.present(image, animated: true)
     }
+    
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            leftPhotoButton.setTitle("", for: .normal)
-            leftPhotoImageView.image = photo
-//            middlePhotoButton.setTitle("", for: .normal)
-//            middlePhotoImageView.image = photo
-//            rightPhotoButton.setTitle("", for: .normal)
-//            rightPhotoImageView.image = photo
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-
 }//End of Class
 
 extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate {
@@ -90,9 +84,63 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
         cell.number = data[indexPath.row].number
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
+}
     
+extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            
+            picker.dismiss(animated: true, completion: nil)
+            
+            if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                
+                leftPhotoButton.setTitle("", for: .normal)
+                leftPhotoImageView.image = photo
+                delegate?.ManualUploadViewControllerSelected(image: photo)
+            }
+        }
+        
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
+        
+        func presentImagePickerActionSheet() {
+            
+            let imagePickerController = UIImagePickerController()
+            
+            imagePickerController.delegate = self
+            
+            let actionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
+            
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                
+                actionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in
+                    
+                    imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+                    
+                    self.present(imagePickerController, animated: true, completion: nil)
+                }))
+            }
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                
+                actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+                    
+                    imagePickerController.sourceType = UIImagePickerController.SourceType.camera
+                    
+                    self.present(imagePickerController, animated: true, completion: nil)
+                }))
+            }
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            present(actionSheet, animated: true)
+        }
+    
+        
+}
+protocol ManualUploadViewControllerDelegate: class {
+    func ManualUploadViewControllerSelected(image: UIImage)
 }
