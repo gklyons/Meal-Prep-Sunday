@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3544F5EE2464B61B002D4D0E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544F5ED2464B61B002D4D0E /* SearchViewController.swift */; };
-		3544F5F22464FCCA002D4D0E /* SearchViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544F5F12464FCCA002D4D0E /* SearchViewTableViewCell.swift */; };
-		3544F5F42465031E002D4D0E /* IngredientListCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544F5F32465031E002D4D0E /* IngredientListCustomTableViewCell.swift */; };
+		3542F65D2465C6F90035250E /* ManualUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65C2465C6F90035250E /* ManualUploadViewController.swift */; };
+		3542F6632465C98C0035250E /* IngredientListCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */; };
+		3542F6642465C98C0035250E /* RecipeBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */; };
+		3542F6652465C98C0035250E /* RecipeBookFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6602465C98B0035250E /* RecipeBookFilterTableViewController.swift */; };
+		3542F6662465C98C0035250E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6612465C98B0035250E /* SearchViewController.swift */; };
+		3542F6672465C98C0035250E /* SearchViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6622465C98C0035250E /* SearchViewTableViewCell.swift */; };
+		3542F66A2465C9FF0035250E /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6682465C9FF0035250E /* ShoppingListController.swift */; };
+		3542F66B2465C9FF0035250E /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6692465C9FF0035250E /* MealPlanController.swift */; };
 		3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72B24576F5700D79193 /* ShoppingList.swift */; };
-		3583C72E245791DB00D79193 /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72D245791DB00D79193 /* ShoppingListController.swift */; };
 		3583C7302458EFE300D79193 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72F2458EFE300D79193 /* Ingredient.swift */; };
 		3583C75D246095B000D79193 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C75B246095B000D79193 /* Profile.storyboard */; };
 		3583C75F2460960B00D79193 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C75E2460960B00D79193 /* Home.storyboard */; };
@@ -19,9 +23,6 @@
 		3583C7642460964C00D79193 /* RecipeBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7632460964C00D79193 /* RecipeBook.storyboard */; };
 		3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7652460966E00D79193 /* ShoppingList.storyboard */; };
 		3583C7692460B53800D79193 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7682460B53700D79193 /* Colors.xcassets */; };
-		35FF17802460FBA800781C2F /* RecipeBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF177F2460FBA800781C2F /* RecipeBooksViewController.swift */; };
-		35FF17822461B76800781C2F /* RecipeBookFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF17812461B76700781C2F /* RecipeBookFilterTableViewController.swift */; };
-		35FF17842461D21D00781C2F /* ManualUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF17832461D21D00781C2F /* ManualUploadViewController.swift */; };
 		CD5F02C29F50D4ADCE8F03EE /* Pods_Meal_Prep_Sunday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
@@ -34,18 +35,21 @@
 		D494A1A82459F8C20086DBFA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D494A1A72459F8C20086DBFA /* GoogleService-Info.plist */; };
 		D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A1AB245A1BB90086DBFA /* FirebaseStuff.swift */; };
 		EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CF4DB24576F8600104F17 /* MealPlan.swift */; };
-		EB5CF4DE2458912C00104F17 /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CF4DD2458912C00104F17 /* MealPlanController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_Prep_Sunday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		074A3495A4333381AEFA35F8 /* Pods-Meal-Prep-Sunday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.release.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.release.xcconfig"; sourceTree = "<group>"; };
 		2CC1D902946E2A3FA055DDE3 /* Pods-Meal-Prep-Sunday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.debug.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.debug.xcconfig"; sourceTree = "<group>"; };
-		3544F5ED2464B61B002D4D0E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Meal-Prep-Sunday/Models/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
-		3544F5F12464FCCA002D4D0E /* SearchViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewTableViewCell.swift; path = "Meal-Prep-Sunday/Models/SearchViewTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		3544F5F32465031E002D4D0E /* IngredientListCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IngredientListCustomTableViewCell.swift; path = "Meal-Prep-Sunday/Models/IngredientListCustomTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		3542F65C2465C6F90035250E /* ManualUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualUploadViewController.swift; sourceTree = "<group>"; };
+		3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientListCustomTableViewCell.swift; sourceTree = "<group>"; };
+		3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBooksViewController.swift; sourceTree = "<group>"; };
+		3542F6602465C98B0035250E /* RecipeBookFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBookFilterTableViewController.swift; sourceTree = "<group>"; };
+		3542F6612465C98B0035250E /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3542F6622465C98C0035250E /* SearchViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewTableViewCell.swift; sourceTree = "<group>"; };
+		3542F6682465C9FF0035250E /* ShoppingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
+		3542F6692465C9FF0035250E /* MealPlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanController.swift; sourceTree = "<group>"; };
 		3583C72B24576F5700D79193 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
-		3583C72D245791DB00D79193 /* ShoppingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShoppingListController.swift; path = "Meal-Prep-Sunday/Models/ShoppingListController.swift"; sourceTree = SOURCE_ROOT; };
 		3583C72F2458EFE300D79193 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		3583C75C246095B000D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		3583C75E2460960B00D79193 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = SOURCE_ROOT; };
@@ -53,9 +57,6 @@
 		3583C7632460964C00D79193 /* RecipeBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = SOURCE_ROOT; };
 		3583C7662460966E00D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShoppingList.storyboard; sourceTree = "<group>"; };
 		3583C7682460B53700D79193 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		35FF177F2460FBA800781C2F /* RecipeBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeBooksViewController.swift; path = "Meal-Prep-Sunday/Models/RecipeBooksViewController.swift"; sourceTree = SOURCE_ROOT; };
-		35FF17812461B76700781C2F /* RecipeBookFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeBookFilterTableViewController.swift; path = "Meal-Prep-Sunday/Models/RecipeBookFilterTableViewController.swift"; sourceTree = SOURCE_ROOT; };
-		35FF17832461D21D00781C2F /* ManualUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ManualUploadViewController.swift; path = "Meal-Prep-Sunday/Models/ManualUploadViewController.swift"; sourceTree = SOURCE_ROOT; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		D494A1A72459F8C20086DBFA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D494A1AB245A1BB90086DBFA /* FirebaseStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStuff.swift; sourceTree = "<group>"; };
 		EB5CF4DB24576F8600104F17 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
-		EB5CF4DD2458912C00104F17 /* MealPlanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealPlanController.swift; path = "Meal-Prep-Sunday/Models/MealPlanController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,12 +163,12 @@
 		D494A19C24576D610086DBFA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				35FF177F2460FBA800781C2F /* RecipeBooksViewController.swift */,
-				35FF17812461B76700781C2F /* RecipeBookFilterTableViewController.swift */,
-				35FF17832461D21D00781C2F /* ManualUploadViewController.swift */,
-				3544F5ED2464B61B002D4D0E /* SearchViewController.swift */,
-				3544F5F12464FCCA002D4D0E /* SearchViewTableViewCell.swift */,
-				3544F5F32465031E002D4D0E /* IngredientListCustomTableViewCell.swift */,
+				3542F6602465C98B0035250E /* RecipeBookFilterTableViewController.swift */,
+				3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */,
+				3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */,
+				3542F6612465C98B0035250E /* SearchViewController.swift */,
+				3542F6622465C98C0035250E /* SearchViewTableViewCell.swift */,
+				3542F65C2465C6F90035250E /* ManualUploadViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -176,9 +176,9 @@
 		D494A19D24576D6A0086DBFA /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB5CF4DD2458912C00104F17 /* MealPlanController.swift */,
+				3542F6692465C9FF0035250E /* MealPlanController.swift */,
+				3542F6682465C9FF0035250E /* ShoppingListController.swift */,
 				D494A1A3245881080086DBFA /* RecipeController.swift */,
-				3583C72D245791DB00D79193 /* ShoppingListController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -332,23 +332,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35FF17842461D21D00781C2F /* ManualUploadViewController.swift in Sources */,
+				3542F6672465C98C0035250E /* SearchViewTableViewCell.swift in Sources */,
 				D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */,
-				35FF17802460FBA800781C2F /* RecipeBooksViewController.swift in Sources */,
-				3544F5F42465031E002D4D0E /* IngredientListCustomTableViewCell.swift in Sources */,
-				3583C72E245791DB00D79193 /* ShoppingListController.swift in Sources */,
+				3542F65D2465C6F90035250E /* ManualUploadViewController.swift in Sources */,
 				3583C7302458EFE300D79193 /* Ingredient.swift in Sources */,
+				3542F6642465C98C0035250E /* RecipeBooksViewController.swift in Sources */,
 				3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */,
+				3542F66A2465C9FF0035250E /* ShoppingListController.swift in Sources */,
+				3542F6652465C98C0035250E /* RecipeBookFilterTableViewController.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
+				3542F66B2465C9FF0035250E /* MealPlanController.swift in Sources */,
 				D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */,
-				3544F5EE2464B61B002D4D0E /* SearchViewController.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
-				35FF17822461B76800781C2F /* RecipeBookFilterTableViewController.swift in Sources */,
-				EB5CF4DE2458912C00104F17 /* MealPlanController.swift in Sources */,
+				3542F6662465C98C0035250E /* SearchViewController.swift in Sources */,
 				D494A1A6245894000086DBFA /* RecipeError.swift in Sources */,
 				D494A1A4245881080086DBFA /* RecipeController.swift in Sources */,
-				3544F5F22464FCCA002D4D0E /* SearchViewTableViewCell.swift in Sources */,
+				3542F6632465C98C0035250E /* IngredientListCustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
