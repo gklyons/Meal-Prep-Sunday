@@ -34,23 +34,33 @@ class ManualUploadViewController: UIViewController {
     
     weak var delegate: ManualUploadViewControllerDelegate?
     
+    var pickerOne: UIImagePickerController?
+    var pickerTwo: UIImagePickerController?
+    var pickerThree: UIImagePickerController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         directionsTextView.layer.borderWidth = 0.8
         directionsTextView.layer.borderColor = UIColor.lightGray.cgColor
         data = [CellData.init(number: "2", message: "heads of broccoli")]
-        ingredientListTableView.register(CustomCell.self, forCellReuseIdentifier: "ingredientCell")
+        ingredientListTableView.register(IngredientListCustomTableViewCell.self, forCellReuseIdentifier: "ingredientCell")
     }
     
     @IBAction func leftPhotoButtonTapped(_ sender: Any) {
+        pickerOne = UIImagePickerController()
+        pickerOne!.delegate = self
         presentImagePickerActionSheet()
     }
     
     @IBAction func middlePhotoButtonTapped(_ sender: Any) {
+        pickerTwo = UIImagePickerController()
+        pickerTwo!.delegate = self
         presentImagePickerActionSheet()
     }
     
     @IBAction func rightPhotoButtonTapped(_ sender: Any) {
+        pickerThree = UIImagePickerController()
+        pickerThree!.delegate = self
         presentImagePickerActionSheet()
     }
     
@@ -61,7 +71,7 @@ class ManualUploadViewController: UIViewController {
 extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ingredientListTableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! CustomCell
+        let cell = ingredientListTableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! IngredientListCustomTableViewCell
         cell.message = data[indexPath.row].message
         cell.number = data[indexPath.row].number
         return cell
@@ -75,27 +85,46 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
 extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
+        
+//    if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//
+//        if picker == pickerOne {
+//            leftPhotoButton.setTitle("", for: .normal)
+//            leftPhotoImageView.image = photo
+//            delegate?.ManualUploadViewControllerSelected(image: photo)
+//        } else if picker == pickerTwo {
+//            middlePhotoButton.setTitle("", for: .normal)
+//            middlePhotoImageView.image = photo
+//            delegate?.ManualUploadViewControllerSelected(image: photo)
+//        } else if picker == pickerThree {
+//            rightPhotoButton.setTitle("", for: .normal)
+//            rightPhotoImageView.image = photo
+//            delegate?.ManualUploadViewControllerSelected(image: photo)
+//        }
+//
+//        guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {return}
+        
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             leftPhotoButton.setTitle("", for: .normal)
             leftPhotoImageView.image = photo
             delegate?.ManualUploadViewControllerSelected(image: photo)
-            
-//            switch photo {
-//            case leftPhotoImageView:
-//            case middlePhotoImageView:
-//                middlePhotoButton.setTitle("", for: .normal)
-//                middlePhotoImageView.image = photo
-//                delegate?.ManualUploadViewControllerSelected(image: photo)
-//            case rightPhotoImageView:
-//                rightPhotoButton.setTitle("", for: .normal)
-//                rightPhotoImageView.image = photo
-//                delegate?.ManualUploadViewControllerSelected(image: photo)
-//            default:
-//                break
-//            }
-        }
+        
     }
+    picker.dismiss(animated: true, completion: nil)
+}
+        
+//        if leftPhotoButton.isSelected {
+//            leftPhotoButton.setTitle("", for: .normal)
+//            leftPhotoImageView.image = photo
+//            delegate?.ManualUploadViewControllerSelected(image: photo)
+//        } else if middlePhotoButton.isSelected {
+//            middlePhotoButton.setTitle("", for: .normal)
+//            middlePhotoImageView.image = photo
+//            delegate?.ManualUploadViewControllerSelected(image: photo)
+//        } else if rightPhotoButton.isSelected {
+//            rightPhotoButton.setTitle("", for: .normal)
+//            rightPhotoImageView.image = photo
+//            delegate?.ManualUploadViewControllerSelected(image: photo)
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)

@@ -20,7 +20,7 @@ class RecipeBookFilterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewData = [cellData2(opened: false, title: "My Saved Recipes", sectionData: ["Cell1", "Cell2", "Cell3"]),                         cellData2(opened: false, title: "My Uploaded Recipes", sectionData: ["Cell1", "Cell2", "Cell3"])]
+        tableViewData = [cellData2(opened: false, title: "Meal Type", sectionData: ["Cell1", "Cell2", "Cell3"]),                         cellData2(opened: false, title: "Dish Type", sectionData: ["Cell1", "Cell2", "Cell3"])]
     }
     
     // MARK: - Table view data source

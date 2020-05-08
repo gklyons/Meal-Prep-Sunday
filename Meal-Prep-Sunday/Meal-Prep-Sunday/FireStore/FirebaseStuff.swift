@@ -51,7 +51,7 @@ class FirebaseStuff {
         } else {
             for documents in querySnapshots!.documents {
                 
-                let recipe = Recipe(label: documents.data()["label"] as! String, image: documents.data()["image"] as! String?, directions: documents.data()["directions"] as! String, ingredients: documents.data()["ingrediants"] as! [String], yield: documents.data()["yield"] as! Int, totalTime: documents.data()["totalTime"] as! Double)
+                let recipe = Recipe(label: documents.data()["label"] as! String, image: documents.data()["image"] as! String?, directions: documents.data()["directions"] as! String, ingredients: documents.data()["ingrediants"] as! [String], yield: documents.data()["yield"] as! Int, totalTime: documents.data()["totalTime"] as! Int)
                 
                 RecipeController.shared.recipes.append(recipe)
             }

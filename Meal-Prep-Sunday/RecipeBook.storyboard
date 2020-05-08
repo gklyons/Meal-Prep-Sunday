@@ -374,7 +374,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Back 1x" id="0GH-Ja-Ngv"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Search 1x" id="uRl-W2-4VS">
                             <connections>
-                                <segue destination="Vfa-1E-mgq" kind="show" id="uMF-Mx-YOg"/>
+                                <segue destination="ipf-86-bte" kind="show" id="Zqr-OG-CO1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -393,6 +393,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2O3-VZ-elo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4179.7101449275369" y="239.73214285714283"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="Evc-2x-evi">
+            <objects>
+                <viewController id="ipf-86-bte" customClass="SearchViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AKt-Ec-bZe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bpQ-Oh-Vou">
+                                <rect key="frame" x="20" y="198.5" width="374" height="588.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="63" id="rqN-sA-REQ" customClass="SearchViewTableViewCell" customModule="Meal_Prep_Sunday" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rqN-sA-REQ" id="lHs-RT-WQp">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eE4-9h-yFe">
+                                                    <rect key="frame" x="20" y="4" width="77" height="55"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iUR-bd-PYh">
+                                                    <rect key="frame" x="110" y="6" width="250" height="51"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izd-49-ruj">
+                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CookTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQb-sC-9Cp">
+                                                            <rect key="frame" x="0.0" y="30.5" width="250" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="93h-lm-vpO"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="eE4-9h-yFe" secondAttribute="bottom" constant="4" id="9dm-Ik-51g"/>
+                                                <constraint firstItem="iUR-bd-PYh" firstAttribute="leading" secondItem="eE4-9h-yFe" secondAttribute="trailing" constant="13" id="KGe-51-RWC"/>
+                                                <constraint firstItem="iUR-bd-PYh" firstAttribute="top" secondItem="lHs-RT-WQp" secondAttribute="top" constant="6" id="PqW-7S-R3d"/>
+                                                <constraint firstAttribute="trailing" secondItem="iUR-bd-PYh" secondAttribute="trailing" constant="14" id="TZ6-9v-QCY"/>
+                                                <constraint firstAttribute="bottom" secondItem="iUR-bd-PYh" secondAttribute="bottom" constant="6" id="dbw-Ji-JvF"/>
+                                                <constraint firstItem="eE4-9h-yFe" firstAttribute="top" secondItem="lHs-RT-WQp" secondAttribute="top" constant="4" id="kdA-UV-cDO"/>
+                                                <constraint firstItem="eE4-9h-yFe" firstAttribute="leading" secondItem="lHs-RT-WQp" secondAttribute="leading" constant="20" id="re6-Kf-fcC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cookTimeLabel" destination="HQb-sC-9Cp" id="9wy-pr-fcS"/>
+                                            <outlet property="recipeImageView" destination="eE4-9h-yFe" id="Po0-CF-wd2"/>
+                                            <outlet property="recipeNameLabel" destination="izd-49-ruj" id="RwL-8G-9dm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ipf-86-bte" id="mgW-Qj-2vq"/>
+                                    <outlet property="delegate" destination="ipf-86-bte" id="Nj6-az-shO"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="l4e-aI-c8S">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9c6-nN-IeK">
+                                <rect key="frame" x="20" y="172" width="76" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bpQ-Oh-Vou" firstAttribute="leading" secondItem="Pqe-bE-2Ef" secondAttribute="leading" constant="20" id="3s3-HV-XsY"/>
+                            <constraint firstItem="Pqe-bE-2Ef" firstAttribute="trailing" secondItem="bpQ-Oh-Vou" secondAttribute="trailing" constant="20" id="6pB-SX-UEb"/>
+                            <constraint firstItem="Pqe-bE-2Ef" firstAttribute="bottom" secondItem="bpQ-Oh-Vou" secondAttribute="bottom" constant="26" id="8CK-kB-Jo8"/>
+                            <constraint firstItem="9c6-nN-IeK" firstAttribute="leading" secondItem="Pqe-bE-2Ef" secondAttribute="leading" constant="20" id="8oW-tk-gTa"/>
+                            <constraint firstItem="l4e-aI-c8S" firstAttribute="leading" secondItem="Pqe-bE-2Ef" secondAttribute="leading" id="Ags-9r-r5M"/>
+                            <constraint firstItem="l4e-aI-c8S" firstAttribute="top" secondItem="Pqe-bE-2Ef" secondAttribute="top" id="C5U-f3-9Yo"/>
+                            <constraint firstItem="9c6-nN-IeK" firstAttribute="top" secondItem="l4e-aI-c8S" secondAttribute="bottom" constant="28" id="RI1-aM-oXK"/>
+                            <constraint firstItem="l4e-aI-c8S" firstAttribute="trailing" secondItem="Pqe-bE-2Ef" secondAttribute="trailing" id="bbT-Gm-2CP"/>
+                            <constraint firstItem="bpQ-Oh-Vou" firstAttribute="top" secondItem="9c6-nN-IeK" secondAttribute="bottom" id="sFc-49-9gC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pqe-bE-2Ef"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T2e-n7-sHL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Search 1x" id="FmS-uy-tGm"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recipeSearchBar" destination="l4e-aI-c8S" id="I8k-bG-vlo"/>
+                        <outlet property="searchResultsTableView" destination="bpQ-Oh-Vou" id="2A7-vx-ACI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajj-0E-kdm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4943.4782608695659" y="222.99107142857142"/>
         </scene>
         <!--Recipe Book Filter Table View Controller-->
         <scene sceneID="Ml0-Oq-dQJ">
@@ -432,7 +534,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QD-xu-kaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4973.913043478261" y="239.73214285714283"/>
+            <point key="canvasLocation" x="4954" y="-443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NnT-eC-Lgm">
