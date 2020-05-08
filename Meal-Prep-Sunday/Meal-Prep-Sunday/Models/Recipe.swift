@@ -28,7 +28,7 @@ struct Recipe: Codable {
     let directions: String
     let ingredients: [String]
     let yield: Int
-    let totalTime: Double
+    let totalTime: Int
     
     enum CodingKeys: String, CodingKey {
         case label
