@@ -8,17 +8,40 @@
 
 import UIKit
 
-class ShoppingListTableViewCell: UITableViewCell {
+// MARK: - Protocols
+protocol ShoppingListTableViewCellDelegate: class {
+    func toggleIngredientChecked(_ sender: ShoppingListTableViewCell)
+}
 
+class ShoppingListTableViewCell: UITableViewCell {
+   
+    // MARK: - Properties
+    weak var delegate: ShoppingListTableViewCellDelegate?
+    
+    // MARK: - Outlets
+    @IBOutlet weak var checkBoxButton: UIButton!
+    @IBOutlet weak var ingredientTextField: UITextField!
+    @IBOutlet weak var editIngredientButton: UIButton!
+    
+    // MARK: -  Actions
+    @IBAction func checkBoxButtonTapped(_ sender: Any) {
+        delegate?.toggleIngredientChecked(self)
+    }
+    @IBAction func editIngredientButtonTapped(_ sender: Any) {
+        ingredientTextField.isUserInteractionEnabled = false
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
+    func updateViews() {
+        
+    }
 }

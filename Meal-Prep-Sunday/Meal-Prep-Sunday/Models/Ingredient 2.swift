@@ -10,10 +10,9 @@ import Foundation
 
 class Ingredient: Codable, Equatable {
     var item: String
-    var isChecked: Bool
-    init(item: String, isChecked: Bool = false) {
+    
+    init(item: String) {
         self.item = item
-        self.isChecked = isChecked
     }
 }
 
