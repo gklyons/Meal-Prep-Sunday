@@ -28,7 +28,7 @@ class ShoppingListTableViewCell: UITableViewCell {
         delegate?.toggleIngredientChecked(self)
     }
     @IBAction func editIngredientButtonTapped(_ sender: Any) {
-        ingredientTextField.isUserInteractionEnabled = false
+        ingredientTextField.isUserInteractionEnabled.toggle()
     }
     
     override func awakeFromNib() {

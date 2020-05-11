@@ -18,7 +18,8 @@ class Ingredient: Codable, Equatable {
 }
 
 func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
-    return lhs.item == rhs.item
+    return lhs.item == rhs.item &&
+        lhs.isChecked == rhs.isChecked
     
 }
 

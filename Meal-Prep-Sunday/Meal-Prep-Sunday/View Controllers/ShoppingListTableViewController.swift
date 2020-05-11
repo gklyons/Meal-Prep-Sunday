@@ -22,6 +22,8 @@ class ShoppingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         menueContainerView.isHidden = true
+        ShoppingListController.shared.loadFromPersistence()
+        tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -31,13 +33,18 @@ class ShoppingListTableViewController: UITableViewController {
         }
     }
     
+    
     // MARK: - Table view data source
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        <#code#>
+//    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        // toDO change to SOT 
         return testArray.count
     }
     
-    
+    // toDo make sure to change testArray to our actual SOT
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
         let ingrediant = testArray[indexPath.row]
@@ -79,14 +86,15 @@ extension ShoppingListTableViewController: menueButtonSelectedDelegate {
         menueIsctive.toggle()
     }
 }
-
+// toDo Access SOT here
 extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
     func toggleIngredientChecked(_ sender: ShoppingListTableViewCell) {
         guard let index = tableView.indexPath(for: sender) else { return }
-        let item = ShoppingListController.shared.shoppingList[index.row]
+        let item = testArray[index.row]
+            //ShoppingListController.shared.shoppingList[index.row]
         ShoppingListController.shared.toggleItemChecked(ingredient: item)
+        
     }
-    
     
 }
 
