@@ -12,7 +12,8 @@ class ShoppingListTableViewController: UITableViewController {
     
     // MARK: - Properties
     var menueIsctive = false
-    var testArray = ["2 cups oof chicken","3 cups of carrots, 2 cups of milk, 4oz of olive oil"]
+   // var ingredientList: Ingredient?
+    var testArray: [Ingredient] = [Ingredient(item: "Pizza")]
     // MARK: -  Outlets
     @IBOutlet weak var menueButton: UIButton!
     @IBOutlet var menueContainerView: UIView!
@@ -38,37 +39,54 @@ class ShoppingListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-        let ingredient = testArray[indexPath.row]
-        cell.textLabel?.text = ingredient
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
+        let ingrediant = testArray[indexPath.row]
+        cell.updateViews(ingrediant: ingrediant)
+        cell.delegate = self
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
-        return true
-    }
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//
+//        return true
+//    }
     
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            
-        }    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//
+//        }
+//    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShoppingListMenueSegue" {
+            let menuVC = segue.destination as! ShoppingListMenueViewController
+            menuVC.menueDelegate = self
+        }
+    }
+}// End of Class
+
+// MARK: - Delegate Extensions
+extension ShoppingListTableViewController: menueButtonSelectedDelegate {
+    func selectedButtonTapped() {
+        // Need to add functionality
+        menueContainerView.isHidden = true
+        menueIsctive.toggle()
+    }
+}
+
+extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
+    func toggleIngredientChecked(_ sender: ShoppingListTableViewCell) {
+        guard let index = tableView.indexPath(for: sender) else { return }
+        let item = ShoppingListController.shared.shoppingList[index.row]
+        ShoppingListController.shared.toggleItemChecked(ingredient: item)
     }
     
     
-    // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "menuSegue" {
-//            let menuVC = segue.destination as! ShoppingListMenueViewController
-//            menuVC.menueDelegate = self
-//        }
-//    }
-}// End of Class
-
-// MARK: - Delegate Extension
+}
 

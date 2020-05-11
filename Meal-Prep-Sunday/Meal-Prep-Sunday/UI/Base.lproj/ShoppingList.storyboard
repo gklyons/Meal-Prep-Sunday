@@ -19,61 +19,77 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjx-UD-JCO">
-                                    <rect key="frame" x="46" y="13" width="105" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-38-YVd">
-                                    <rect key="frame" x="371" y="11" width="76" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="Elipses 1x"/>
-                                    <connections>
-                                        <action selector="menueButtonTapped:" destination="5I8-d6-rTL" eventType="touchUpInside" id="2SR-Ir-VKi"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="220" translatesAutoresizingMaskIntoConstraints="NO" id="wIl-2s-gR5">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjx-UD-JCO">
+                                            <rect key="frame" x="0.0" y="0.0" width="97" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-38-YVd">
+                                            <rect key="frame" x="317" y="0.0" width="97" height="44"/>
+                                            <state key="normal" title="Button" image="Elipses 1x"/>
+                                            <connections>
+                                                <action selector="menueButtonTapped:" destination="5I8-d6-rTL" eventType="touchUpInside" id="2SR-Ir-VKi"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="wIl-2s-gR5" secondAttribute="bottom" id="UaO-sk-QYu"/>
+                                <constraint firstItem="wIl-2s-gR5" firstAttribute="leading" secondItem="yMW-Cp-y84" secondAttribute="leading" id="XDi-k4-N2g"/>
+                                <constraint firstAttribute="trailing" secondItem="wIl-2s-gR5" secondAttribute="trailing" id="Xbl-Sf-jtw"/>
+                                <constraint firstItem="wIl-2s-gR5" firstAttribute="top" secondItem="yMW-Cp-y84" secondAttribute="top" id="mVq-CS-Ynv"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="Ybs-UZ-be0" customClass="ShoppingListTableViewCell" customModule="Meal_Prep_Sunday" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ybs-UZ-be0" id="AeA-Ao-JT6">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="SZD-Nm-5vt">
-                                            <rect key="frame" x="0.0" y="9.5" width="414" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sb9-Vq-txr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="34"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="34.5"/>
                                                     <state key="normal" title="Button" image="Empty Checkbox 1x"/>
                                                     <connections>
                                                         <action selector="checkBoxButtonTapped:" destination="Ybs-UZ-be0" eventType="touchUpInside" id="DUA-NT-7bS"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYR-OD-Xj1">
-                                                    <rect key="frame" x="185.5" y="0.0" width="32" height="34"/>
+                                                    <rect key="frame" x="50" y="0.0" width="281" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu3-Cd-e2a">
-                                                    <rect key="frame" x="331" y="0.0" width="83" height="34"/>
+                                                    <rect key="frame" x="331" y="0.0" width="83" height="34.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="83" id="xEl-xo-Pyf"/>
+                                                    </constraints>
                                                     <state key="normal" title="Button" image="Edit 1x"/>
                                                     <connections>
                                                         <action selector="editIngredientButtonTapped:" destination="Ybs-UZ-be0" eventType="touchUpInside" id="tXx-Q9-SnK"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UYR-OD-Xj1" firstAttribute="leading" secondItem="sb9-Vq-txr" secondAttribute="leading" constant="50" id="LM9-Eu-0a6"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SZD-Nm-5vt" firstAttribute="leading" secondItem="AeA-Ao-JT6" secondAttribute="leading" id="7lR-rD-sgN"/>
-                                        <constraint firstAttribute="bottom" secondItem="SZD-Nm-5vt" secondAttribute="bottom" id="wGP-8K-5jb"/>
-                                        <constraint firstAttribute="trailing" secondItem="SZD-Nm-5vt" secondAttribute="trailing" id="wqG-FW-WAi"/>
+                                        <constraint firstItem="SZD-Nm-5vt" firstAttribute="leading" secondItem="AeA-Ao-JT6" secondAttribute="leading" id="4Yj-aa-M2M"/>
+                                        <constraint firstAttribute="trailing" secondItem="SZD-Nm-5vt" secondAttribute="trailing" id="jzn-NU-0HT"/>
+                                        <constraint firstAttribute="bottom" secondItem="SZD-Nm-5vt" secondAttribute="bottom" id="oTF-GE-NYj"/>
+                                        <constraint firstItem="SZD-Nm-5vt" firstAttribute="top" secondItem="AeA-Ao-JT6" secondAttribute="top" id="qqR-Ka-GNm"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -103,7 +119,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <connections>
-                        <segue destination="7FS-oJ-gDo" kind="embed" id="ff8-81-XFh"/>
+                        <segue destination="7FS-oJ-gDo" kind="embed" identifier="ShoppingListMenueSegue" id="ff8-81-XFh"/>
                     </connections>
                 </containerView>
             </objects>
@@ -178,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1w-LW-Kfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072" y="171"/>
+            <point key="canvasLocation" x="2088" y="407"/>
         </scene>
     </scenes>
     <resources>

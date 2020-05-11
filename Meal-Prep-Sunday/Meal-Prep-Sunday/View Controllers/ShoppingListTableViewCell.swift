@@ -41,7 +41,8 @@ class ShoppingListTableViewCell: UITableViewCell {
 
     }
 
-    func updateViews() {
-        
+    func updateViews(ingrediant: Ingredient) {
+        ingredientTextField.text = ingrediant.item
+        checkBoxButton.setImage(ingrediant.isChecked ? #imageLiteral(resourceName: "Checked Box 2x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
     }
 }

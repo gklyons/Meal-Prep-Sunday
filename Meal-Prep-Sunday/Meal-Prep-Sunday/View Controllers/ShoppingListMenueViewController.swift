@@ -32,4 +32,4 @@ class ShoppingListMenueViewController: UIViewController {
         ShoppingListController.shared.clearShoppingList()
     }
     
-}
+}// End of Class
