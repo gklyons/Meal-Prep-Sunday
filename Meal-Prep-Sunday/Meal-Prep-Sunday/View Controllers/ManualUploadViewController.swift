@@ -15,71 +15,131 @@ struct CellData {
     let message: String?
 }
 
-class ManualUploadViewController: UIViewController {
+class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var leftPhotoImageView: UIImageView!
-    @IBOutlet weak var leftPhotoButton: UIButton!
     @IBOutlet weak var middlePhotoImageView: UIImageView!
     @IBOutlet weak var middlePhotoButton: UIButton!
-    @IBOutlet weak var rightPhotoImageView: UIImageView!
-    @IBOutlet weak var rightPhotoButton: UIButton!
-    @IBOutlet weak var addNewIngredientButton: UIButton!
-    @IBOutlet weak var saveRecipeButton: UIButton!
     @IBOutlet weak var recipeNameTextField: UITextField!
-    @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var directionsTextView: UITextView!
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var categoryButtonTableView: UITableView!
+    @IBOutlet weak var addNewIngredientButton: UIButton!
     @IBOutlet weak var ingredientListTableView: UITableView!
+    @IBOutlet weak var directionsTextView: UITextView!
+    @IBOutlet weak var saveRecipeButton: UIButton!
+//    @IBOutlet weak var newIngredientTextField: UITextField!
     
     var data = [CellData]()
     
+    var categories = ["Breakfast", "Lunch", "Dinner", "Dessert"]
+    
     weak var delegate: ManualUploadViewControllerDelegate?
     
+    var addIngredientTappedAction: ((UITableViewCell) -> Void)?
+    
     var pickerOne: UIImagePickerController?
-    var pickerTwo: UIImagePickerController?
-    var pickerThree: UIImagePickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryButtonTableView.isHidden = true
+        categoryButton.layer.borderWidth = 0.8
         directionsTextView.layer.borderWidth = 0.8
+        categoryButton.layer.borderColor = UIColor.lightGray.cgColor
         directionsTextView.layer.borderColor = UIColor.lightGray.cgColor
         data = [CellData.init(number: "2", message: "heads of broccoli")]
         ingredientListTableView.register(IngredientListCustomTableViewCell.self, forCellReuseIdentifier: "ingredientCell")
     }
     
-    @IBAction func leftPhotoButtonTapped(_ sender: Any) {
+    @IBAction func middlePhotoButtonTapped(_ sender: Any) {
         pickerOne = UIImagePickerController()
         pickerOne!.delegate = self
         presentImagePickerActionSheet()
     }
     
-    @IBAction func middlePhotoButtonTapped(_ sender: Any) {
-        pickerTwo = UIImagePickerController()
-        pickerTwo!.delegate = self
-        presentImagePickerActionSheet()
+    @IBAction func categoryButtonTapped(_ sender: Any) {
+        if categoryButtonTableView.isHidden {
+            animateCategory(toggle: true)
+        } else {
+            animateCategory(toggle: false)
+        }
     }
     
-    @IBAction func rightPhotoButtonTapped(_ sender: Any) {
-        pickerThree = UIImagePickerController()
-        pickerThree!.delegate = self
-        presentImagePickerActionSheet()
+    func animateCategory(toggle: Bool) {
+        if toggle {
+            UIView.animate(withDuration: 0.3) {
+                self.categoryButtonTableView.isHidden = false
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.categoryButtonTableView.isHidden = true
+            }
+        }
     }
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
+        presentAddIngredient()
     }
+    
+    func presentAddIngredient(for ingredient: Ingredient? = nil) {
+        let alertController = UIAlertController(title: "Add New Ingredients", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.delegate = self
+            textField.placeholder = "Ingredients"
+            textField.autocorrectionType = .yes
+            if let ingredient = ingredient {
+                textField.text = ingredient.item
+            }
+        }
+        
+        let addIngredient = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let text = alertController.textFields?.first?.text, !text.isEmpty else {return}
+            
+            
+            self.ingredientListTableView.reloadData()
+        }
+        let cancelIngredient = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(addIngredient)
+        alertController.addAction(cancelIngredient)
+        
+        self.present(alertController, animated: true)
+    }
+    
+
+    
 }//End of Class
 
 extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ingredientListTableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! IngredientListCustomTableViewCell
-        cell.message = data[indexPath.row].message
-        cell.number = data[indexPath.row].number
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == ingredientListTableView {
+            return data.count
+        } else if tableView == categoryButtonTableView {
+            return categories.count
+        } else {
+            return 0
+        }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == ingredientListTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! IngredientListCustomTableViewCell
+            cell.message = data[indexPath.row].message
+            cell.number = data[indexPath.row].number
+            return cell
+        } else if tableView == categoryButtonTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+            cell.textLabel?.text = categories[indexPath.row]
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        categoryButton.setTitle("  \(categories[indexPath.row])", for: .normal)
+        animateCategory(toggle: false)
+    }
+    
 }
 
 extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -105,8 +165,8 @@ extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigat
 //        guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {return}
         
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            leftPhotoButton.setTitle("", for: .normal)
-            leftPhotoImageView.image = photo
+            middlePhotoButton.setTitle("", for: .normal)
+            middlePhotoImageView.image = photo
             delegate?.ManualUploadViewControllerSelected(image: photo)
         
     }
@@ -226,6 +286,7 @@ extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigat
     }//end of presentDeniedAlert func
     
 }
+
 protocol ManualUploadViewControllerDelegate: class {
     func ManualUploadViewControllerSelected(image: UIImage)
 }
