@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHh-fS-2DH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHh-fS-2DH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="UkQ-us-2t4">
             <objects>
-                <viewController title="Home" id="OpH-qo-4kw" sceneMemberID="viewController">
+                <viewController title="Home" id="OpH-qo-4kw" customClass="HomeViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rsG-Rh-Npf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="Ve3-xW-XSP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recentRecipeCell" rowHeight="101" id="Ve3-xW-XSP">
                                         <rect key="frame" x="0.0" y="28" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ve3-xW-XSP" id="GRp-lC-vGC">
@@ -97,6 +97,9 @@
                                                 <constraint firstItem="Rq7-cc-3Vo" firstAttribute="top" secondItem="GRp-lC-vGC" secondAttribute="top" constant="10" id="qBf-3y-ESb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="p3E-5s-uiT" kind="show" identifier="toRecipeDetailVC" id="Skb-6O-lYk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -126,11 +129,18 @@
                     <navigationItem key="navigationItem" title="P" id="KV9-kg-ZdF">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="RVR-o2-Q3l">
                             <connections>
+                                <action selector="searchButtonTapped:" destination="OpH-qo-4kw" id="JBl-fY-8js"/>
                                 <segue destination="6Gh-WS-zx5" kind="show" id="plN-LD-R7N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lastRecipeSavedCookTime" destination="Kkr-gk-8JN" id="ujc-x4-4k0"/>
+                        <outlet property="lastRecipeSavedImage" destination="ROd-XP-gla" id="q6h-sT-ucA"/>
+                        <outlet property="lastRecipeSavedName" destination="7HJ-Mh-XQb" id="T6i-KL-4JN"/>
+                        <outlet property="recentTableView" destination="vxO-YP-0mL" id="JmS-Pt-ZPC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sy0-zh-WcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,12 +216,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCv-x4-O7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246.376811594203" y="-1227.4553571428571"/>
+            <point key="canvasLocation" x="2251" y="-704"/>
         </scene>
         <!--Recipe Page-->
         <scene sceneID="3QA-d4-Krm">
             <objects>
-                <viewController title="Recipe Page" id="p3E-5s-uiT" sceneMemberID="viewController">
+                <viewController title="Recipe Page" id="p3E-5s-uiT" customClass="RecipeDetailViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bwz-sP-mSF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,6 +322,9 @@ Test </string>
                                                     <color key="titleColor" red="0.51545935870000004" green="0.02873986773" blue="0.001274440205" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="seeDirectionsButtonTapped:" destination="p3E-5s-uiT" eventType="touchUpInside" id="apA-KH-u7R"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-ga-H6S">
                                                 <rect key="frame" x="30" y="1034" width="354" height="35"/>
@@ -320,6 +333,9 @@ Test </string>
                                                 <state key="normal" title="Add to Recipe Book">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToRecipeBookButtonTapped:" destination="p3E-5s-uiT" eventType="touchUpInside" id="lSh-ke-7zp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.89455148963730569" green="0.89455148963730569" blue="0.89455148963730569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -368,6 +384,12 @@ Test </string>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="zLU-8c-JdK"/>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="recipeCookTime" destination="bx8-iC-Rmv" id="v3k-pT-rGG"/>
+                        <outlet property="recipeImage" destination="YED-gz-ay1" id="uay-Rv-X3Q"/>
+                        <outlet property="recipeIngredients" destination="sAj-1i-7Id" id="f9X-Zj-YMk"/>
+                        <outlet property="recipeName" destination="PMb-pn-zwv" id="bCr-ky-dEy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2r3-xG-pAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -393,15 +415,15 @@ Test </string>
             <point key="canvasLocation" x="534.78260869565224" y="-1226.1160714285713"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="06d-OR-NWc"/>
-    </inferredMetricsTieBreakers>
     <resources>
-        <image name="book.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="cloud.sun.rain.fill" catalog="system" width="128" height="118"/>
-        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="book.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="cloud.sun.rain.fill" catalog="system" width="64" height="58"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <namedColor name="pink">
             <color red="0.83921568627450982" green="0.49803921568627452" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Skb-6O-lYk"/>
+    </inferredMetricsTieBreakers>
 </document>

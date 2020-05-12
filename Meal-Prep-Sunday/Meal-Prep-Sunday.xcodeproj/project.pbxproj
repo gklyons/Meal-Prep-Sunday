@@ -24,6 +24,8 @@
 		3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7652460966E00D79193 /* ShoppingList.storyboard */; };
 		3583C7692460B53800D79193 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7682460B53700D79193 /* Colors.xcassets */; };
 		CD5F02C29F50D4ADCE8F03EE /* Pods_Meal_Prep_Sunday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */; };
+		D42FDA73246A74C000DE093B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42FDA72246A74C000DE093B /* RecipeDetailViewController.swift */; };
+		D4712DD52465CC1400A86391 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DD42465CC1400A86391 /* HomeViewController.swift */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
 		D494A179245744710086DBFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A178245744710086DBFA /* SceneDelegate.swift */; };
 		D494A17E245744710086DBFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D494A17C245744710086DBFA /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		3583C7632460964C00D79193 /* RecipeBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = SOURCE_ROOT; };
 		3583C7662460966E00D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShoppingList.storyboard; sourceTree = "<group>"; };
 		3583C7682460B53700D79193 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D42FDA72246A74C000DE093B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		D4712DD42465CC1400A86391 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D494A176245744710086DBFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D494A178245744710086DBFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				3542F6612465C98B0035250E /* SearchViewController.swift */,
 				3542F6622465C98C0035250E /* SearchViewTableViewCell.swift */,
 				3542F65C2465C6F90035250E /* ManualUploadViewController.swift */,
+				D4712DD42465CC1400A86391 /* HomeViewController.swift */,
+				D42FDA72246A74C000DE093B /* RecipeDetailViewController.swift */,
 				EBA37E022465E99D006132B2 /* ShoppingListTableViewController.swift */,
 				EBA37E042465E9E5006132B2 /* ShoppingListTableViewCell.swift */,
 				EBA37E0624661083006132B2 /* ShoppingListMenueViewController.swift */,
@@ -347,6 +353,9 @@
 				3542F65D2465C6F90035250E /* ManualUploadViewController.swift in Sources */,
 				3583C7302458EFE300D79193 /* Ingredient.swift in Sources */,
 				3542F6642465C98C0035250E /* RecipeBooksViewController.swift in Sources */,
+				D42FDA73246A74C000DE093B /* RecipeDetailViewController.swift in Sources */,
+				D4712DD52465CC1400A86391 /* HomeViewController.swift in Sources */,
+				3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */,
 				EBA37E0724661083006132B2 /* ShoppingListMenueViewController.swift in Sources */,
 				3542F66A2465C9FF0035250E /* ShoppingListController.swift in Sources */,
 				3542F6652465C98C0035250E /* RecipeBookFilterTableViewController.swift in Sources */,
