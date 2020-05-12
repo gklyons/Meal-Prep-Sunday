@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import Firebase
 
 struct CellData {
     let message: String?
@@ -46,6 +47,15 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
         ingredientListTableView.delegate = self
         ingredientListTableView.dataSource = self
         ingredientListTableView.rowHeight = 50
+        setTitle()
+    }
+    
+    func setTitle() {
+        let image: UIImage = UIImage(named: "Prep 120 1x")!
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
+        self.navigationItem.titleView = imageView
     }
     
     @IBAction func middlePhotoButtonTapped(_ sender: Any) {
@@ -54,33 +64,13 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
         presentImagePickerActionSheet()
     }
     
-//    @IBAction func categoryButtonTapped(_ sender: Any) {
-//        if categoryButtonTableView.isHidden {
-//            animateCategory(toggle: true)
-//        } else {
-//            animateCategory(toggle: false)
-//        }
-//    }
-    
-//    func animateCategory(toggle: Bool) {
-//        if toggle {
-//            UIView.animate(withDuration: 0.3) {
-//                self.categoryButtonTableView.isHidden = false
-//            }
-//        } else {
-//            UIView.animate(withDuration: 0.3) {
-//                self.categoryButtonTableView.isHidden = true
-//            }
-//        }
-//    }
     @IBAction func saveRecipeButtonTapped(_ sender: Any) {
         // Grab all 4 items to create manual recipe
-        let manualRecipe = ManualRecipe(image: middlePhotoImageView.image, title: "\(String(describing: recipeNameTextField.text))", manualIngredients: ingredients, directions: "\(String(describing: directionsTextView.text))")
+        let uploadedRecipe = UploadedRecipe(image: middlePhotoImageView.image, title: "\(String(describing: recipeNameTextField.text))", manualIngredients: ingredients, directions: "\(String(describing: directionsTextView.text))", users: [])
         // Save to firestore
-        FirebaseStuff.shared.saveManualRecipe(manualRecipe: manualRecipe) { (true) in
-            
-        }
-        // Pop to uploaded recipes or "self.dismiss" 
+        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
+        // Pop to uploaded recipes or "self.dismiss"
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {

@@ -16,18 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // Override point for customization after application launch.
-        RecipeController.shared.fetchRecipes(searchTerm: "chicken") { (result) in
-            print(result)
-            switch result {
-            case .success(let recipes):
-                guard let firstRecipe = recipes.first else { return }
-                RecipeController.shared.fetchImage(for: firstRecipe) { (result) in
-                    print(result)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        RecipeController.shared.fetchRecipes(searchTerm: "chicken") { (result) in
+//            print(result)
+//            switch result {
+//            case .success(let recipes):
+//                guard let firstRecipe = recipes.first else { return }
+//                RecipeController.shared.fetchImage(for: firstRecipe) { (result) in
+//                    print(result)
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         return true
     }
 

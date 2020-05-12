@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--P-->
+        <!--Recipes-->
         <scene sceneID="YOT-OS-JcF">
             <objects>
                 <viewController id="PcG-tW-69e" customClass="ManualUploadViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                         <viewLayoutGuide key="safeArea" id="5Dj-CP-WP5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Recipes" image="book" catalog="system" id="mhV-ah-wiG"/>
-                    <navigationItem key="navigationItem" title="P" id="56x-kA-afI">
+                    <navigationItem key="navigationItem" id="56x-kA-afI">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="DXp-yN-0tc"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

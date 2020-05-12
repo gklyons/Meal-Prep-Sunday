@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class RecipeController {
     
     static let shared = RecipeController()
     var recipes: [Recipe] = []
-    var manualRecipes: [ManualRecipe] = []
+    var uploadedRecipes: [UploadedRecipe] = []
     
 //    private init() {
 //    }
@@ -71,13 +72,12 @@ class RecipeController {
         }.resume()
     }
     
-    func createManualRecipe(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?) {
-        let manualRecipe = ManualRecipe(image: image, title: title, manualIngredients: manualIngredients, directions: directions)
-        manualRecipes.append(manualRecipe)
+    func createUploadedRecipe(recipeName: String) {
+        guard let userUid = Auth.auth().currentUser?.uid else {return}
+        let image = UIImage()
+        let uploadedRecipe = UploadedRecipe(image: image, title: "title", manualIngredients: [], directions: "directions", users: [userUid])
+        uploadedRecipes.append(uploadedRecipe)
+        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
     }
-    
-//    func createManualIngredient(manualIngredient: String) {
-//        let ingredient = Ingredient(item: manualIngredient)
-//    }
     
 }//End of Class
