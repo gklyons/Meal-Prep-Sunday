@@ -17,12 +17,14 @@ class ShoppingListTableViewController: UITableViewController {
     // MARK: -  Outlets
     @IBOutlet weak var menueButton: UIButton!
     @IBOutlet var menueContainerView: UIView!
+    @IBOutlet weak var addIngredientTextField: UITextField!
+    @IBOutlet weak var addIngredientButton: UIButton!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         menueContainerView.isHidden = true
-        ShoppingListController.shared.loadFromPersistence()
+        //ShoppingListController.shared.loadFromPersistence()
         tableView.reloadData()
     }
     
@@ -31,6 +33,9 @@ class ShoppingListTableViewController: UITableViewController {
         UIView.animate(withDuration: 0.5) {
             self.menueContainerView.isHidden.toggle()
         }
+    }
+    @IBAction func addIngredientButtonTapped(_ sender: Any) {
+        
     }
     
     
@@ -48,10 +53,18 @@ class ShoppingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
         let ingrediant = testArray[indexPath.row]
-        cell.updateViews(ingrediant: ingrediant)
+        cell.populateCell(ingrediant: ingrediant)
         cell.delegate = self
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 41
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 95
     }
     
 //    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -76,6 +89,10 @@ class ShoppingListTableViewController: UITableViewController {
             menuVC.menueDelegate = self
         }
     }
+    
+    // MARK: -  Helpers
+    
+    
 }// End of Class
 
 // MARK: - Delegate Extensions
@@ -93,6 +110,7 @@ extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
         let item = testArray[index.row]
             //ShoppingListController.shared.shoppingList[index.row]
         ShoppingListController.shared.toggleItemChecked(ingredient: item)
+        sender.populateCell(ingrediant: item)
         
     }
     

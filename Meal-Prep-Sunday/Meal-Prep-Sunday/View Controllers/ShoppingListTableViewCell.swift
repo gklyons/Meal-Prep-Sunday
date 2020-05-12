@@ -41,8 +41,10 @@ class ShoppingListTableViewCell: UITableViewCell {
 
     }
 
-    func updateViews(ingrediant: Ingredient) {
+    func populateCell(ingrediant: Ingredient) {
+//        ingredientTextField.isUserInteractionEnabled.toggle()
         ingredientTextField.text = ingrediant.item
-        checkBoxButton.setImage(ingrediant.isChecked ? #imageLiteral(resourceName: "Checked Box 2x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+        checkBoxButton.setImage(ingrediant.isChecked ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
     }
+    
 }
