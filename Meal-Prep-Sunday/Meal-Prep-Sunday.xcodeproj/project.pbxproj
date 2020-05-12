@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35425DB6246AF8CF002167EC /* ManualRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35425DB5246AF8CF002167EC /* ManualRecipe.swift */; };
+		35425DB6246AF8CF002167EC /* UploadedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35425DB5246AF8CF002167EC /* UploadedRecipe.swift */; };
 		3542F65D2465C6F90035250E /* ManualUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65C2465C6F90035250E /* ManualUploadViewController.swift */; };
 		3542F6632465C98C0035250E /* IngredientListCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */; };
 		3542F6642465C98C0035250E /* RecipeBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */; };
@@ -50,7 +50,7 @@
 		045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meal_Prep_Sunday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		074A3495A4333381AEFA35F8 /* Pods-Meal-Prep-Sunday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.release.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.release.xcconfig"; sourceTree = "<group>"; };
 		2CC1D902946E2A3FA055DDE3 /* Pods-Meal-Prep-Sunday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.debug.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.debug.xcconfig"; sourceTree = "<group>"; };
-		35425DB5246AF8CF002167EC /* ManualRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualRecipe.swift; sourceTree = "<group>"; };
+		35425DB5246AF8CF002167EC /* UploadedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedRecipe.swift; sourceTree = "<group>"; };
 		3542F65C2465C6F90035250E /* ManualUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualUploadViewController.swift; sourceTree = "<group>"; };
 		3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientListCustomTableViewCell.swift; sourceTree = "<group>"; };
 		3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBooksViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 				D494A1A124576DCF0086DBFA /* Recipe.swift */,
 				EB5CF4DB24576F8600104F17 /* MealPlan.swift */,
 				3583C72F2458EFE300D79193 /* Ingredient.swift */,
-				35425DB5246AF8CF002167EC /* ManualRecipe.swift */,
+				35425DB5246AF8CF002167EC /* UploadedRecipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3542F6672465C98C0035250E /* SearchViewTableViewCell.swift in Sources */,
-				35425DB6246AF8CF002167EC /* ManualRecipe.swift in Sources */,
+				35425DB6246AF8CF002167EC /* UploadedRecipe.swift in Sources */,
 				D494A1A224576DCF0086DBFA /* Recipe.swift in Sources */,
 				3542F65D2465C6F90035250E /* ManualUploadViewController.swift in Sources */,
 				3583C7302458EFE300D79193 /* Ingredient.swift in Sources */,

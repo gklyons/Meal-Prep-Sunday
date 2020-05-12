@@ -19,7 +19,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var uploadRecipeTableHeight: NSLayoutConstraint!
     
     var recipeList = ["Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl","Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl", "Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl","Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl"]
-    var uploadList = ["Roast", "Pork Chops", "Cake", "Turkey", "Roast", "Pork Chops", "Cake", "Turkey", "Roast", "Pork Chops", "Cake", "Turkey"]
+    var uploadList: [UploadedRecipe] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,15 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         uploadedRecipesTableView.isHidden = true
         savedRecipesButton.layer.borderWidth = 0.8
         uploadedRecipesButton.layer.borderWidth = 0.8
+        setTitle()
+    }
+    
+    func setTitle() {
+        let image: UIImage = UIImage(named: "Prep 120 1x")!
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
+        self.navigationItem.titleView = imageView
     }
     
     override func viewWillLayoutSubviews() {
@@ -93,7 +102,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
             return cell
         } else if tableView == uploadedRecipesTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath)
-            cell.textLabel?.text = uploadList[indexPath.row]
+            cell.textLabel?.text = "\([UploadedRecipe].self)"
             return cell
         } else {
             return UITableViewCell()

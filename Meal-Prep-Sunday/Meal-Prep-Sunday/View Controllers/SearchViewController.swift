@@ -21,6 +21,15 @@ class SearchViewController: UIViewController {
         searchResultsTableView.separatorStyle = .none
         recipeSearchBar.delegate = self
         searchResultsTableView.rowHeight = 100
+        setTitle()
+    }
+    
+    func setTitle() {
+        let image: UIImage = UIImage(named: "Prep 120 1x")!
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
+        self.navigationItem.titleView = imageView
     }
     
 }
