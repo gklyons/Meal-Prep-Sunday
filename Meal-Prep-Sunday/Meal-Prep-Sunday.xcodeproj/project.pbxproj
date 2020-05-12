@@ -24,6 +24,10 @@
 		3583C7672460966E00D79193 /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7652460966E00D79193 /* ShoppingList.storyboard */; };
 		3583C7692460B53800D79193 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3583C7682460B53700D79193 /* Colors.xcassets */; };
 		CD5F02C29F50D4ADCE8F03EE /* Pods_Meal_Prep_Sunday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B6BB901A64A90E2376BBA /* Pods_Meal_Prep_Sunday.framework */; };
+		D40569E3246B0FD9000B230B /* HomeRecentRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40569E2246B0FD9000B230B /* HomeRecentRecipeTableViewCell.swift */; };
+		D40569E5246B5D1B000B230B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40569E4246B5D1B000B230B /* SignUpViewController.swift */; };
+		D40569E7246B5D44000B230B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40569E6246B5D44000B230B /* SignInViewController.swift */; };
+		D40569E9246B5D58000B230B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40569E8246B5D58000B230B /* ForgotPasswordViewController.swift */; };
 		D42FDA73246A74C000DE093B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42FDA72246A74C000DE093B /* RecipeDetailViewController.swift */; };
 		D4712DD52465CC1400A86391 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DD42465CC1400A86391 /* HomeViewController.swift */; };
 		D494A177245744710086DBFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494A176245744710086DBFA /* AppDelegate.swift */; };
@@ -62,6 +66,10 @@
 		3583C7632460964C00D79193 /* RecipeBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeBook.storyboard; sourceTree = SOURCE_ROOT; };
 		3583C7662460966E00D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShoppingList.storyboard; sourceTree = "<group>"; };
 		3583C7682460B53700D79193 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D40569E2246B0FD9000B230B /* HomeRecentRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecentRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		D40569E4246B5D1B000B230B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D40569E6246B5D44000B230B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D40569E8246B5D58000B230B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		D42FDA72246A74C000DE093B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		D4712DD42465CC1400A86391 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D494A173245744710086DBFA /* Meal-Prep-Sunday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Prep-Sunday.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +117,16 @@
 				074A3495A4333381AEFA35F8 /* Pods-Meal-Prep-Sunday.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D40569EA246B5F2B000B230B /* User Login Views */ = {
+			isa = PBXGroup;
+			children = (
+				D40569E4246B5D1B000B230B /* SignUpViewController.swift */,
+				D40569E6246B5D44000B230B /* SignInViewController.swift */,
+				D40569E8246B5D58000B230B /* ForgotPasswordViewController.swift */,
+			);
+			path = "User Login Views";
 			sourceTree = "<group>";
 		};
 		D494A16A245744710086DBFA = {
@@ -180,10 +198,12 @@
 				3542F6622465C98C0035250E /* SearchViewTableViewCell.swift */,
 				3542F65C2465C6F90035250E /* ManualUploadViewController.swift */,
 				D4712DD42465CC1400A86391 /* HomeViewController.swift */,
+				D40569E2246B0FD9000B230B /* HomeRecentRecipeTableViewCell.swift */,
 				D42FDA72246A74C000DE093B /* RecipeDetailViewController.swift */,
 				EBA37E022465E99D006132B2 /* ShoppingListTableViewController.swift */,
 				EBA37E042465E9E5006132B2 /* ShoppingListTableViewCell.swift */,
 				EBA37E0624661083006132B2 /* ShoppingListMenueViewController.swift */,
+				D40569EA246B5F2B000B230B /* User Login Views */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -355,8 +375,10 @@
 				3542F6642465C98C0035250E /* RecipeBooksViewController.swift in Sources */,
 				D42FDA73246A74C000DE093B /* RecipeDetailViewController.swift in Sources */,
 				D4712DD52465CC1400A86391 /* HomeViewController.swift in Sources */,
-				3583C72C24576F5700D79193 /* ShoppingList.swift in Sources */,
+				D40569E7246B5D44000B230B /* SignInViewController.swift in Sources */,
 				EBA37E0724661083006132B2 /* ShoppingListMenueViewController.swift in Sources */,
+				D40569E9246B5D58000B230B /* ForgotPasswordViewController.swift in Sources */,
+				D40569E3246B0FD9000B230B /* HomeRecentRecipeTableViewCell.swift in Sources */,
 				3542F66A2465C9FF0035250E /* ShoppingListController.swift in Sources */,
 				3542F6652465C98C0035250E /* RecipeBookFilterTableViewController.swift in Sources */,
 				D494A177245744710086DBFA /* AppDelegate.swift in Sources */,
@@ -365,6 +387,7 @@
 				3542F66B2465C9FF0035250E /* MealPlanController.swift in Sources */,
 				D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
+				D40569E5246B5D1B000B230B /* SignUpViewController.swift in Sources */,
 				3542F6662465C98C0035250E /* SearchViewController.swift in Sources */,
 				D494A1A6245894000086DBFA /* RecipeError.swift in Sources */,
 				D494A1A4245881080086DBFA /* RecipeController.swift in Sources */,
