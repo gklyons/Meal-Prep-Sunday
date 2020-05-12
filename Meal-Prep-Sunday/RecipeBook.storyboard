@@ -29,32 +29,25 @@
                                                     <constraint firstAttribute="height" constant="234" id="Qjj-Tc-qK4"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell1" id="1zA-c1-vcj">
-                                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell" id="1zA-c1-vcj">
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="21"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zA-c1-vcj" id="giR-hS-GFk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gvy-LP-I9X">
-                                                                    <rect key="frame" x="8" y="5.5" width="334" height="34"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trash 1x" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-b4-ggJ">
-                                                                    <rect key="frame" x="350" y="8" width="16" height="27.5"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="27" id="pMK-wJ-sX3"/>
-                                                                    </constraints>
-                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jz-13-pKR">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="Gvy-LP-I9X" secondAttribute="bottom" constant="4" id="AoA-la-zvD"/>
-                                                                <constraint firstItem="Q7a-b4-ggJ" firstAttribute="top" secondItem="giR-hS-GFk" secondAttribute="top" constant="8" id="DKe-YB-zbB"/>
-                                                                <constraint firstItem="Q7a-b4-ggJ" firstAttribute="leading" secondItem="Gvy-LP-I9X" secondAttribute="trailing" constant="8" id="MCH-Sf-cNe"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Q7a-b4-ggJ" secondAttribute="bottom" constant="8" id="hWA-oe-Jue"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Q7a-b4-ggJ" secondAttribute="trailing" constant="8" id="iP8-fO-dxx"/>
-                                                                <constraint firstItem="Gvy-LP-I9X" firstAttribute="leading" secondItem="giR-hS-GFk" secondAttribute="leading" constant="8" id="mNp-PJ-PyX"/>
+                                                                <constraint firstItem="0Jz-13-pKR" firstAttribute="top" secondItem="giR-hS-GFk" secondAttribute="top" id="7Tj-nQ-Y4i"/>
+                                                                <constraint firstAttribute="bottom" secondItem="0Jz-13-pKR" secondAttribute="bottom" id="MsP-wy-gp6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="0Jz-13-pKR" secondAttribute="trailing" id="daL-UQ-xWP"/>
+                                                                <constraint firstItem="0Jz-13-pKR" firstAttribute="leading" secondItem="giR-hS-GFk" secondAttribute="leading" id="qVj-xd-6Be"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -571,7 +564,6 @@
         <image name="Recipe Icon 1x" width="25" height="21"/>
         <image name="Salad 2x" width="624" height="542"/>
         <image name="Search 1x" width="23" height="23"/>
-        <image name="Trash 1x" width="16" height="18"/>
         <image name="book" catalog="system" width="128" height="101"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="pink">

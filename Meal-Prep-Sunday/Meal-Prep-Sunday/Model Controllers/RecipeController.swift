@@ -12,6 +12,7 @@ class RecipeController {
     
     static let shared = RecipeController()
     var recipes: [Recipe] = []
+    var manualRecipes: [ManualRecipe] = []
     
 //    private init() {
 //    }
@@ -69,4 +70,11 @@ class RecipeController {
             completion(.success(image))
         }.resume()
     }
+    
+    func createManualRecipe(image: UIImage?, title: String, manualIngredient: String, directions: String?) {
+        let manualRecipe = ManualRecipe(image: image, title: title, manualIngredient: manualIngredient, directions: directions)
+        manualRecipes.append(manualRecipe)
+    }
+    
+    
 }//End of Class

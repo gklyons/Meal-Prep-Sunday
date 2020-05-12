@@ -11,7 +11,6 @@ import AVFoundation
 import Photos
 
 struct CellData {
-    let number: String?
     let message: String?
 }
 
@@ -26,7 +25,6 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ingredientListTableView: UITableView!
     @IBOutlet weak var directionsTextView: UITextView!
     @IBOutlet weak var saveRecipeButton: UIButton!
-//    @IBOutlet weak var newIngredientTextField: UITextField!
     
     var data = [CellData]()
     
@@ -34,7 +32,7 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
     weak var delegate: ManualUploadViewControllerDelegate?
     
-    var addIngredientTappedAction: ((UITableViewCell) -> Void)?
+    var ingredientStr: String?
     
     var pickerOne: UIImagePickerController?
     
@@ -45,8 +43,10 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
         directionsTextView.layer.borderWidth = 0.8
         categoryButton.layer.borderColor = UIColor.lightGray.cgColor
         directionsTextView.layer.borderColor = UIColor.lightGray.cgColor
-        data = [CellData.init(number: "2", message: "heads of broccoli")]
-        ingredientListTableView.register(IngredientListCustomTableViewCell.self, forCellReuseIdentifier: "ingredientCell")
+    }
+    
+    func customInit(ingredientStr: String) {
+        self.ingredientStr = ingredientStr
     }
     
     @IBAction func middlePhotoButtonTapped(_ sender: Any) {
@@ -76,43 +76,31 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
-        presentAddIngredient()
-    }
-    
-    func presentAddIngredient(for ingredient: Ingredient? = nil) {
-        let alertController = UIAlertController(title: "Add New Ingredients", message: nil, preferredStyle: .alert)
-        alertController.addTextField { (textField) in
-            textField.delegate = self
-            textField.placeholder = "Ingredients"
-            textField.autocorrectionType = .yes
-            if let ingredient = ingredient {
-                textField.text = ingredient.item
-            }
-        }
+        let alert = UIAlertController(title: "Add a new ingredient", message: nil, preferredStyle: .alert)
         
-        let addIngredient = UIAlertAction(title: "Add", style: .default) { (_) in
-            guard let text = alertController.textFields?.first?.text, !text.isEmpty else {return}
+        alert.addTextField()
+        alert.textFields![0].placeholder = "Enter an Ingredient"
+        
+        let addButton = UIAlertAction(title: "Add", style: .default) { (_) in
+            //            let ingredientText = alert.textFields![0].text
             
+            guard let item = alert.textFields?[0].text, item != "" else {return}
             
             self.ingredientListTableView.reloadData()
         }
-        let cancelIngredient = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alertController.addAction(addIngredient)
-        alertController.addAction(cancelIngredient)
-        
-        self.present(alertController, animated: true)
+        alert.addAction(cancelButton)
+        alert.addAction(addButton)
+        self.present(alert, animated: true)
     }
-    
-
-    
 }//End of Class
 
 extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == ingredientListTableView {
-            return data.count
+            return RecipeController.shared.manualRecipes.count
         } else if tableView == categoryButtonTableView {
             return categories.count
         } else {
@@ -122,9 +110,9 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == ingredientListTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell") as! IngredientListCustomTableViewCell
-            cell.message = data[indexPath.row].message
-            cell.number = data[indexPath.row].number
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+            let manualIngredient = RecipeController.shared.manualRecipes[indexPath.row]
+            cell.textLabel?.text = manualIngredient.manualIngredient
             return cell
         } else if tableView == categoryButtonTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
@@ -146,45 +134,14 @@ extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-//    if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//
-//        if picker == pickerOne {
-//            leftPhotoButton.setTitle("", for: .normal)
-//            leftPhotoImageView.image = photo
-//            delegate?.ManualUploadViewControllerSelected(image: photo)
-//        } else if picker == pickerTwo {
-//            middlePhotoButton.setTitle("", for: .normal)
-//            middlePhotoImageView.image = photo
-//            delegate?.ManualUploadViewControllerSelected(image: photo)
-//        } else if picker == pickerThree {
-//            rightPhotoButton.setTitle("", for: .normal)
-//            rightPhotoImageView.image = photo
-//            delegate?.ManualUploadViewControllerSelected(image: photo)
-//        }
-//
-//        guard let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {return}
-        
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             middlePhotoButton.setTitle("", for: .normal)
             middlePhotoImageView.image = photo
             delegate?.ManualUploadViewControllerSelected(image: photo)
-        
+            
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
-    picker.dismiss(animated: true, completion: nil)
-}
-        
-//        if leftPhotoButton.isSelected {
-//            leftPhotoButton.setTitle("", for: .normal)
-//            leftPhotoImageView.image = photo
-//            delegate?.ManualUploadViewControllerSelected(image: photo)
-//        } else if middlePhotoButton.isSelected {
-//            middlePhotoButton.setTitle("", for: .normal)
-//            middlePhotoImageView.image = photo
-//            delegate?.ManualUploadViewControllerSelected(image: photo)
-//        } else if rightPhotoButton.isSelected {
-//            rightPhotoButton.setTitle("", for: .normal)
-//            rightPhotoImageView.image = photo
-//            delegate?.ManualUploadViewControllerSelected(image: photo)
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
