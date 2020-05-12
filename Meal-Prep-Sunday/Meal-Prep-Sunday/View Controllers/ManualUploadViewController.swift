@@ -16,11 +16,13 @@ struct CellData {
 
 class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
+    var ingredients: [Ingredient] = []
+    
     @IBOutlet weak var middlePhotoImageView: UIImageView!
     @IBOutlet weak var middlePhotoButton: UIButton!
     @IBOutlet weak var recipeNameTextField: UITextField!
-    @IBOutlet weak var categoryButton: UIButton!
-    @IBOutlet weak var categoryButtonTableView: UITableView!
+//    @IBOutlet weak var categoryButton: UIButton!
+//    @IBOutlet weak var categoryButtonTableView: UITableView!
     @IBOutlet weak var addNewIngredientButton: UIButton!
     @IBOutlet weak var ingredientListTableView: UITableView!
     @IBOutlet weak var directionsTextView: UITextView!
@@ -28,25 +30,22 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
     var data = [CellData]()
     
-    var categories = ["Breakfast", "Lunch", "Dinner", "Dessert"]
+//    var categories = ["Breakfast", "Lunch", "Dinner", "Dessert"]
     
     weak var delegate: ManualUploadViewControllerDelegate?
-    
-    var ingredientStr: String?
-    
+        
     var pickerOne: UIImagePickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryButtonTableView.isHidden = true
-        categoryButton.layer.borderWidth = 0.8
+//        categoryButtonTableView.isHidden = true
+//        categoryButton.layer.borderWidth = 0.8
         directionsTextView.layer.borderWidth = 0.8
-        categoryButton.layer.borderColor = UIColor.lightGray.cgColor
+//        categoryButton.layer.borderColor = UIColor.lightGray.cgColor
         directionsTextView.layer.borderColor = UIColor.lightGray.cgColor
-    }
-    
-    func customInit(ingredientStr: String) {
-        self.ingredientStr = ingredientStr
+        ingredientListTableView.delegate = self
+        ingredientListTableView.dataSource = self
+        ingredientListTableView.rowHeight = 50
     }
     
     @IBAction func middlePhotoButtonTapped(_ sender: Any) {
@@ -55,24 +54,33 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
         presentImagePickerActionSheet()
     }
     
-    @IBAction func categoryButtonTapped(_ sender: Any) {
-        if categoryButtonTableView.isHidden {
-            animateCategory(toggle: true)
-        } else {
-            animateCategory(toggle: false)
-        }
-    }
+//    @IBAction func categoryButtonTapped(_ sender: Any) {
+//        if categoryButtonTableView.isHidden {
+//            animateCategory(toggle: true)
+//        } else {
+//            animateCategory(toggle: false)
+//        }
+//    }
     
-    func animateCategory(toggle: Bool) {
-        if toggle {
-            UIView.animate(withDuration: 0.3) {
-                self.categoryButtonTableView.isHidden = false
-            }
-        } else {
-            UIView.animate(withDuration: 0.3) {
-                self.categoryButtonTableView.isHidden = true
-            }
+//    func animateCategory(toggle: Bool) {
+//        if toggle {
+//            UIView.animate(withDuration: 0.3) {
+//                self.categoryButtonTableView.isHidden = false
+//            }
+//        } else {
+//            UIView.animate(withDuration: 0.3) {
+//                self.categoryButtonTableView.isHidden = true
+//            }
+//        }
+//    }
+    @IBAction func saveRecipeButtonTapped(_ sender: Any) {
+        // Grab all 4 items to create manual recipe
+        let manualRecipe = ManualRecipe(image: middlePhotoImageView.image, title: "\(String(describing: recipeNameTextField.text))", manualIngredients: ingredients, directions: "\(String(describing: directionsTextView.text))")
+        // Save to firestore
+        FirebaseStuff.shared.saveManualRecipe(manualRecipe: manualRecipe) { (true) in
+            
         }
+        // Pop to uploaded recipes or "self.dismiss" 
     }
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
@@ -82,10 +90,11 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
         alert.textFields![0].placeholder = "Enter an Ingredient"
         
         let addButton = UIAlertAction(title: "Add", style: .default) { (_) in
-            //            let ingredientText = alert.textFields![0].text
             
-            guard let item = alert.textFields?[0].text, item != "" else {return}
-            
+            guard let item = alert.textFields?[0].text,
+                item != ""
+                else {return}
+            self.ingredients.append(Ingredient(item: item))
             self.ingredientListTableView.reloadData()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -100,10 +109,11 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == ingredientListTableView {
-            return RecipeController.shared.manualRecipes.count
-        } else if tableView == categoryButtonTableView {
-            return categories.count
-        } else {
+            return ingredients.count
+        }
+//        } else if tableView == categoryButtonTableView {
+//            return categories.count
+         else {
             return 0
         }
     }
@@ -111,22 +121,23 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == ingredientListTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
-            let manualIngredient = RecipeController.shared.manualRecipes[indexPath.row]
-            cell.textLabel?.text = manualIngredient.manualIngredient
+            let manualIngredient = ingredients[indexPath.row]
+            cell.textLabel?.text = manualIngredient.item
             return cell
-        } else if tableView == categoryButtonTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-            cell.textLabel?.text = categories[indexPath.row]
-            return cell
+        
+//        } else if tableView == categoryButtonTableView {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+//            cell.textLabel?.text = categories[indexPath.row]
+//            return cell
         } else {
             return UITableViewCell()
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        categoryButton.setTitle("  \(categories[indexPath.row])", for: .normal)
-        animateCategory(toggle: false)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        categoryButton.setTitle("  \(categories[indexPath.row])", for: .normal)
+//        animateCategory(toggle: false)
+//    }
     
 }
 

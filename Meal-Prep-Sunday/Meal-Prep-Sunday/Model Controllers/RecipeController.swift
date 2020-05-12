@@ -71,10 +71,13 @@ class RecipeController {
         }.resume()
     }
     
-    func createManualRecipe(image: UIImage?, title: String, manualIngredient: String, directions: String?) {
-        let manualRecipe = ManualRecipe(image: image, title: title, manualIngredient: manualIngredient, directions: directions)
+    func createManualRecipe(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?) {
+        let manualRecipe = ManualRecipe(image: image, title: title, manualIngredients: manualIngredients, directions: directions)
         manualRecipes.append(manualRecipe)
     }
     
+//    func createManualIngredient(manualIngredient: String) {
+//        let ingredient = Ingredient(item: manualIngredient)
+//    }
     
 }//End of Class

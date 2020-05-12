@@ -12,13 +12,13 @@ class ManualRecipe {
     
     let image: UIImage?
     let title: String
-    let manualIngredient: String
+    let manualIngredients: [Ingredient]
     let directions: String?
     
-    init(image: UIImage?, title: String, manualIngredient: String, directions: String?) {
+    init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?) {
         self.image = image
         self.title = title
-        self.manualIngredient = manualIngredient
+        self.manualIngredients = manualIngredients
         self.directions = directions
     }
 }

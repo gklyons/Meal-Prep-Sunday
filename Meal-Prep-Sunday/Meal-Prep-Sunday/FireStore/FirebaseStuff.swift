@@ -59,4 +59,21 @@ class FirebaseStuff {
             }
         }
     }
+    
+    func saveManualRecipe(manualRecipe: ManualRecipe, completion: @escaping (Bool) -> Void) {
+        guard let user = Auth.auth().currentUser?.uid else {return}
+        db.collection("Manual Recipes").whereField("users", arrayContains: user as Any).getDocuments() { (querySnapshots, error) in if let error = error {
+            print("Error in \(#function) : \(error.localizedDescription) /n--/n \(error)")
+            completion(false)
+        } else {
+            for documents in querySnapshots!.documents {
+                let manualRecipe = ManualRecipe(image: documents.data()["image"] as! UIImage?, title: documents.data()[
+                    "title"] as! String, manualIngredients: documents.data()["ingredients"] as! [Ingredient], directions: documents.data()["directions"] as! String?)
+                
+                RecipeController.shared.manualRecipes.append(manualRecipe)
+            }
+            completion(true)
+            }
+        }
+    }
 }//End of Class
