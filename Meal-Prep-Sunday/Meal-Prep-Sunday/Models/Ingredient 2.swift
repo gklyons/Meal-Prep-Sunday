@@ -10,16 +10,14 @@ import Foundation
 
 class Ingredient: Codable, Equatable {
     var item: String
-    var isChecked: Bool
-    init(item: String, isChecked: Bool = false) {
+    
+    init(item: String) {
         self.item = item
-        self.isChecked = isChecked
     }
 }
 
 func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
-    return lhs.item == rhs.item &&
-        lhs.isChecked == rhs.isChecked
+    return lhs.item == rhs.item
     
 }
 
