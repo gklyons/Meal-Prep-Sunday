@@ -42,6 +42,7 @@ class ShoppingListController {
         saveToPersistentStore()
     }
     
+    // MARK: - Persistance
     func fileURL() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]

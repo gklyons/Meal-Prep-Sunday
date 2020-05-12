@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class ShoppingListTableViewController: UITableViewController {
     
     // MARK: - Properties
     var menueIsctive = false
    // var ingredientList: Ingredient?
-    var testArray: [Ingredient] = [Ingredient(item: "Pizza")]
+    var testArray: [Ingredient] = [Ingredient(item: "Pizza"), Ingredient(item: "Shrimp"), Ingredient(item: "Chicken Nuggies")]
     // MARK: -  Outlets
     @IBOutlet weak var menueButton: UIButton!
     @IBOutlet var menueContainerView: UIView!
@@ -29,13 +30,13 @@ class ShoppingListTableViewController: UITableViewController {
     }
     
     // MARK: - Actions
-    @IBAction func menueButtonTapped(_ sender: Any) {
+    @IBAction func menueButtonTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
             self.menueContainerView.isHidden.toggle()
         }
     }
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
-        
+        ShoppingListController.shared.addIngrediant(with: addIngredientTextField.text ?? "")
     }
     
     
@@ -91,13 +92,15 @@ class ShoppingListTableViewController: UITableViewController {
     }
     
     // MARK: -  Helpers
-    
+    func setSectionTitle() {
+        
+    }
     
 }// End of Class
 
 // MARK: - Delegate Extensions
 extension ShoppingListTableViewController: menueButtonSelectedDelegate {
-    func selectedButtonTapped() {
+    func selectedButtonTapped(button: UIButton) {
         // Need to add functionality
         menueContainerView.isHidden = true
         menueIsctive.toggle()
@@ -115,4 +118,3 @@ extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
     }
     
 }
-

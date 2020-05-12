@@ -9,7 +9,7 @@
 import UIKit
 
 protocol menueButtonSelectedDelegate {
-    func selectedButtonTapped()
+    func selectedButtonTapped(button: UIButton)
 }
 
 class ShoppingListMenueViewController: UIViewController {
@@ -22,10 +22,10 @@ class ShoppingListMenueViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func addIngrediantButtonTapped(_ sender: Any) {
+    @IBAction func addSectionButtonTapped(_ sender: Any) {
         
     }
-    @IBAction func addRecipeButtonTapped(_ sender: Any) {
+    @IBAction func reorganizeListButtonTapped(_ sender: Any) {
         
     }
     @IBAction func deleteAllButtonTapped(_ sender: Any) {
