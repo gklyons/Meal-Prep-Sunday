@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.recentTableView.reloadData()
 
     }
 
@@ -36,17 +37,23 @@ class HomeViewController: UIViewController {
     }
 }//End of Class
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RecipeController.shared.recipes.count
         }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentRecipeCell", for: indexPath)
-        let recipeList = RecipeController.shared.recipes
-        let recipeCount = recipeList.count ?? 0
-        
-        
+        let recipeList = RecipeController.shared.recipes[indexPath.row]
+        cell.textLabel?.text = recipeList.label
+        cell.detailTextLabel?.text = "\(recipeList.totalTime)"
+    
         return cell
     }
-}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = RecipeController.shared.recipes[indexPath.row]
+        //Add selected recipe functionality
+    }
+    
+}//End of Extension
