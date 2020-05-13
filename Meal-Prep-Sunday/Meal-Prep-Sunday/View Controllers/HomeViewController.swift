@@ -44,8 +44,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentRecipeCell", for: indexPath)
         let recipeList = RecipeController.shared.recipes
-        let songCount = recipeList.count ?? 0
-        
+        let recipeCount = recipeList.count ?? 0
         
         
         return cell
