@@ -14,6 +14,7 @@ class FirebaseStuff {
     static let shared = FirebaseStuff()
     let db = Firestore.firestore()
     
+    
     func signup(email: String, password: String, completion: @escaping (Bool, Error?) -> Void){
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error{

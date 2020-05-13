@@ -7,24 +7,50 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class ForgotPasswordViewController: UIViewController {
-
+    
+    let db = Firestore.firestore()
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        errorLabel.isHidden = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func sendEmailButtonTapped(_ sender: Any) {
+        guard let email = emailTextField.text, emailTextField.text != "" else {return}
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error != nil {
+                self.showError("Error sending email. Please check email address for typo.")
+            } else {
+                self.showError("Password reset email sent!")
+            }
+        }
     }
-    */
-
+    
+    func resetPassword(email: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if error == nil {
+                onSuccess()
+            } else {
+                onError(error!.localizedDescription)
+            }
+        }
+    }
+    
+    func showError(_ message: String) {
+        errorLabel.isHidden = false
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
+    
+    @IBAction func returnToSignInTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }
