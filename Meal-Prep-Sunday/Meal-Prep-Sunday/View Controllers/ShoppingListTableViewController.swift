@@ -13,7 +13,7 @@ class ShoppingListTableViewController: UITableViewController {
     
     // MARK: - Properties
     var menueIsctive = false
-   // var ingredientList: Ingredient?
+    // var ingredientList: Ingredient?
     var testArray: [Ingredient] = [Ingredient(item: "Pizza"), Ingredient(item: "Shrimp"), Ingredient(item: "Chicken Nuggies")]
     // MARK: -  Outlets
     @IBOutlet weak var menueButton: UIButton!
@@ -36,14 +36,14 @@ class ShoppingListTableViewController: UITableViewController {
         }
     }
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
-        ShoppingListController.shared.addIngrediant(with: addIngredientTextField.text ?? "")
+        ShoppingListController.shared.addIngrediantToShoppingList(with: addIngredientTextField.text ?? "")
     }
     
     
     // MARK: - Table view data source
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        <#code#>
-//    }
+    //    override func numberOfSections(in tableView: UITableView) -> Int {
+    //        <#code#>
+    //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // toDO change to SOT 
@@ -52,7 +52,7 @@ class ShoppingListTableViewController: UITableViewController {
     
     // toDo make sure to change testArray to our actual SOT
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
         let ingrediant = testArray[indexPath.row]
         cell.populateCell(ingrediant: ingrediant)
         cell.delegate = self
@@ -68,20 +68,20 @@ class ShoppingListTableViewController: UITableViewController {
         return 95
     }
     
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//
-//        return true
-//    }
+    //    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    //
+    //        return true
+    //    }
     
     
     // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//
-//        }
-//    }
+    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            tableView.deleteRows(at: [indexPath], with: .fade)
+    //        } else if editingStyle == .insert {
+    //
+    //        }
+    //    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,7 +101,6 @@ class ShoppingListTableViewController: UITableViewController {
 // MARK: - Delegate Extensions
 extension ShoppingListTableViewController: menueButtonSelectedDelegate {
     func selectedButtonTapped(button: UIButton) {
-        // Need to add functionality
         menueContainerView.isHidden = true
         menueIsctive.toggle()
     }
@@ -110,8 +109,7 @@ extension ShoppingListTableViewController: menueButtonSelectedDelegate {
 extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
     func toggleIngredientChecked(_ sender: ShoppingListTableViewCell) {
         guard let index = tableView.indexPath(for: sender) else { return }
-        let item = testArray[index.row]
-            //ShoppingListController.shared.shoppingList[index.row]
+        let item = testArray[index.row] //ShoppingListController.shared.shoppingList[index.row]
         ShoppingListController.shared.toggleItemChecked(ingredient: item)
         sender.populateCell(ingrediant: item)
         

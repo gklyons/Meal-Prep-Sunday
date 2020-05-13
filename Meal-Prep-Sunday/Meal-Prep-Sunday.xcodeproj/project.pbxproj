@@ -44,6 +44,7 @@
 		EBA37E032465E99D006132B2 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA37E022465E99D006132B2 /* ShoppingListTableViewController.swift */; };
 		EBA37E052465E9E5006132B2 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA37E042465E9E5006132B2 /* ShoppingListTableViewCell.swift */; };
 		EBA37E0724661083006132B2 /* ShoppingListMenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA37E0624661083006132B2 /* ShoppingListMenueViewController.swift */; };
+		EBA37E0A246C5C12006132B2 /* MealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA37E09246C5C12006132B2 /* MealPlanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		EBA37E022465E99D006132B2 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		EBA37E042465E9E5006132B2 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		EBA37E0624661083006132B2 /* ShoppingListMenueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListMenueViewController.swift; sourceTree = "<group>"; };
+		EBA37E09246C5C12006132B2 /* MealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				EBA37E022465E99D006132B2 /* ShoppingListTableViewController.swift */,
 				EBA37E042465E9E5006132B2 /* ShoppingListTableViewCell.swift */,
 				EBA37E0624661083006132B2 /* ShoppingListMenueViewController.swift */,
+				EBA37E09246C5C12006132B2 /* MealPlanViewController.swift */,
 				D40569EA246B5F2B000B230B /* User Login Views */,
 			);
 			path = "View Controllers";
@@ -386,6 +389,7 @@
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				3542F66B2465C9FF0035250E /* MealPlanController.swift in Sources */,
 				D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */,
+				EBA37E0A246C5C12006132B2 /* MealPlanViewController.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
 				D40569E5246B5D1B000B230B /* SignUpViewController.swift in Sources */,
 				3542F6662465C98C0035250E /* SearchViewController.swift in Sources */,
