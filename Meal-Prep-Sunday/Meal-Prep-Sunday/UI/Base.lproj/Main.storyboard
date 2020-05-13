@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ArW-9H-pYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ArW-9H-pYl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,16 +57,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiZ-e2-wT3">
-                                <rect key="frame" x="70" y="536" width="274" height="20.5"/>
+                                <rect key="frame" x="70" y="536" width="274" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have account already?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycv-cn-YcR">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-mj-Dnn">
-                                        <rect key="frame" x="174" y="0.0" width="100" height="20.5"/>
+                                        <rect key="frame" x="174" y="0.0" width="100" height="30"/>
                                         <state key="normal" title="Sign In"/>
                                         <connections>
                                             <segue destination="9bS-9h-nLi" kind="show" id="6yy-PG-9oI"/>
@@ -75,7 +75,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Photo" translatesAutoresizingMaskIntoConstraints="NO" id="Kf2-0y-eGA">
-                                <rect key="frame" x="0.0" y="701.5" width="414" height="194.5"/>
+                                <rect key="frame" x="0.0" y="711" width="414" height="185"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -156,23 +156,23 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2UU-bn-dVh">
-                                <rect key="frame" x="153.5" y="526" width="107" height="14.5"/>
+                                <rect key="frame" x="153.5" y="526" width="107" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New here?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPo-Qc-jSq">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agJ-Mf-boI">
-                                        <rect key="frame" x="65" y="0.0" width="42" height="14.5"/>
+                                        <rect key="frame" x="65" y="0.0" width="42" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="Sign Up"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Photo" translatesAutoresizingMaskIntoConstraints="NO" id="KQ6-cQ-bCZ">
-                                <rect key="frame" x="0.0" y="685.5" width="414" height="210.5"/>
+                                <rect key="frame" x="0.0" y="697" width="414" height="199"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -227,7 +227,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2x-W2-7g8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2x-W2-7g8">
                                 <rect key="frame" x="40" y="534" width="334" height="66"/>
                                 <color key="backgroundColor" red="0.51545935870000004" green="0.02873986773" blue="0.001274440205" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -236,7 +236,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Prep Photo" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-fa-FYX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Prep Photo" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-fa-FYX">
                                 <rect key="frame" x="0.0" y="735" width="414" height="161"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*An email has been set to reset password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pV6-6t-fg0">
@@ -369,13 +369,13 @@
             <point key="canvasLocation" x="-254" y="-611"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Prep Photo" width="375" height="161"/>
-        <image name="book" catalog="system" width="64" height="50"/>
-        <image name="house" catalog="system" width="64" height="54"/>
-        <image name="list.dash" catalog="system" width="64" height="42"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CLv-R0-VBe"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="Prep Photo" width="375" height="161"/>
+        <image name="book" catalog="system" width="128" height="101"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+    </resources>
 </document>

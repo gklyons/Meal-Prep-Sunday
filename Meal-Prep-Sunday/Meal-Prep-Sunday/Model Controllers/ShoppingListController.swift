@@ -19,9 +19,16 @@ class ShoppingListController {
     }
     
     // Mark: - Crud Functions
-    func addIngrediant(with ingredient: String) {
+    func addIngrediantToShoppingList(with ingredient: String) {
         let ingredient = Ingredient(item: ingredient)
         shoppingList.append(ingredient)
+    }
+    func addRecipeIngredients() {
+        
+    }
+    
+    func addMealPlanIngredients() {
+        
     }
     
     func updateIngredient(ingredient: Ingredient, item: String) {
