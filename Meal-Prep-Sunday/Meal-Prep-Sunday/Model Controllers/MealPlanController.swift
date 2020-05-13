@@ -14,7 +14,7 @@ class MealPlanController {
     var mealPlans: [MealPlan] = []
     
     // MARK: - CRUD Functions
-    func createMealPlan(with recipe: Recipe, date: Date) {
+    func createMealPlan(with recipe: [Recipe], date: Date) {
         let mealPlan = MealPlan(date: date, recipe: recipe)
         self.mealPlans.append(mealPlan)
     }
@@ -24,7 +24,7 @@ class MealPlanController {
         mealPlans.remove(at: index)
     }
     
-    func updateMealPlan(mealPlan: MealPlan, updatedDate: Date, updatedRecipe: Recipe) {
+    func updateMealPlan(mealPlan: MealPlan, updatedDate: Date, updatedRecipe: [Recipe]) {
         mealPlan.recipe = updatedRecipe
         mealPlan.date = updatedDate
     }
