@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		35425DB6246AF8CF002167EC /* UploadedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35425DB5246AF8CF002167EC /* UploadedRecipe.swift */; };
 		35425DB8246C47EC002167EC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35425DB7246C47EC002167EC /* Utilities.swift */; };
+		35425DBA246C6310002167EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35425DB9246C6310002167EC /* User.swift */; };
 		3542F65D2465C6F90035250E /* ManualUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65C2465C6F90035250E /* ManualUploadViewController.swift */; };
 		3542F6632465C98C0035250E /* IngredientListCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */; };
 		3542F6642465C98C0035250E /* RecipeBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */; };
@@ -53,6 +54,7 @@
 		2CC1D902946E2A3FA055DDE3 /* Pods-Meal-Prep-Sunday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Prep-Sunday.debug.xcconfig"; path = "Target Support Files/Pods-Meal-Prep-Sunday/Pods-Meal-Prep-Sunday.debug.xcconfig"; sourceTree = "<group>"; };
 		35425DB5246AF8CF002167EC /* UploadedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedRecipe.swift; sourceTree = "<group>"; };
 		35425DB7246C47EC002167EC /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		35425DB9246C6310002167EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3542F65C2465C6F90035250E /* ManualUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualUploadViewController.swift; sourceTree = "<group>"; };
 		3542F65E2465C98B0035250E /* IngredientListCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientListCustomTableViewCell.swift; sourceTree = "<group>"; };
 		3542F65F2465C98B0035250E /* RecipeBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBooksViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				EB5CF4DB24576F8600104F17 /* MealPlan.swift */,
 				3583C72F2458EFE300D79193 /* Ingredient.swift */,
 				35425DB5246AF8CF002167EC /* UploadedRecipe.swift */,
+				35425DB9246C6310002167EC /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				D494A179245744710086DBFA /* SceneDelegate.swift in Sources */,
 				3542F66B2465C9FF0035250E /* MealPlanController.swift in Sources */,
 				D494A1AC245A1BB90086DBFA /* FirebaseStuff.swift in Sources */,
+				35425DBA246C6310002167EC /* User.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
 				D40569E5246B5D1B000B230B /* SignUpViewController.swift in Sources */,
 				3542F6662465C98C0035250E /* SearchViewController.swift in Sources */,
