@@ -179,7 +179,6 @@
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2UU-bn-dVh">
                                 <rect key="frame" x="153.5" y="482" width="107" height="26"/>
-                                <rect key="frame" x="153.5" y="526" width="107" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New here?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPo-Qc-jSq">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="26"/>
