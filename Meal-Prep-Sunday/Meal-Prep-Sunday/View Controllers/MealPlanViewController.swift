@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MealPlanViewController: UIViewController {
+class MealPlanViewController: UIViewController, UITableViewDataSource {
+    
+    
     // MARK: - Properties
     
     // MARK: - Outlets
@@ -23,6 +25,16 @@ class MealPlanViewController: UIViewController {
     // MARK: - Actions
     @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
    
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
     }
     
     /*

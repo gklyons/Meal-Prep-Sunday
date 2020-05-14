@@ -11,11 +11,11 @@ import Foundation
 class MealPlan {
     
     var dateToEat: [Date]
-    var recipe: [Recipe]
+    var recipes: [Recipe]
     
-    init(date: [Date], recipe: [Recipe]) {
+    init(date: [Date], recipes: [Recipe]) {
         self.dateToEat = date
-        self.recipe = recipe
+        self.recipes = recipes
     }
 }// End of Class
 

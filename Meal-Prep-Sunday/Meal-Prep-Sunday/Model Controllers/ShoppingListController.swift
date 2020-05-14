@@ -32,7 +32,7 @@ class ShoppingListController {
     }
     
     func addMealPlanIngredients(mealPlan: MealPlan) {
-        for recipe in mealPlan.recipe {
+        for recipe in mealPlan.recipes {
             self.addRecipeIngredients(recipe: recipe)
         }
     }
