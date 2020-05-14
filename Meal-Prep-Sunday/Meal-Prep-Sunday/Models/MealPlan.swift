@@ -12,12 +12,10 @@ class MealPlan {
     
     var date: Date
     var recipe: [Recipe]
-    var isChecked: Bool
     
-    init(date: Date, recipe: [Recipe], isChecked: Bool = false) {
+    init(date: Date, recipe: [Recipe]) {
         self.date = date
         self.recipe = recipe
-        self.isChecked = isChecked
     }
 }// End of Class
 
@@ -25,4 +23,4 @@ extension MealPlan: Equatable {
     static func == (lhs: MealPlan, rhs: MealPlan) -> Bool {
        lhs.date == rhs.date
     }
-}
+}//End of Extension
