@@ -22,6 +22,10 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
+        
+//        if Auth.auth().currentUser != nil {
+//            self.performSegue(withIdentifier: "toHomeVC", sender: nil)
+//        }
     }
     
     private func validateFields() -> String? {

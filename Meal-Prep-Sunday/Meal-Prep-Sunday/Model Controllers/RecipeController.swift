@@ -73,9 +73,9 @@ class RecipeController {
     }
     
     func createUploadedRecipe(recipeName: String) {
-        guard let userUid = Auth.auth().currentUser?.uid else {return}
-        let image = UIImage()
-        let uploadedRecipe = UploadedRecipe(image: image, title: "title", manualIngredients: [], directions: "directions", users: [userUid])
+//        guard let userUid = Auth.auth().currentUser?.uid else {return}
+//        let image = String
+        let uploadedRecipe = UploadedRecipe(image: "image", title: "title", manualIngredients: [], directions: "directions")
         uploadedRecipes.append(uploadedRecipe)
         FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
     }

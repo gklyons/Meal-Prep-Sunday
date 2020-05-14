@@ -62,7 +62,7 @@ class FirebaseStuff {
     }
     
     func saveUploadedRecipe(uploadedRecipe: UploadedRecipe) {
-        let values: [String : Any] = ["image" : uploadedRecipe.image as Any, "title" : uploadedRecipe.title, "users" : [uploadedRecipe.users], "uid" : uploadedRecipe.uid, "directions" : uploadedRecipe.directions as Any, "manualIngredients" : uploadedRecipe.manualIngredients]
+        let values: [String : Any] = ["image" : uploadedRecipe.image as Any, "title" : uploadedRecipe.title, "uid" : uploadedRecipe.uid, "directions" : uploadedRecipe.directions as Any, "manualIngredients" : uploadedRecipe.manualIngredients]
                db.collection("Uploaded Recipes").document(uploadedRecipe.uid).setData(values)
     }
     

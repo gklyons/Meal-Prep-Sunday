@@ -22,27 +22,18 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var middlePhotoImageView: UIImageView!
     @IBOutlet weak var middlePhotoButton: UIButton!
     @IBOutlet weak var recipeNameTextField: UITextField!
-//    @IBOutlet weak var categoryButton: UIButton!
-//    @IBOutlet weak var categoryButtonTableView: UITableView!
     @IBOutlet weak var addNewIngredientButton: UIButton!
     @IBOutlet weak var ingredientListTableView: UITableView!
     @IBOutlet weak var directionsTextView: UITextView!
     @IBOutlet weak var saveRecipeButton: UIButton!
     
     var data = [CellData]()
-    
-//    var categories = ["Breakfast", "Lunch", "Dinner", "Dessert"]
-    
     weak var delegate: ManualUploadViewControllerDelegate?
-        
     var pickerOne: UIImagePickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        categoryButtonTableView.isHidden = true
-//        categoryButton.layer.borderWidth = 0.8
         directionsTextView.layer.borderWidth = 0.8
-//        categoryButton.layer.borderColor = UIColor.lightGray.cgColor
         directionsTextView.layer.borderColor = UIColor.lightGray.cgColor
         ingredientListTableView.delegate = self
         ingredientListTableView.dataSource = self
@@ -66,7 +57,11 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveRecipeButtonTapped(_ sender: Any) {
         // Grab all 4 items to create manual recipe
-        let uploadedRecipe = UploadedRecipe(image: middlePhotoImageView.image, title: "\(String(describing: recipeNameTextField.text))", manualIngredients: ingredients, directions: "\(String(describing: directionsTextView.text))", users: [])
+        let uploadedRecipe = UploadedRecipe(image: "\(String(describing: middlePhotoImageView))",
+                                            title: "\(String(describing: recipeNameTextField.text))",
+                                            manualIngredients: ingredients,
+                                            directions: directionsTextView.text)
+        
         // Save to firestore
         FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
         // Pop to uploaded recipes or "self.dismiss"
@@ -75,12 +70,9 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add a new ingredient", message: nil, preferredStyle: .alert)
-        
         alert.addTextField()
         alert.textFields![0].placeholder = "Enter an Ingredient"
-        
         let addButton = UIAlertAction(title: "Add", style: .default) { (_) in
-            
             guard let item = alert.textFields?[0].text,
                 item != ""
                 else {return}
@@ -88,7 +80,6 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
             self.ingredientListTableView.reloadData()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
         alert.addAction(cancelButton)
         alert.addAction(addButton)
         self.present(alert, animated: true)
@@ -96,14 +87,11 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
 }//End of Class
 
 extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == ingredientListTableView {
             return ingredients.count
         }
-//        } else if tableView == categoryButtonTableView {
-//            return categories.count
-         else {
+        else {
             return 0
         }
     }
@@ -114,32 +102,18 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
             let manualIngredient = ingredients[indexPath.row]
             cell.textLabel?.text = manualIngredient.item
             return cell
-        
-//        } else if tableView == categoryButtonTableView {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-//            cell.textLabel?.text = categories[indexPath.row]
-//            return cell
         } else {
             return UITableViewCell()
         }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        categoryButton.setTitle("  \(categories[indexPath.row])", for: .normal)
-//        animateCategory(toggle: false)
-//    }
-    
 }
 
 extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             middlePhotoButton.setTitle("", for: .normal)
             middlePhotoImageView.image = photo
             delegate?.ManualUploadViewControllerSelected(image: photo)
-            
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -236,13 +210,10 @@ extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigat
     
     func presentDeniedAlert() {
         let alert = UIAlertController(title: "Access Denied", message: "Check your permission or restriction settings and try again.", preferredStyle: .alert)
-        
         let dismissButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
-        
         alert.addAction(dismissButton)
         self.present(alert, animated: true)
     }//end of presentDeniedAlert func
-    
 }
 
 protocol ManualUploadViewControllerDelegate: class {
