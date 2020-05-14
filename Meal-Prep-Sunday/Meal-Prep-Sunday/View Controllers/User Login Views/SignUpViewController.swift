@@ -23,9 +23,9 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         errorLabel.isHidden = true
         
-//        if Auth.auth().currentUser != nil {
-//            self.performSegue(withIdentifier: "toHomeVC", sender: nil)
-//        }
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "toTabBarController", sender: nil)
+        }
     }
     
     private func validateFields() -> String? {
