@@ -420,7 +420,7 @@ Test </string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Skb-6O-lYk"/>
+        <segue reference="TBr-C0-4xs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.circle.fill" catalog="system" width="128" height="121"/>
@@ -430,7 +430,4 @@ Test </string>
             <color red="0.83921568627450982" green="0.49803921568627452" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="TBr-C0-4xs"/>
-    </inferredMetricsTieBreakers>
 </document>
