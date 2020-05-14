@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E70-cU-Btx">
-                                <rect key="frame" x="-1" y="88" width="416" height="40"/>
+                                <rect key="frame" x="-1" y="88" width="416" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="xqX-xo-tYs"/>
+                                    <constraint firstAttribute="height" constant="50" id="xqX-xo-tYs"/>
                                 </constraints>
                                 <state key="normal" title="    Edit Login Info">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,9 +29,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKZ-Np-cJA">
-                                <rect key="frame" x="-1" y="128" width="416" height="40"/>
+                                <rect key="frame" x="-1" y="138" width="416" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="VsZ-ia-4eX"/>
+                                    <constraint firstAttribute="height" constant="50" id="VsZ-ia-4eX"/>
                                 </constraints>
                                 <state key="normal" title="    Contact Us">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,9 +41,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6P-rp-Xpn">
-                                <rect key="frame" x="-1" y="168" width="416" height="40"/>
+                                <rect key="frame" x="-1" y="188" width="416" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="RpM-y6-rwt"/>
+                                    <constraint firstAttribute="height" constant="50" id="RpM-y6-rwt"/>
                                 </constraints>
                                 <state key="normal" title="    Share">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,9 +53,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KS-Xg-x5L">
-                                <rect key="frame" x="-1" y="208" width="416" height="40"/>
+                                <rect key="frame" x="-1" y="238" width="416" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="yXj-as-T4g"/>
+                                    <constraint firstAttribute="height" constant="50" id="yXj-as-T4g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="    Log Out">
@@ -66,23 +66,20 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vNV-qt-q8Y">
-                                <rect key="frame" x="374" y="100.5" width="20" height="15"/>
+                                <rect key="frame" x="374" y="100.5" width="20" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="0zc-LR-S3l"/>
-                                    <constraint firstAttribute="height" constant="20" id="H2P-QT-Wn6"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-9i-ALh">
-                                <rect key="frame" x="374" y="180.5" width="20" height="15"/>
+                                <rect key="frame" x="374" y="200.5" width="20" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="E2X-Hi-pwr"/>
-                                    <constraint firstAttribute="height" constant="20" id="lxM-1u-Lse"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="a6p-YX-jii">
-                                <rect key="frame" x="374" y="140.5" width="20" height="15"/>
+                                <rect key="frame" x="374" y="150.5" width="20" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="F7s-ZS-Yqz"/>
                                     <constraint firstAttribute="width" constant="20" id="HBw-YN-XOP"/>
                                 </constraints>
                             </imageView>
@@ -116,6 +113,12 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="DS9-qV-AKB"/>
                     <navigationItem key="navigationItem" id="xum-FQ-wTb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="contactUsButton" destination="BKZ-Np-cJA" id="mlU-yN-ndm"/>
+                        <outlet property="editLoginButton" destination="E70-cU-Btx" id="wBO-5a-NnO"/>
+                        <outlet property="logOutButton" destination="4KS-Xg-x5L" id="1f6-EG-Aye"/>
+                        <outlet property="shareButton" destination="H6P-rp-Xpn" id="0r4-1E-TeT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQq-xB-nuJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,11 +334,11 @@
             </objects>
             <point key="canvasLocation" x="663.768115942029" y="-271.20535714285711"/>
         </scene>
-        <!--MMMEEE!!!-->
+        <!--Profile-->
         <scene sceneID="405-q4-r0Q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LdH-hm-Mtr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MMMEEE!!!" image="person" catalog="system" selectedImage="person" id="5vI-9k-nwU"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="5vI-9k-nwU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gp4-TI-vD6">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

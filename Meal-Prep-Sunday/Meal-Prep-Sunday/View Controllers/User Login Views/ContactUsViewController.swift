@@ -17,6 +17,7 @@ class ContactUsViewController: UIViewController {
     
         override func viewDidLoad() {
         super.viewDidLoad()
+            messageTextView.layer.borderWidth = 1
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {

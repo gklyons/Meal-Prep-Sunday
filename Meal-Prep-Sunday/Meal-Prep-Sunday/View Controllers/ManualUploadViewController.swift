@@ -57,11 +57,12 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveRecipeButtonTapped(_ sender: Any) {
         // Grab all 4 items to create manual recipe
-        let uploadedRecipe = UploadedRecipe(image: "\(String(describing: middlePhotoImageView))",
-                                            title: "\(String(describing: recipeNameTextField.text))",
-                                            manualIngredients: ingredients,
-                                            directions: directionsTextView.text)
+        let image = "\(middlePhotoImageView!)"
+        guard let title = recipeNameTextField.text else {return}
+        let manualIngredients = ingredients
+        let directions = directionsTextView.text
         
+        let uploadedRecipe = UploadedRecipe(image: image, title: title, manualIngredients: manualIngredients, directions: directions)
         // Save to firestore
         FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
         // Pop to uploaded recipes or "self.dismiss"
