@@ -24,7 +24,7 @@ class ShoppingListController {
         shoppingList.append(ingredient)
     }
     // MARK: - TODO
-    // Need these functions to access recipes to populate list addRecipeIngredients will be called in a for loop in addMealPlanIngredients
+    // Call these functions in recipe and mealplan files 
     func addRecipeIngredients(recipe: Recipe) {
         for ingredient in recipe.ingredients {
             self.shoppingList.append(Ingredient(item: ingredient))
@@ -32,7 +32,7 @@ class ShoppingListController {
     }
     
     func addMealPlanIngredients(mealPlan: MealPlan) {
-        for recipe in mealPlan.recipe {
+        for recipe in mealPlan.recipes {
             self.addRecipeIngredients(recipe: recipe)
         }
     }

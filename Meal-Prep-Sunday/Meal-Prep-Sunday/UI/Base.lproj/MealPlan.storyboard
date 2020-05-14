@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Y7-k8-KRO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Y7-k8-KRO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Meal Plan-->
         <scene sceneID="bMA-hw-uJV">
             <objects>
-                <viewController id="GlR-P1-0l3" sceneMemberID="viewController">
+                <viewController id="GlR-P1-0l3" customClass="MealPlanViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cY8-yO-DRo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="startNewMealPlanButtonTapped:" destination="GlR-P1-0l3" eventType="touchUpInside" id="B4o-Pz-clR"/>
                                     <segue destination="esD-gQ-C8a" kind="show" id="bVl-l6-hm6"/>
                                 </connections>
                             </button>
@@ -41,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="178" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="eJN-Ku-qwA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastMealPlanCell" rowHeight="101" id="eJN-Ku-qwA" customClass="PastMealPlanTableViewCell" customModule="Meal_Prep_Sunday" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eJN-Ku-qwA" id="wyk-6X-GBo">
@@ -88,8 +89,18 @@
                                                 <constraint firstItem="qg9-kG-aSg" firstAttribute="top" secondItem="wyk-6X-GBo" secondAttribute="top" constant="21" id="zPz-Lr-8xp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cookTimeLabel" destination="spU-0d-raB" id="eo3-0N-mrD"/>
+                                            <outlet property="dateLabel" destination="qg9-kG-aSg" id="HUn-0L-otU"/>
+                                            <outlet property="recipeImage" destination="GRz-Dm-142" id="ILa-Rf-wLX"/>
+                                            <outlet property="recipeNameLabel" destination="o8n-YK-VIV" id="AUp-Z8-uCo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GlR-P1-0l3" id="pKk-LU-oZf"/>
+                                    <outlet property="delegate" destination="GlR-P1-0l3" id="f2P-vu-AMy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -112,15 +123,18 @@
                     <tabBarItem key="tabBarItem" title="Meal Plan" image="List Icon 1x" selectedImage="List Icon 1x" id="CZW-hY-9NY"/>
                     <navigationItem key="navigationItem" id="pVI-KH-YHd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="startNewMealPlanButton" destination="Upa-Kq-UYL" id="Jso-IJ-18z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXU-OJ-e6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1418.840579710145" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Meal Plan Date View Controller-->
         <scene sceneID="5lL-cP-H7k">
             <objects>
-                <viewController id="esD-gQ-C8a" sceneMemberID="viewController">
+                <viewController id="esD-gQ-C8a" customClass="SelectMealPlanDateViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXG-Fh-48B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +159,10 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJI-Yq-GwO">
-                                <rect key="frame" x="25" y="205" width="78" height="20.5"/>
+                                <rect key="frame" x="15" y="169" width="78" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="WhS-FV-tbD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -162,61 +179,67 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="selectRecipesButtonTapped:" destination="esD-gQ-C8a" eventType="touchUpInside" id="P4Y-xR-7Ki"/>
                                     <segue destination="MVV-dz-vtb" kind="show" id="gLQ-qA-RCV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-eb-oMF">
-                                <rect key="frame" x="25" y="240.5" width="364" height="30"/>
-                                <state key="normal" title="    Search"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-XS-J94">
-                                <rect key="frame" x="25" y="306" width="70" height="20.5"/>
+                                <rect key="frame" x="15" y="404.5" width="70" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Qcd-IX-cMA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-qL-OU1">
-                                <rect key="frame" x="25" y="341.5" width="364" height="30"/>
-                                <state key="normal" title="    Search Date"/>
-                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="p0x-Vh-w0P">
+                                <rect key="frame" x="20" y="435" width="374" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="QDR-yc-L4p"/>
+                                </constraints>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Zyg-wE-2Cb">
+                                <rect key="frame" x="20" y="199.5" width="374" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="rE0-wY-igB"/>
+                                </constraints>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="3gV-qL-OU1" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="25" id="1f1-Sa-3st"/>
+                            <constraint firstItem="W4K-vR-QFG" firstAttribute="trailing" secondItem="p0x-Vh-w0P" secondAttribute="trailing" constant="20" id="2cR-x9-wtz"/>
                             <constraint firstItem="W4K-vR-QFG" firstAttribute="bottom" secondItem="tkH-Ck-w03" secondAttribute="bottom" constant="37" id="4nY-u7-Q18"/>
-                            <constraint firstItem="W4K-vR-QFG" firstAttribute="trailing" secondItem="3gV-qL-OU1" secondAttribute="trailing" constant="25" id="55k-t5-2i2"/>
-                            <constraint firstItem="3gV-qL-OU1" firstAttribute="top" secondItem="Os7-XS-J94" secondAttribute="bottom" constant="15" id="6GN-VE-qUG"/>
-                            <constraint firstItem="Os7-XS-J94" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="25" id="7OK-Ou-uwQ"/>
-                            <constraint firstItem="aJI-Yq-GwO" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="25" id="AED-hF-LBT"/>
+                            <constraint firstItem="Os7-XS-J94" firstAttribute="top" secondItem="Zyg-wE-2Cb" secondAttribute="bottom" constant="30" id="8j6-ew-Z9f"/>
+                            <constraint firstItem="aJI-Yq-GwO" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="15" id="9QM-aH-mgu"/>
+                            <constraint firstItem="p0x-Vh-w0P" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="20" id="BYV-zC-Cic"/>
                             <constraint firstItem="47m-b4-xbl" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="25" id="D2t-x8-C3U"/>
-                            <constraint firstItem="jgk-eb-oMF" firstAttribute="top" secondItem="aJI-Yq-GwO" secondAttribute="bottom" constant="15" id="Od1-Xu-W5e"/>
+                            <constraint firstItem="Zyg-wE-2Cb" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="20" id="FGW-v8-ry7"/>
+                            <constraint firstItem="W4K-vR-QFG" firstAttribute="trailing" secondItem="Zyg-wE-2Cb" secondAttribute="trailing" constant="20" id="Jnv-Ha-1v3"/>
+                            <constraint firstItem="aJI-Yq-GwO" firstAttribute="top" secondItem="47m-b4-xbl" secondAttribute="bottom" constant="20" id="PjI-KR-nad"/>
                             <constraint firstItem="tkH-Ck-w03" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="30" id="Sq7-xK-L1s"/>
-                            <constraint firstItem="W4K-vR-QFG" firstAttribute="trailing" secondItem="jgk-eb-oMF" secondAttribute="trailing" constant="25" id="VxW-Ml-WeS"/>
-                            <constraint firstItem="Os7-XS-J94" firstAttribute="top" secondItem="jgk-eb-oMF" secondAttribute="bottom" constant="35.5" id="Y7x-eK-WMu"/>
-                            <constraint firstItem="aJI-Yq-GwO" firstAttribute="top" secondItem="47m-b4-xbl" secondAttribute="bottom" constant="56" id="gMr-f6-i2L"/>
-                            <constraint firstItem="jgk-eb-oMF" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="25" id="rAu-x0-YGL"/>
+                            <constraint firstItem="Os7-XS-J94" firstAttribute="leading" secondItem="W4K-vR-QFG" secondAttribute="leading" constant="15" id="Wxb-GO-dEn"/>
+                            <constraint firstItem="Zyg-wE-2Cb" firstAttribute="top" secondItem="aJI-Yq-GwO" secondAttribute="bottom" constant="10" id="f3q-8J-cVY"/>
+                            <constraint firstItem="p0x-Vh-w0P" firstAttribute="top" secondItem="Os7-XS-J94" secondAttribute="bottom" constant="10" id="sxY-IL-veg"/>
                             <constraint firstItem="W4K-vR-QFG" firstAttribute="trailing" secondItem="tkH-Ck-w03" secondAttribute="trailing" constant="30" id="utF-jg-QqW"/>
                             <constraint firstItem="47m-b4-xbl" firstAttribute="top" secondItem="W4K-vR-QFG" secondAttribute="top" constant="25" id="wec-tD-vHe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W4K-vR-QFG"/>
                     </view>
                     <navigationItem key="navigationItem" id="lSk-Nq-09P"/>
+                    <connections>
+                        <outlet property="endDatePicker" destination="p0x-Vh-w0P" id="G7D-pK-Li9"/>
+                        <outlet property="selectRecipesButton" destination="tkH-Ck-w03" id="cMD-JR-AU2"/>
+                        <outlet property="startDatePicker" destination="Zyg-wE-2Cb" id="PwR-6q-UKZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmj-sk-Imp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <containerView opaque="NO" contentMode="scaleToFill" id="xnX-bp-0on">
-                    <rect key="frame" x="0.0" y="0.0" width="413" height="128"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <connections>
-                        <segue destination="wMm-Vh-RGA" kind="embed" id="0ZR-bD-W0M"/>
-                    </connections>
-                </containerView>
             </objects>
             <point key="canvasLocation" x="2253.6231884057975" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Recipes View Controller-->
         <scene sceneID="rAl-T9-haP">
             <objects>
-                <viewController id="MVV-dz-vtb" sceneMemberID="viewController">
+                <viewController id="MVV-dz-vtb" customClass="SelectRecipesViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a0t-pY-ymI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +264,7 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="102" id="cgd-Zo-8oP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipesCell" rowHeight="102" id="cgd-Zo-8oP">
                                         <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cgd-Zo-8oP" id="kne-sn-M7A">
@@ -261,6 +284,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="Dcv-k4-DFz"/>
                                                         <constraint firstAttribute="width" constant="80" id="JHP-Da-wx5"/>
+                                                        <constraint firstAttribute="width" secondItem="ukQ-So-v4F" secondAttribute="height" multiplier="1:1" id="gya-le-GaL"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zs9-kr-a3K">
@@ -292,6 +316,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MVV-dz-vtb" id="iAk-Ce-JS6"/>
+                                    <outlet property="delegate" destination="MVV-dz-vtb" id="yRd-cH-8KS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -437,32 +465,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bb3-yh-NZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="538" y="173"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="dQz-Km-RXa">
-            <objects>
-                <viewController id="wMm-Vh-RGA" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oes-Jf-N43">
-                        <rect key="frame" x="0.0" y="0.0" width="413" height="128"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-Kx-AR6">
-                                <rect key="frame" x="0.0" y="0.0" width="413" height="128"/>
-                            </datePicker>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="QWh-Kx-AR6" secondAttribute="bottom" id="1LL-JP-jNP"/>
-                            <constraint firstAttribute="trailing" secondItem="QWh-Kx-AR6" secondAttribute="trailing" id="6fn-Tj-MFG"/>
-                            <constraint firstItem="QWh-Kx-AR6" firstAttribute="leading" secondItem="oes-Jf-N43" secondAttribute="leading" id="7iA-ac-61t"/>
-                            <constraint firstItem="QWh-Kx-AR6" firstAttribute="top" secondItem="oes-Jf-N43" secondAttribute="top" id="kIC-cz-2IK"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="1go-W9-Sjf"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="akq-1T-pom" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2254" y="617"/>
         </scene>
     </scenes>
     <resources>
