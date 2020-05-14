@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHh-fS-2DH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHh-fS-2DH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -226,14 +226,14 @@
         <scene sceneID="3QA-d4-Krm">
             <objects>
                 <viewController title="Recipe Page" id="p3E-5s-uiT" customClass="RecipeDetailViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bwz-sP-mSF">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Bwz-sP-mSF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-YH-56g">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-YH-56g">
                                 <rect key="frame" x="0.0" y="44" width="414" height="1107"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cud-gD-OHS">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cud-gD-OHS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1107"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.sun.rain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YED-gz-ay1">
@@ -275,51 +275,40 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-dP-dBQ">
                                                 <rect key="frame" x="30" y="492" width="354" height="416"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSz-1B-ENp">
-                                                        <rect key="frame" x="10" y="10" width="81.5" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sAj-1i-7Id">
-                                                        <rect key="frame" x="8" y="42" width="338" height="366"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SJp-q4-mDq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="416"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <string key="text">Kelsey
-Haz
-Garrett
-Coolest Group
-Meal Prep Sunday
-This
-Is A
-Test 
-List
-For 
-Ingredients Kelsey
-Haz
-Garrett
-Coolest Group
-Meal Prep Sunday
-This
-Is A
-Test </string>
-                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="oIH-RQ-ZSM" style="IBUITableViewCellStyleDefault" id="pmZ-vU-7kc">
+                                                                <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmZ-vU-7kc" id="9ah-tV-Eiv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Ingredient" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oIH-RQ-ZSM">
+                                                                            <rect key="frame" x="20" y="0.0" width="314" height="43.5"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="sAj-1i-7Id" secondAttribute="bottom" constant="8" id="7aV-WM-YPf"/>
                                                     <constraint firstAttribute="width" secondItem="Dxu-dP-dBQ" secondAttribute="height" multiplier="177:208" id="9En-Ow-62Q"/>
-                                                    <constraint firstAttribute="trailing" secondItem="sAj-1i-7Id" secondAttribute="trailing" constant="8" id="OdD-09-koQ"/>
-                                                    <constraint firstItem="sAj-1i-7Id" firstAttribute="top" secondItem="Dxu-dP-dBQ" secondAttribute="top" constant="42" id="SU2-eZ-jrP"/>
-                                                    <constraint firstItem="sAj-1i-7Id" firstAttribute="leading" secondItem="FSz-1B-ENp" secondAttribute="trailing" constant="-83.5" id="e2c-K3-rsV"/>
-                                                    <constraint firstItem="sAj-1i-7Id" firstAttribute="leading" secondItem="Dxu-dP-dBQ" secondAttribute="leading" constant="8" id="ekZ-Pe-Fa0"/>
-                                                    <constraint firstItem="FSz-1B-ENp" firstAttribute="top" secondItem="Dxu-dP-dBQ" secondAttribute="top" constant="10" id="iTn-Ux-4Rx"/>
-                                                    <constraint firstItem="FSz-1B-ENp" firstAttribute="leading" secondItem="Dxu-dP-dBQ" secondAttribute="leading" constant="10" id="jjq-xz-D9F"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SJp-q4-mDq" secondAttribute="trailing" id="BC2-fd-elQ"/>
+                                                    <constraint firstItem="SJp-q4-mDq" firstAttribute="leading" secondItem="Dxu-dP-dBQ" secondAttribute="leading" id="Pua-NT-Syb"/>
+                                                    <constraint firstItem="SJp-q4-mDq" firstAttribute="top" secondItem="Dxu-dP-dBQ" secondAttribute="top" id="noQ-LG-1hn"/>
+                                                    <constraint firstAttribute="bottom" secondItem="SJp-q4-mDq" secondAttribute="bottom" id="x7i-gS-hf3"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-oT-d6i">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-oT-d6i">
                                                 <rect key="frame" x="30" y="942" width="130" height="36"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <state key="normal" title="See Directions">
@@ -330,7 +319,7 @@ Test </string>
                                                     <action selector="seeDirectionsButtonTapped:" destination="p3E-5s-uiT" eventType="touchUpInside" id="apA-KH-u7R"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-ga-H6S">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-ga-H6S">
                                                 <rect key="frame" x="30" y="1034" width="354" height="35"/>
                                                 <color key="backgroundColor" name="pink"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -346,7 +335,6 @@ Test </string>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="A5w-67-xDD" secondAttribute="trailing" constant="70" id="0ij-YQ-0qw"/>
                                             <constraint firstAttribute="trailing" secondItem="YED-gz-ay1" secondAttribute="trailing" id="23J-0d-Gy4"/>
-                                            <constraint firstItem="ttm-oT-d6i" firstAttribute="top" secondItem="sAj-1i-7Id" secondAttribute="bottom" constant="42" id="4xP-6b-RPe"/>
                                             <constraint firstItem="YED-gz-ay1" firstAttribute="top" secondItem="Cud-gD-OHS" secondAttribute="top" id="6no-pI-Kc1"/>
                                             <constraint firstItem="Dxu-dP-dBQ" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="30" id="94h-HS-qlC"/>
                                             <constraint firstItem="ttm-oT-d6i" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="30" id="AA3-kZ-GfH"/>
@@ -391,7 +379,6 @@ Test </string>
                     <connections>
                         <outlet property="recipeCookTime" destination="bx8-iC-Rmv" id="v3k-pT-rGG"/>
                         <outlet property="recipeImage" destination="YED-gz-ay1" id="uay-Rv-X3Q"/>
-                        <outlet property="recipeIngredients" destination="sAj-1i-7Id" id="f9X-Zj-YMk"/>
                         <outlet property="recipeName" destination="PMb-pn-zwv" id="bCr-ky-dEy"/>
                     </connections>
                 </viewController>
@@ -423,11 +410,14 @@ Test </string>
         <segue reference="TBr-C0-4xs"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="book.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="cloud.sun.rain.fill" catalog="system" width="128" height="118"/>
-        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="book.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="cloud.sun.rain.fill" catalog="system" width="64" height="58"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <namedColor name="pink">
             <color red="0.83921568627450982" green="0.49803921568627452" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Skb-6O-lYk"/>
+    </inferredMetricsTieBreakers>
 </document>
