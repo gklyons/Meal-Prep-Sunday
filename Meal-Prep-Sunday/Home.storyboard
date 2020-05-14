@@ -406,6 +406,9 @@
             <point key="canvasLocation" x="534.78260869565224" y="-1226.1160714285713"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TBr-C0-4xs"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="book.circle.fill" catalog="system" width="64" height="60"/>
         <image name="cloud.sun.rain.fill" catalog="system" width="64" height="58"/>

@@ -10,17 +10,18 @@ import Foundation
 
 class MealPlan {
     
-    var date: Date
-    var recipe: [Recipe]
+    var dateToEat: [Date]
+    var recipes: [Recipe]
     
-    init(date: Date, recipe: [Recipe]) {
-        self.date = date
-        self.recipe = recipe
+    init(date: [Date], recipes: [Recipe]) {
+        self.dateToEat = date
+        self.recipes = recipes
     }
 }// End of Class
 
 extension MealPlan: Equatable {
     static func == (lhs: MealPlan, rhs: MealPlan) -> Bool {
-       lhs.date == rhs.date
+        return lhs === rhs
+        //lhs.date == rhs.date
     }
 }//End of Extension
