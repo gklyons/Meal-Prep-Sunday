@@ -1,30 +1,36 @@
 //
-//  MealPlanViewController.swift
+//  SelectMealPlanDateViewController.swift
 //  Meal-Prep-Sunday
 //
-//  Created by Jake Haslam on 5/13/20.
+//  Created by Jake Haslam on 5/14/20.
 //  Copyright © 2020 Turtle. All rights reserved.
 //
 
 import UIKit
 
-class MealPlanViewController: UIViewController {
+class SelectMealPlanDateViewController: UIViewController {
     // MARK: - Properties
     
     // MARK: - Outlets
-    @IBOutlet weak var startNewMealPlanButton: UIButton!
+    @IBOutlet weak var selectStartDateButton: UIButton!
+    @IBOutlet weak var selectEndDateButton: UIButton!
+    @IBOutlet weak var selectRecipesButton: UIButton!
     
-    // MARK: - LifeCycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
     // MARK: - Actions
-    @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
-   
+    @IBAction func selectStartDateButtonTapped(_ sender: Any) {
+    }
+    @IBAction func selectEndDateButtonTapped(_ sender: Any) {
+    }
+    @IBAction func selectRecipesButtonTapped(_ sender: Any) {
     }
     
+
     /*
     // MARK: - Navigation
 
@@ -34,4 +40,5 @@ class MealPlanViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-} // End of Class
+
+}

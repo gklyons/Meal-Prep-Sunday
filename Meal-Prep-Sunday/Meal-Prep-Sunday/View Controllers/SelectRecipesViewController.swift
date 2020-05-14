@@ -1,30 +1,21 @@
 //
-//  MealPlanViewController.swift
+//  SelectRecipesViewController.swift
 //  Meal-Prep-Sunday
 //
-//  Created by Jake Haslam on 5/13/20.
+//  Created by Jake Haslam on 5/14/20.
 //  Copyright © 2020 Turtle. All rights reserved.
 //
 
 import UIKit
 
-class MealPlanViewController: UIViewController {
-    // MARK: - Properties
-    
-    // MARK: - Outlets
-    @IBOutlet weak var startNewMealPlanButton: UIButton!
-    
-    // MARK: - LifeCycle
+class SelectRecipesViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    // MARK: - Actions
-    @IBAction func startNewMealPlanButtonTapped(_ sender: Any) {
-   
-    }
-    
+
     /*
     // MARK: - Navigation
 
@@ -34,4 +25,5 @@ class MealPlanViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-} // End of Class
+
+}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Y7-k8-KRO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Y7-k8-KRO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Meal Plan-->
         <scene sceneID="bMA-hw-uJV">
             <objects>
-                <viewController id="GlR-P1-0l3" sceneMemberID="viewController">
+                <viewController id="GlR-P1-0l3" customClass="MealPlanViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cY8-yO-DRo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +28,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="startNewMealPlanButtonTapped:" destination="GlR-P1-0l3" eventType="touchUpInside" id="B4o-Pz-clR"/>
                                     <segue destination="esD-gQ-C8a" kind="show" id="bVl-l6-hm6"/>
                                 </connections>
                             </button>
@@ -41,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="178" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="eJN-Ku-qwA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastMealPlanCell" rowHeight="101" id="eJN-Ku-qwA" customClass="PastMealPlanTableViewCell" customModule="Meal_Prep_Sunday" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eJN-Ku-qwA" id="wyk-6X-GBo">
@@ -88,8 +89,18 @@
                                                 <constraint firstItem="qg9-kG-aSg" firstAttribute="top" secondItem="wyk-6X-GBo" secondAttribute="top" constant="21" id="zPz-Lr-8xp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cookTimeLabel" destination="spU-0d-raB" id="eo3-0N-mrD"/>
+                                            <outlet property="dateLabel" destination="qg9-kG-aSg" id="HUn-0L-otU"/>
+                                            <outlet property="recipeImage" destination="GRz-Dm-142" id="ILa-Rf-wLX"/>
+                                            <outlet property="recipeNameLabel" destination="o8n-YK-VIV" id="AUp-Z8-uCo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GlR-P1-0l3" id="pKk-LU-oZf"/>
+                                    <outlet property="delegate" destination="GlR-P1-0l3" id="f2P-vu-AMy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -112,15 +123,18 @@
                     <tabBarItem key="tabBarItem" title="Meal Plan" image="List Icon 1x" selectedImage="List Icon 1x" id="CZW-hY-9NY"/>
                     <navigationItem key="navigationItem" id="pVI-KH-YHd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="startNewMealPlanButton" destination="Upa-Kq-UYL" id="Jso-IJ-18z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXU-OJ-e6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1418.840579710145" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Meal Plan Date View Controller-->
         <scene sceneID="5lL-cP-H7k">
             <objects>
-                <viewController id="esD-gQ-C8a" sceneMemberID="viewController">
+                <viewController id="esD-gQ-C8a" customClass="SelectMealPlanDateViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXG-Fh-48B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,12 +176,18 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="selectRecipesButtonTapped:" destination="esD-gQ-C8a" eventType="touchUpInside" id="P4Y-xR-7Ki"/>
                                     <segue destination="MVV-dz-vtb" kind="show" id="gLQ-qA-RCV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-eb-oMF">
                                 <rect key="frame" x="25" y="240.5" width="364" height="30"/>
-                                <state key="normal" title="    Search"/>
+                                <state key="normal" title="    Search">
+                                    <color key="titleColor" name="black"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectStartDateButtonTapped:" destination="esD-gQ-C8a" eventType="touchUpInside" id="LPY-Ye-1DO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-XS-J94">
                                 <rect key="frame" x="25" y="306" width="70" height="20.5"/>
@@ -177,7 +197,12 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-qL-OU1">
                                 <rect key="frame" x="25" y="341.5" width="364" height="30"/>
-                                <state key="normal" title="    Search Date"/>
+                                <state key="normal" title="    Search Date">
+                                    <color key="titleColor" name="black"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectEndDateButtonTapped:" destination="esD-gQ-C8a" eventType="touchUpInside" id="n0w-Pn-fAC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -201,6 +226,11 @@
                         <viewLayoutGuide key="safeArea" id="W4K-vR-QFG"/>
                     </view>
                     <navigationItem key="navigationItem" id="lSk-Nq-09P"/>
+                    <connections>
+                        <outlet property="selectEndDateButton" destination="3gV-qL-OU1" id="bMx-O9-ajG"/>
+                        <outlet property="selectRecipesButton" destination="tkH-Ck-w03" id="cMD-JR-AU2"/>
+                        <outlet property="selectStartDateButton" destination="jgk-eb-oMF" id="FKe-1J-slW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmj-sk-Imp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <containerView opaque="NO" contentMode="scaleToFill" id="xnX-bp-0on">
@@ -213,10 +243,10 @@
             </objects>
             <point key="canvasLocation" x="2253.6231884057975" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Recipes View Controller-->
         <scene sceneID="rAl-T9-haP">
             <objects>
-                <viewController id="MVV-dz-vtb" sceneMemberID="viewController">
+                <viewController id="MVV-dz-vtb" customClass="SelectRecipesViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a0t-pY-ymI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,6 +291,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="Dcv-k4-DFz"/>
                                                         <constraint firstAttribute="width" constant="80" id="JHP-Da-wx5"/>
+                                                        <constraint firstAttribute="width" secondItem="ukQ-So-v4F" secondAttribute="height" multiplier="1:1" id="gya-le-GaL"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zs9-kr-a3K">
@@ -292,6 +323,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MVV-dz-vtb" id="iAk-Ce-JS6"/>
+                                    <outlet property="delegate" destination="MVV-dz-vtb" id="yRd-cH-8KS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -471,6 +506,9 @@
         <image name="Juice 2x" width="624" height="636"/>
         <image name="List Icon 1x" width="20" height="20"/>
         <image name="Salad 1x" width="312" height="271"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="darkGreen">
             <color red="0.14509803921568629" green="0.30588235294117649" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
