@@ -10,7 +10,7 @@ import Foundation
 
 class ShoppingListController {
     
-    // Mark: - Properties
+    // MARK - Properties
     static let shared = ShoppingListController()
     var shoppingList: [Ingredient] = [] {
         didSet {
@@ -18,17 +18,23 @@ class ShoppingListController {
         }
     }
     
-    // Mark: - Crud Functions
+    // MARK: - Crud Functions
     func addIngrediantToShoppingList(with ingredient: String) {
         let ingredient = Ingredient(item: ingredient)
         shoppingList.append(ingredient)
     }
-    func addRecipeIngredients() {
-        
+    // MARK: - TODO
+    // Need these functions to access recipes to populate list addRecipeIngredients will be called in a for loop in addMealPlanIngredients
+    func addRecipeIngredients(recipe: Recipe) {
+        for ingredient in recipe.ingredients {
+            self.shoppingList.append(Ingredient(item: ingredient))
+        }
     }
     
-    func addMealPlanIngredients() {
-        
+    func addMealPlanIngredients(mealPlan: MealPlan) {
+        for recipe in mealPlan.recipe {
+            self.addRecipeIngredients(recipe: recipe)
+        }
     }
     
     func updateIngredient(ingredient: Ingredient, item: String) {
