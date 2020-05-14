@@ -12,10 +12,12 @@ class MealPlan {
     
     var date: Date
     var recipe: [Recipe]
+    var isChecked: Bool
     
-    init(date: Date, recipe: [Recipe]) {
+    init(date: Date, recipe: [Recipe], isChecked: Bool = false) {
         self.date = date
         self.recipe = recipe
+        self.isChecked = isChecked
     }
 }// End of Class
 

@@ -220,7 +220,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCv-x4-O7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2251" y="-704"/>
+            <point key="canvasLocation" x="2330" y="-782"/>
         </scene>
         <!--Recipe Page-->
         <scene sceneID="3QA-d4-Krm">
@@ -428,6 +428,6 @@ Test </string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Skb-6O-lYk"/>
+        <segue reference="TBr-C0-4xs"/>
     </inferredMetricsTieBreakers>
 </document>
