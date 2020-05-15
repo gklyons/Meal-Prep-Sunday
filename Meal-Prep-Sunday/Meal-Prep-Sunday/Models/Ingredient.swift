@@ -33,4 +33,16 @@ extension Ingredient {
     convenience init(recipeUid: String, item: String) {
         self.init(item: item, recipeRefrence: recipeUid)
     }
+    
+    convenience init?(dictionary: [String : Any]) {
+        guard let item = dictionary["item"] as? String,
+            let isChecked = dictionary["isChecked"] as? Bool,
+            let uid = dictionary["uid"] as? String
+            else { return nil }
+        let recipeRefrence = dictionary["recipeRefrence"] as? String
+        self.init(item: item, isChecked: isChecked, recipeRefrence: recipeRefrence, uid: uid)
+    }
+    
 }
+
+
