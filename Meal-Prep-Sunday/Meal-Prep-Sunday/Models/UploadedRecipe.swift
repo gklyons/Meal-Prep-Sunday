@@ -40,11 +40,13 @@ extension UploadedRecipe {
         self.init(image: nil, title: title, manualIngredients: ingredients, directions: directions)
     }
     
-    convenience init?(dictionary: [String : Any]) {
-        guard let title = dictionary["title"] as? String,
-            let uid = dictionary["uid"] as? String
-            else { return nil }
-        let directions = dictionary["directions"] as? String
-        self.init(image: nil, title: title, uid: uid, directions: directions)
-    }
+//    convenience init?(dictionary: [String : Any]) {
+//        
+//        guard let title = dictionary["title"] as? String,
+//            let uid = dictionary["uid"] as? String
+//                else { return nil }
+//            let directions = dictionary["directions"] as? String
+//        
+//        self.init(title: title, uid: uid, directions: directions)
+//    }
 }
