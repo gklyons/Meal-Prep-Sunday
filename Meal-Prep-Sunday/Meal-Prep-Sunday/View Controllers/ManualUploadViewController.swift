@@ -58,7 +58,7 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveRecipeButtonTapped(_ sender: Any) {
         // Grab all 4 items to create manual recipe
         let image = "\(middlePhotoImageView!)"
-        guard let title = recipeNameTextField.text else {return}
+        guard let title = recipeNameTextField.text else { return }
         let manualIngredients = ingredients
         let directions = directionsTextView.text
         
