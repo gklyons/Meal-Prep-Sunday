@@ -11,9 +11,14 @@ import Foundation
 class Ingredient: Codable, Equatable {
     var item: String
     var isChecked: Bool
-    init(item: String, isChecked: Bool = false) {
+    var recipeRefrence: String?
+    var uid: String
+    
+    init(item: String, isChecked: Bool = false, recipeRefrence: String? = nil, uid: String = UUID().uuidString) {
         self.item = item
         self.isChecked = isChecked
+        self.recipeRefrence = recipeRefrence
+        self.uid = uid
     }
 }
 
@@ -23,3 +28,9 @@ func ==(lhs: Ingredient, rhs: Ingredient) -> Bool {
     
 }
 
+extension Ingredient {
+    
+    convenience init(recipeUid: String, item: String) {
+        self.init(item: item, recipeRefrence: recipeUid)
+    }
+}
