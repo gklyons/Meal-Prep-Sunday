@@ -26,6 +26,17 @@ class UploadedRecipe {
         self.uid = uid
 //        self.user = user
     }
+}// End of Class
+
+extension UploadedRecipe {
+    
+    convenience init?(recipe: Recipe, ingredients: [Ingredient]) {
+        
+        //let image = recipe.image
+        let title = recipe.label
+        //let manualIngredients = recipe.ingredients
+        let directions = recipe.directions
+        
+        self.init(image: nil, title: title, manualIngredients: ingredients, directions: directions)
+    }
 }
-
-
