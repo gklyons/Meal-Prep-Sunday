@@ -72,12 +72,13 @@ class RecipeController {
         }.resume()
     }
     
-    func createUploadedRecipe(recipeName: String) {
-//        guard let userUid = Auth.auth().currentUser?.uid else {return}
-//        let image = String
-        let uploadedRecipe = UploadedRecipe(image: "image", title: "title", manualIngredients: [], directions: "directions")
-        uploadedRecipes.append(uploadedRecipe)
-        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
-    }
+//    func createUploadedRecipe(recipeName: String) {
+////        guard let userUid = Auth.auth().currentUser?.uid else {return}
+////        let image = String
+//        let uploadedRecipe = UploadedRecipe(image: "image", title: "title", manualIngredients: [], directions: "directions")
+//        uploadedRecipes.append(uploadedRecipe)
+//        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe, completion: uploadedRecipe)
+//    }
+    
     
 }//End of Class

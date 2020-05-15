@@ -57,17 +57,20 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveRecipeButtonTapped(_ sender: Any) {
         // Grab all 4 items to create manual recipe
-        let image = "\(middlePhotoImageView!)"
-        guard let title = recipeNameTextField.text else {return}
-        let manualIngredients = ingredients
-        let directions = directionsTextView.text
+        guard let title = recipeNameTextField.text,
+                let directions = directionsTextView.text,
+                let image = middlePhotoImageView.image else {return}
         
-        let uploadedRecipe = UploadedRecipe(image: image, title: title, manualIngredients: manualIngredients, directions: directions)
+//        let uploadedRecipe = UploadedRecipe(image: image, title: title, manualIngredients: ingredients, directions: directions, uid: <#T##String#>)
+        
         // Save to firestore
-        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
-        // Pop to uploaded recipes or "self.dismiss"
-        navigationController?.popViewController(animated: true)
+//        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: <#T##UploadedRecipe#>, completion: <#T##(Result<UploadedRecipe, RecipeError>) -> Void#>)
+//        // Pop to uploaded recipes or "self.dismiss"
+//        navigationController?.popViewController(animated: true)
     }
+    
+//    let uploadedRecipes = db.collection("Uploaded Recipes").whereField("recipe", isEqualTo: recipe.uid)
+
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add a new ingredient", message: nil, preferredStyle: .alert)

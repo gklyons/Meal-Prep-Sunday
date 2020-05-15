@@ -10,14 +10,14 @@ import UIKit
 
 class UploadedRecipe {
     
-    var image: String?
+    var image: UIImage?
     var title: String
     var manualIngredients: [Ingredient]
     var directions: String?
     var uid: String
 //    var user: String
     
-    init(image: String?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString) {
+    init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString) {
         
         self.image = image
         self.title = title
