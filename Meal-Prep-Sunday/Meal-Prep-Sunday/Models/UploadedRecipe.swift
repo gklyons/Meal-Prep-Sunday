@@ -41,8 +41,10 @@ extension UploadedRecipe {
     }
     
     convenience init?(dictionary: [String : Any]) {
-        guard let 
-        
-//        guard let uploadedRecipes = UploadedRecipe(image: (documents.data()["image"] as? UIImage?), title: (documents.data()["title"] as? String), manualIngredients: (documents.data()["ingredients"] as? [Ingredient]), directions: (documents.data()["directions"] as? String?), uid: (documents.data()["uid"] as? String)) else { continue }
+        guard let title = dictionary["title"] as? String,
+            let uid = dictionary["uid"] as? String
+            else { return nil }
+        let directions = dictionary["directions"] as? String
+        self.init(image: nil, title: title, uid: uid, directions: directions)
     }
 }

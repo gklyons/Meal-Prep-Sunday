@@ -6,8 +6,9 @@
 //  Copyright © 2020 Turtle. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Firebase
+import FirebaseStorage
 
 class FirebaseStuff {
     
@@ -97,7 +98,8 @@ class FirebaseStuff {
                 let dispatchGroup = DispatchGroup()
                 for documents in querySnapshots!.documents {
                     dispatchGroup.enter()
-//                    guard let uploadedRecipes = UploadedRecipe(image: (documents.data()["image"] as? UIImage?), title: (documents.data()["title"] as? String), manualIngredients: (documents.data()["ingredients"] as? [Ingredient]), directions: (documents.data()["directions"] as? String?), uid: (documents.data()["uid"] as? String)) else { continue }
+                    
+                    //  guard let uploadedRecipes = UploadedRecipe(image: (documents.data()["image"] as? UIImage?), title: (documents.data()["title"] as? String), manualIngredients: (documents.data()["ingredients"] as? [Ingredient]), directions: (documents.data()["directions"] as? String?), uid: (documents.data()["uid"] as? String)) else { continue }
                     
                     fetchIngredientsForRecipe(recipe: uploadedRecipes) { (ingredient) in
                         if let ingredient = ingredient {
@@ -114,7 +116,7 @@ class FirebaseStuff {
         }
     }
     
-        func fetchIngredientsForRecipe(recipe: UploadedRecipe, completion: @escaping ([Ingredient]?) -> Void) {
+        fileprivate func fetchIngredientsForRecipe(recipe: UploadedRecipe, completion: @escaping ([Ingredient]?) -> Void) {
             db.collection("ingredientsContainer").whereField("recipeRefrence", isEqualTo: recipe.uid).getDocuments { (querrySnapshots, error) in
                 if let error = error {
                     print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
@@ -130,7 +132,33 @@ class FirebaseStuff {
             }
         }
     
-    func fetchImage() {
-        
-    }
+    @objc fileprivate func uploadPhoto(image: UIImage) -> String? {
+           
+        guard let image = UIImage?, let data = image.jpegData(compressionQuality: 1.0) else {
+               print("error!")
+               return nil
+           }
+           var imageURL: String? = nil
+           let imageName = UUID().uuidString
+           let imageRef = Storage.storage().reference().child("images").child(imageName)
+           imageRef.putData(data, metadata: nil) { (metadata, error) in
+               if let error = error {
+                   print(error, error.localizedDescription)
+                   return
+               }
+               imageRef.downloadURL { (url, error) in
+                   if let error = error {
+                       print(error, error.localizedDescription)
+                       return
+                   }
+                   guard let url = url else {
+                       print("Error: Something went wrong")
+                       return
+                   }
+                   imageURL = url.absoluteString
+               }
+           }
+           return imageURL
+       }
+    
 }// End of Class
