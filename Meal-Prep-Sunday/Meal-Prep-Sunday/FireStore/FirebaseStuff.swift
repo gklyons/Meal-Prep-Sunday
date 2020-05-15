@@ -61,9 +61,57 @@ class FirebaseStuff {
         }
     }
     
-    func saveUploadedRecipe(uploadedRecipe: UploadedRecipe) {
-        let values: [String : Any] = ["image" : uploadedRecipe.image as Any, "title" : uploadedRecipe.title, "uid" : uploadedRecipe.uid, "directions" : uploadedRecipe.directions as Any, "manualIngredients" : uploadedRecipe.manualIngredients]
-               db.collection("Uploaded Recipes").document(uploadedRecipe.uid).setData(values)
+    func saveUploadedRecipe(uploadedRecipe: UploadedRecipe, completion: @escaping (Result<UploadedRecipe, RecipeError>) -> Void) {
+        guard let user = Auth.auth().currentUser?.uid else {return}
+        db.collection("Uploaded Recipes").whereField("users", arrayContains: user as Any).getDocuments { (querySnapshots, error) in
+            if let error = error {
+                print("Error, shit is hitting the fan")
+                completion(.failure(.thrown(error)))
+            } else {
+                for documents in querySnapshots!.documents {
+                    let uploadedRecipe = UploadedRecipe(image: documents.data()["image"] as! UIImage?, title: documents.data()["title"] as! String, manualIngredients: documents.data()["ingredients"] as! [Ingredient], directions: documents.data()["directions"] as! String, uid: "uid")
+                    
+                    RecipeController.shared.uploadedRecipes.append(uploadedRecipe)
+                }
+                completion(.success(uploadedRecipe))
+            }
+        }
     }
+    
+//    func saveUploadedRecipe(image: UIImage, title: String, manualIngredient: [Ingredient], directions: String, uid: String) {
+//        guard (Auth.auth().currentUser?.uid) != nil else {return}
+//
+//        var ref: DocumentReference? = nil
+//
+//        let data: [String: Any] = [
+//            "image" : "\(image)",
+//            "title" : "\(title)",
+//            "manualIngredient" : "\(manualIngredient)",
+//            "directions" : "\(directions)",
+//            "uid" : "\(uid)"
+//        ]
+//
+//        ref = db.collection("Uploaded Recipes").addDocument(data: data, completion: { (error) in
+//            if error != nil {
+//                print("Error doin' stuff")
+//            } else {
+//                print("You win, it worked: \(ref!.documentID)")
+//            }
+//        })
+//    }
+    
+//    func saveUploadedRecipe(uploadedRecipe: UploadedRecipe, completion: @escaping (Result<UploadedRecipe, RecipeError>) -> Void) {
+//        guard let user = Auth.auth().currentUser?.uid else { return }
+//        let data: [String : Any] = [
+//            "title" : "\()"
+//        ]
+    
+//        db.collection("Uploaded Recipes").whereField("Recipe", arrayContains: uid )
+//    }
+    
+//    func saveUploadedRecipe(uploadedRecipe: UploadedRecipe) {
+//        let values: [String : Any] = ["image" : uploadedRecipe.image as Any, "title" : uploadedRecipe.title, "uid" : uploadedRecipe.uid, "directions" : uploadedRecipe.directions as Any, "manualIngredients" : uploadedRecipe.manualIngredients]
+//               db.collection("Uploaded Recipes").document(uploadedRecipe.uid).setData(values)
+//    }
     
 }//End of Class
