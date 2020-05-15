@@ -78,7 +78,7 @@ class FirebaseStuff {
             } else {
                 for documents in querySnapshots!.documents {
                     //TODO: - change to uploaded recipe and refactor
-                    let recipes = Recipe(label: (documents.data()["label"] as! String), image: (documents.data()["image"] as! String?), directions: (documents.data()["directions"] as! String), ingredients: (documents.data()["ingredients"] as! [String]), yield: (documents.data()["yield"] as! Int), totalTime: (documents.data()["totalTime"] as! Int))
+                    guard let recipes = Recipe(label: ((documents.data()["label"] as? String)), image: (documents.data()["image"] as? String?), directions: (documents.data()["directions"] as? String), ingredients: (documents.data()["ingredients"] as? [String]), yield: (documents.data()["yield"] as? Int), totalTime: (documents.data()["totalTime"] as? Int)) else { return }
                     
                     RecipeController.shared.recipes.append(recipes)
                 }
@@ -94,17 +94,43 @@ class FirebaseStuff {
                 print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
                 completion(false)
             } else {
+                let dispatchGroup = DispatchGroup()
                 for documents in querySnapshots!.documents {
-                    let uploadedRecipes = UploadedRecipe(image: (documents.data()["image"] as! UIImage?), title: (documents.data()["title"] as! String), manualIngredients: (documents.data()["ingredients"] as! [Ingredient]), directions: (documents.data()["directions"] as! String?), uid: (documents.data()["uid"] as! String))
+                    dispatchGroup.enter()
+//                    guard let uploadedRecipes = UploadedRecipe(image: (documents.data()["image"] as? UIImage?), title: (documents.data()["title"] as? String), manualIngredients: (documents.data()["ingredients"] as? [Ingredient]), directions: (documents.data()["directions"] as? String?), uid: (documents.data()["uid"] as? String)) else { continue }
                     
+                    fetchIngredientsForRecipe(recipe: uploadedRecipes) { (ingredient) in
+                        if let ingredient = ingredient {
+                            uploadedRecipes.manualIngredients = ingredient
+                            dispatchGroup.leave()
+                        }
+                    }
                     RecipeController.shared.uploadedRecipes.append(uploadedRecipes)
                 }
-                completion(true)
+                dispatchGroup.notify(queue: .main) {
+                    completion(true)
+                }
             }
         }
-        
-        func fetchIngredientsForRecipe(recipe: Recipe, completion: @escaping ([Ingredient]?) -> Void) {
-            //wherefield recipeRef = recipe.uid
+    }
+    
+        func fetchIngredientsForRecipe(recipe: UploadedRecipe, completion: @escaping ([Ingredient]?) -> Void) {
+            db.collection("ingredientsContainer").whereField("recipeRefrence", isEqualTo: recipe.uid).getDocuments { (querrySnapshots, error) in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                    completion(nil)
+                } else {
+                    var ingredientArray: [Ingredient] = []
+                    for ingredients in querrySnapshots!.documents {
+                        guard let ingredient = Ingredient(dictionary: ingredients.data()) else { continue }
+                        ingredientArray.append(ingredient)
+                    }
+                    completion(ingredientArray)
+                }
+            }
         }
+    
+    func fetchImage() {
+        
     }
 }// End of Class
