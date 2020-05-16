@@ -15,6 +15,8 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeCookTime: UILabel!
     @IBOutlet weak var recipeIngredients: UITextView!
     
+    var recipe: Recipe?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -60,9 +60,7 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
         guard let title = recipeNameTextField.text,
                 let directions = directionsTextView.text,
                 let image = middlePhotoImageView.image else {return}
-        
         let uploadedRecipe = UploadedRecipe(image: image, title: title, manualIngredients: ingredients, directions: directions)
-        
         // Save to firestore
         FirebaseStuff.shared.saveUploadedRecipes(uploadedRecipes: uploadedRecipe)
         // Pop to uploaded recipes or "self.dismiss"

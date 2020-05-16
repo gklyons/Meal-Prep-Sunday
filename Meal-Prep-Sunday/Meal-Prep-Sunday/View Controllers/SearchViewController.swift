@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-
+    
     @IBOutlet weak var recipeSearchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
     
@@ -45,6 +45,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let recipe = recipes[indexPath.row]
         cell.recipe = recipe
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = recipes[indexPath.row]
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(identifier: "RecipeDetailViewController") as? RecipeDetailViewController {
+            viewController.recipe = selectedRecipe
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
