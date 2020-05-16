@@ -18,7 +18,10 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var savedRecipeTableHeight: NSLayoutConstraint!
     @IBOutlet weak var uploadRecipeTableHeight: NSLayoutConstraint!
     
+    static let shared = RecipeBookViewController()
+    
     var recipeList = ["Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl","Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl", "Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl","Chicken Vesuvio", "Peanut Butter and Jelly", "Cocoa Pebbles", "Rice Bowl"]
+    
     var uploadList: [UploadedRecipe] = []
 
     override func viewDidLoad() {

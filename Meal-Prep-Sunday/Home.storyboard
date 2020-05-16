@@ -225,15 +225,15 @@
         <!--Recipe Page-->
         <scene sceneID="3QA-d4-Krm">
             <objects>
-                <viewController title="Recipe Page" id="p3E-5s-uiT" customClass="RecipeDetailViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Bwz-sP-mSF">
+                <viewController storyboardIdentifier="RecipeDetailViewController" title="Recipe Page" id="p3E-5s-uiT" customClass="RecipeDetailViewController" customModule="Meal_Prep_Sunday" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bwz-sP-mSF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-YH-56g">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-YH-56g">
                                 <rect key="frame" x="0.0" y="44" width="414" height="1107"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cud-gD-OHS">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cud-gD-OHS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1107"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.sun.rain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YED-gz-ay1">
@@ -308,7 +308,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="SJp-q4-mDq" secondAttribute="bottom" id="x7i-gS-hf3"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-oT-d6i">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-oT-d6i">
                                                 <rect key="frame" x="30" y="942" width="130" height="36"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <state key="normal" title="See Directions">
@@ -319,7 +319,7 @@
                                                     <action selector="seeDirectionsButtonTapped:" destination="p3E-5s-uiT" eventType="touchUpInside" id="apA-KH-u7R"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-ga-H6S">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-ga-H6S">
                                                 <rect key="frame" x="30" y="1034" width="354" height="35"/>
                                                 <color key="backgroundColor" name="pink"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -346,7 +346,7 @@
                                             <constraint firstAttribute="trailing" secondItem="RWk-ga-H6S" secondAttribute="trailing" constant="30" id="aKg-sK-keo"/>
                                             <constraint firstItem="Dxu-dP-dBQ" firstAttribute="top" secondItem="A5w-67-xDD" secondAttribute="bottom" constant="25" id="bIo-uS-pUL"/>
                                             <constraint firstItem="RWk-ga-H6S" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="30" id="efR-3Q-8rH"/>
-                                            <constraint firstItem="RWk-ga-H6S" firstAttribute="top" secondItem="ttm-oT-d6i" secondAttribute="bottom" constant="56" id="jvH-YK-fdl"/>
+                                            <constraint firstItem="ttm-oT-d6i" firstAttribute="top" secondItem="Dxu-dP-dBQ" secondAttribute="bottom" constant="34" id="zh8-8L-H5h"/>
                                         </constraints>
                                     </view>
                                 </subviews>
