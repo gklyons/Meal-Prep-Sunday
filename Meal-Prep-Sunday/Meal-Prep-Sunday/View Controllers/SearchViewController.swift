@@ -10,7 +10,6 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    
     @IBOutlet weak var recipeSearchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
     

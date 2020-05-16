@@ -346,7 +346,7 @@
                                             <constraint firstAttribute="trailing" secondItem="RWk-ga-H6S" secondAttribute="trailing" constant="30" id="aKg-sK-keo"/>
                                             <constraint firstItem="Dxu-dP-dBQ" firstAttribute="top" secondItem="A5w-67-xDD" secondAttribute="bottom" constant="25" id="bIo-uS-pUL"/>
                                             <constraint firstItem="RWk-ga-H6S" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="30" id="efR-3Q-8rH"/>
-                                            <constraint firstItem="RWk-ga-H6S" firstAttribute="top" secondItem="ttm-oT-d6i" secondAttribute="bottom" constant="56" id="jvH-YK-fdl"/>
+                                            <constraint firstItem="ttm-oT-d6i" firstAttribute="top" secondItem="Dxu-dP-dBQ" secondAttribute="bottom" constant="34" id="zh8-8L-H5h"/>
                                         </constraints>
                                     </view>
                                 </subviews>
