@@ -15,9 +15,6 @@ class RecipeController {
     var recipes: [Recipe] = [Recipe(label: "Chicken Nuggies", image: nil, directions: "Stuff", ingredients: [], yield: 0, totalTime: 20)]
     var uploadedRecipes: [UploadedRecipe] = [UploadedRecipe(image: nil, title: "Pizza", manualIngredients: [], directions: "Pizza Stuff")]
     
-//    private init() {
-//    }
-    
     let baseURL = URL(string: "https://api.edamam.com/search")
     let appIDName = "app_id"
     let appIDValue = "588a82d8"
@@ -73,7 +70,7 @@ class RecipeController {
     }
     
 //    func createUploadedRecipe(recipeName: String) {
-////        guard let userUid = Auth.auth().currentUser?.uid else {return}
+////        guard let userUid = Auth.auth().currentUser?.uid else { return }
 ////        let image = String
 //        let uploadedRecipe = UploadedRecipe(image: "image", title: "title", manualIngredients: [], directions: "directions")
 //        uploadedRecipes.append(uploadedRecipe)
@@ -81,4 +78,4 @@ class RecipeController {
 //    }
     
     
-}//End of Class
+}// End of Class
