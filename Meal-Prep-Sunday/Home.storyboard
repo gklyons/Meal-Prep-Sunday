@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHh-fS-2DH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHh-fS-2DH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -279,7 +279,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="416"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="oIH-RQ-ZSM" style="IBUITableViewCellStyleDefault" id="pmZ-vU-7kc">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientListTV" textLabel="oIH-RQ-ZSM" style="IBUITableViewCellStyleDefault" id="pmZ-vU-7kc">
                                                                 <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmZ-vU-7kc" id="9ah-tV-Eiv">
@@ -322,6 +322,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-ga-H6S">
                                                 <rect key="frame" x="30" y="1034" width="354" height="35"/>
                                                 <color key="backgroundColor" name="pink"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="QKH-XW-F9c"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <state key="normal" title="Add to Recipe Book">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -335,11 +338,13 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="A5w-67-xDD" secondAttribute="trailing" constant="70" id="0ij-YQ-0qw"/>
                                             <constraint firstAttribute="trailing" secondItem="YED-gz-ay1" secondAttribute="trailing" id="23J-0d-Gy4"/>
+                                            <constraint firstItem="RWk-ga-H6S" firstAttribute="top" secondItem="ttm-oT-d6i" secondAttribute="bottom" constant="56" id="6CV-bI-fuk"/>
                                             <constraint firstItem="YED-gz-ay1" firstAttribute="top" secondItem="Cud-gD-OHS" secondAttribute="top" id="6no-pI-Kc1"/>
                                             <constraint firstItem="Dxu-dP-dBQ" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="30" id="94h-HS-qlC"/>
                                             <constraint firstItem="ttm-oT-d6i" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="30" id="AA3-kZ-GfH"/>
                                             <constraint firstAttribute="trailing" secondItem="Dxu-dP-dBQ" secondAttribute="trailing" constant="30" id="DIj-oL-3nw"/>
                                             <constraint firstAttribute="bottom" secondItem="RWk-ga-H6S" secondAttribute="bottom" constant="38" id="FTd-3d-mWf"/>
+                                            <constraint firstAttribute="height" constant="1107" id="Geb-JN-gwr"/>
                                             <constraint firstItem="A5w-67-xDD" firstAttribute="top" secondItem="YED-gz-ay1" secondAttribute="bottom" constant="-52" id="Irf-XI-tmZ"/>
                                             <constraint firstItem="A5w-67-xDD" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" constant="70" id="OhL-6A-3bb"/>
                                             <constraint firstItem="YED-gz-ay1" firstAttribute="leading" secondItem="Cud-gD-OHS" secondAttribute="leading" id="P20-3C-jPG"/>
@@ -379,6 +384,7 @@
                     <connections>
                         <outlet property="recipeCookTime" destination="bx8-iC-Rmv" id="v3k-pT-rGG"/>
                         <outlet property="recipeImage" destination="YED-gz-ay1" id="uay-Rv-X3Q"/>
+                        <outlet property="recipeIngredientsListTV" destination="SJp-q4-mDq" id="Gmv-FT-hNP"/>
                         <outlet property="recipeName" destination="PMb-pn-zwv" id="bCr-ky-dEy"/>
                     </connections>
                 </viewController>
@@ -406,15 +412,15 @@
             <point key="canvasLocation" x="534.78260869565224" y="-1226.1160714285713"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="TBr-C0-4xs"/>
-    </inferredMetricsTieBreakers>
     <resources>
-        <image name="book.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="cloud.sun.rain.fill" catalog="system" width="128" height="118"/>
-        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="book.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="cloud.sun.rain.fill" catalog="system" width="64" height="58"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <namedColor name="pink">
             <color red="0.83921568627450982" green="0.49803921568627452" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TBr-C0-4xs"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,26 +10,35 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController {
     
+    var recipe: Recipe?
+//    var ingredients: [Ingredient] = []
+    
+    @IBOutlet weak var recipeIngredientsListTV: UITableView!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeCookTime: UILabel!
-    @IBOutlet weak var recipeIngredients: UITextView!
-    
-    var recipe: Recipe? {
-        didSet {
-            loadViewIfNeeded()
-            updateViews()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recipeIngredientsListTV.delegate = self
+        recipeIngredientsListTV.dataSource = self
+        guard let recipe = recipe else { return }
+        fetchImageAndUpdateViews(recipe: recipe)
     }
     
-    func updateViews() {
-        guard let recipe = recipe else {return}
-        recipeName.text = recipe.label
-        recipeImage.image = UIImage(named: "\(String(describing: recipe.image))")
+    func fetchImageAndUpdateViews(recipe: Recipe) {
+        RecipeController.shared.fetchImage(for: recipe) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self.recipeImage.image = image
+                    self.recipeName.text = recipe.label
+                    self.recipeCookTime.text = "Cook Time: \(recipe.totalTime)"
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
     }
     
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
@@ -37,16 +46,25 @@ class RecipeDetailViewController: UIViewController {
     
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
     }
+}//End of Class
+
+extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == recipeIngredientsListTV {
+            guard let recipe = recipe else { return 0}
+            return recipe.ingredients.count
+        } else {
+            return 0
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientListTV", for: indexPath)
+        let ingredient = recipe!.ingredients[indexPath.row]
+        cell.textLabel?.text = ingredient
+        return cell
+    }
 }
+
+
