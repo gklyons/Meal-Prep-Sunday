@@ -42,19 +42,10 @@ class RecipeDetailViewController: UIViewController {
     }
     
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
-        RecipeController.shared.fetchDirections(for: recipe!) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let directions):
-                    if let url = URL(string: "\(directions)") {
-                        UIApplication.shared.canOpenURL(url)
-                        
-                        UIApplication.shared.open(url, options: [:], completionHandler:nil)
-                    }
-                case .failure(let error):
-                    print(error, error.localizedDescription)
-                }
-            }
+        guard let recipe = recipe else {return}
+        if let url = URL(string: recipe.directions) {
+            UIApplication.shared.canOpenURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     

@@ -72,25 +72,7 @@ class RecipeController {
         }.resume()
     }
     
-    func fetchDirections(for recipe: Recipe, completion: @escaping (Result<URL, RecipeError>) -> Void) {
-        guard let recipeDirections = URL(string: recipe.directions) else {
-            return completion(.failure(.noData)) }
-        print("The directions are missing! I'm scared I can't find them!!")
-        
-        URLSession.shared.dataTask(with: recipeDirections) { (data, response, error) in
-            if let error = error {
-                completion(.failure(.thrown(error)))
-            }
-            guard let data = data else {
-                return completion(.failure(.noData))
-            }
-            guard let directions = URL(dataRepresentation: data, relativeTo: self.baseURL) else {
-                return completion(.failure(.noDirections))
-            }
-            completion(.success(directions))
-    }.resume()
-}
-
+    
 //    func createUploadedRecipe(recipeName: String) {
 ////        guard let userUid = Auth.auth().currentUser?.uid else {return}
 ////        let image = String
