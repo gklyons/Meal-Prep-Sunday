@@ -14,6 +14,7 @@ enum RecipeError: LocalizedError {
     case thrown(Error)
     case noData
     case unableToDecode
+    case noDirections
     
     // What the user sees
     var errorDescription: String? {
@@ -26,6 +27,8 @@ enum RecipeError: LocalizedError {
             return "Server responded with no data."
         case .unableToDecode:
             return "Server responded with bad data"
+        case .noDirections:
+            return "Oops! I can't seem to find directions for this recipe."
         }
     }
 }

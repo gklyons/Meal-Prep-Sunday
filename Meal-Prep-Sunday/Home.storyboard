@@ -247,27 +247,32 @@
                                                 <rect key="frame" x="70" y="362" width="274" height="105"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HEB-lv-pfP">
-                                                        <rect key="frame" x="15" y="25" width="116" height="52"/>
+                                                        <rect key="frame" x="15" y="25" width="244" height="52"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMb-pn-zwv">
-                                                                <rect key="frame" x="0.0" y="0.0" width="116" height="24"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMb-pn-zwv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="244" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bx8-iC-Rmv">
-                                                                <rect key="frame" x="0.0" y="34" width="116" height="18"/>
+                                                                <rect key="frame" x="0.0" y="34" width="244" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="PMb-pn-zwv" firstAttribute="width" secondItem="HEB-lv-pfP" secondAttribute="width" id="zO2-6O-euK"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="HEB-lv-pfP" secondAttribute="trailing" constant="15" id="7YU-QJ-coz"/>
                                                     <constraint firstItem="HEB-lv-pfP" firstAttribute="leading" secondItem="A5w-67-xDD" secondAttribute="leading" constant="15" id="FeR-I7-XEj"/>
+                                                    <constraint firstItem="HEB-lv-pfP" firstAttribute="leading" secondItem="A5w-67-xDD" secondAttribute="leading" constant="15" id="VGF-tJ-Muw"/>
                                                     <constraint firstItem="HEB-lv-pfP" firstAttribute="top" secondItem="A5w-67-xDD" secondAttribute="top" constant="25" id="Xtb-q5-CXq"/>
                                                     <constraint firstAttribute="width" secondItem="A5w-67-xDD" secondAttribute="height" multiplier="274:105" id="ajD-sg-7tD"/>
                                                 </constraints>
@@ -286,7 +291,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Ingredient" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oIH-RQ-ZSM">
+                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Ingredient" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oIH-RQ-ZSM">
                                                                             <rect key="frame" x="20" y="0.0" width="314" height="43.5"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

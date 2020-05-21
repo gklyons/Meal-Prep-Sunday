@@ -15,8 +15,8 @@ class RecipeController {
     var recipes: [Recipe] = [Recipe(label: "Chicken Nuggies", image: nil, directions: "Stuff", ingredients: [], yield: 0, totalTime: 20)]
     var uploadedRecipes: [UploadedRecipe] = [UploadedRecipe(image: nil, title: "Pizza", manualIngredients: [], directions: "Pizza Stuff")]
     
-//    private init() {
-//    }
+    //    private init() {
+    //    }
     
     let baseURL = URL(string: "https://api.edamam.com/search")
     let appIDName = "app_id"
@@ -56,7 +56,7 @@ class RecipeController {
     func fetchImage(for recipe: Recipe, completion: @escaping (Result<UIImage, RecipeError>) -> Void) {
         guard let recipeImage = URL(string: recipe.image!) else {
             return completion(.failure(.noData)) }
-            print("The image is good at hide & seek! I can't find it!!")
+        print("The image is good at hide & seek! I can't find it!!")
         
         URLSession.shared.dataTask(with: recipeImage) { (data, response, error) in
             if let error = error {
@@ -72,6 +72,25 @@ class RecipeController {
         }.resume()
     }
     
+    func fetchDirections(for recipe: Recipe, completion: @escaping (Result<URL, RecipeError>) -> Void) {
+        guard let recipeDirections = URL(string: recipe.directions) else {
+            return completion(.failure(.noData)) }
+        print("The directions are missing! I'm scared I can't find them!!")
+        
+        URLSession.shared.dataTask(with: recipeDirections) { (data, response, error) in
+            if let error = error {
+                completion(.failure(.thrown(error)))
+            }
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            guard let directions = URL(dataRepresentation: data, relativeTo: self.baseURL) else {
+                return completion(.failure(.noDirections))
+            }
+            completion(.success(directions))
+    }.resume()
+}
+
 //    func createUploadedRecipe(recipeName: String) {
 ////        guard let userUid = Auth.auth().currentUser?.uid else {return}
 ////        let image = String
@@ -79,6 +98,6 @@ class RecipeController {
 //        uploadedRecipes.append(uploadedRecipe)
 //        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe, completion: uploadedRecipe)
 //    }
-    
-    
+
+
 }//End of Class
