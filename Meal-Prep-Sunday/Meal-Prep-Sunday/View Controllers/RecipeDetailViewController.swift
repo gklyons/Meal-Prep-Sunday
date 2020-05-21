@@ -11,7 +11,7 @@ import UIKit
 class RecipeDetailViewController: UIViewController {
     
     var recipe: Recipe?
-//    var ingredients: [Ingredient] = []
+    //    var ingredients: [Ingredient] = []
     
     @IBOutlet weak var recipeIngredientsListTV: UITableView!
     @IBOutlet weak var recipeImage: UIImageView!
@@ -42,6 +42,20 @@ class RecipeDetailViewController: UIViewController {
     }
     
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
+        RecipeController.shared.fetchDirections(for: recipe!) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let directions):
+                    if let url = URL(string: "\(directions)") {
+                        UIApplication.shared.canOpenURL(url)
+                        
+                        UIApplication.shared.open(url, options: [:], completionHandler:nil)
+                    }
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
     }
     
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
