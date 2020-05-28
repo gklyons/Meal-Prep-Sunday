@@ -17,7 +17,6 @@ struct TopLevelObject: Codable {
         case hits
     }
 }
-
 struct RecipeContainer: Codable {
     let recipe: Recipe
 }
@@ -29,6 +28,8 @@ struct Recipe: Codable {
     let ingredients: [String]
     let yield: Int
     let totalTime: Int
+    var users: [String]?
+    var uid: String?
     
     enum CodingKeys: String, CodingKey {
         case label
@@ -37,6 +38,10 @@ struct Recipe: Codable {
         case ingredients = "ingredientLines"
         case yield
         case totalTime
-        
+        case users
+        case uid
     }
 }
+
+
+

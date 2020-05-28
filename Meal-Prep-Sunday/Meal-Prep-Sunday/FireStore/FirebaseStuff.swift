@@ -48,24 +48,46 @@ class FirebaseStuff {
         }
     }
     
-    //    func pullRecipes(completion: @escaping (Bool) -> Void) {
-    //        guard let user = Auth.auth().currentUser?.uid else { return }
-    //        db.collection("recipesContainer").whereField("recipes", arrayContains: user as Any).getDocuments { (querySnapshots, error) in
-    //            if let error = error {
-    //                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
-    //                completion(false)
-    //            } else {
-    //                for documents in querySnapshots!.documents {
-    //                    //TODO: - change to uploaded recipe and refactor
-    //                    guard let recipes = Recipe(label: ((documents.data()["label"] as? String)), image: (documents.data()["image"] as? String?), directions: (documents.data()["directions"] as? String), ingredients: (documents.data()["ingredients"] as? [String]), yield: (documents.data()["yield"] as? Int), totalTime: (documents.data()["totalTime"] as? Int)) else { return }
-    //
-    //                    RecipeController.shared.recipes.append(recipes)
-    //                }
-    //                completion(true)
-    //            }
-    //        }
-    //    }
+        func pullSavedRecipes(completion: @escaping (Bool) -> Void) {
+            guard let user = Auth.auth().currentUser?.uid else { return }
+            db.collection("recipesContainer").whereField("users", arrayContains: user as Any).getDocuments { (querySnapshots, error) in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
+                    completion(false)
+                } else {
+                    let group = DispatchGroup()
+                    for documents in querySnapshots!.documents {
+                        group.enter()
+                        //TODO: - change to uploaded recipe and refactor
+                        let recipe = Recipe(label: ((documents.data()["label"] as! String)), image: (documents.data()["image"] as! String), directions: (documents.data()["directions"] as! String), ingredients: (documents.data()["ingredients"] as! [String]), yield: (documents.data()["yield"] as! Int), totalTime: (documents.data()["totalTime"] as! Int), users: (documents.data()["users"] as! [String]), uid: (documents.data()["uid"] as! String))
+                        group.leave()
+                        RecipeController.shared.savedRecipes.append(recipe)
+                    }
+                    group.notify(queue: .main) {
+                        completion(true)
+                    }
+                }
+            }
+        }
     
+//    func pullBubbles(completion: @escaping (Bool) -> Void){
+//        guard let user = Auth.auth().currentUser?.uid else {return}
+//        db.collection("BubbleRooms").whereField("users", arrayContains: user as Any).getDocuments() { (querySnapshots, error) in
+//            if let error = error{
+//                print("Error in \(#function) : \(error.localizedDescription) /n--/n \(error)")
+//                completion(false)
+//            } else {
+//                for documents in querySnapshots!.documents {
+//
+//                    let bubble = Bubble(lastChanged: (documents.data()["lastChanged"] as! Timestamp).dateValue(), projectName: documents.data()["projectName"] as! String, bubbles: documents.data()["bubbles"] as! [String], users: documents.data()["users"] as! [String])
+//
+//                    BubbleController.shared.bubbles.append(bubble)
+//                }
+//                completion(true)
+//            }
+//        }
+//    }
+//
 //    func pullUploadedRecipes(completion: @escaping (Bool) -> Void) {
 //        guard let user = Auth.auth().currentUser?.uid else { return }
 //        db.collection("uploadedRecipesContainer").whereField("uploadedRecipes", arrayContains: user as Any).getDocuments { (querySnapshots, error) in

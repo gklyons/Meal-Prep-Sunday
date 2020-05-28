@@ -44,7 +44,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentRecipeCell", for: indexPath)
-        let recipeList = RecipeController.shared.recipes[indexPath.row]
+        let recipeList = RecipeController.shared.savedRecipes[indexPath.row]
         cell.textLabel?.text = recipeList.label
         cell.detailTextLabel?.text = "\(recipeList.totalTime)"
     

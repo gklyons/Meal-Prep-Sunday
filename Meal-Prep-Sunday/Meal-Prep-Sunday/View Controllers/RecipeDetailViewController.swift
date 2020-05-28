@@ -50,6 +50,11 @@ class RecipeDetailViewController: UIViewController {
     }
     
     @IBAction func addToRecipeBookButtonTapped(_ sender: Any) {
+        guard let recipe = recipe else {return}
+        RecipeController.shared.savedRecipes.append(recipe)
+        FirebaseStuff.shared.saveRecipes(recipes: recipe)
+        print("Saved Recipes: \(RecipeController.shared.savedRecipes.count)")
+        navigationController?.popViewController(animated: true)
     }
 }//End of Class
 
