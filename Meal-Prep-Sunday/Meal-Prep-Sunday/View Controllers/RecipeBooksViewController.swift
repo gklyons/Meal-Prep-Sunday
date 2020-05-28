@@ -27,6 +27,8 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         savedRecipesButton.layer.borderWidth = 0.8
         uploadedRecipesButton.layer.borderWidth = 0.8
         setTitle()
+        FirebaseStuff.shared.getRecipeCollection()
+        savedRecipesTableView.reloadData()
 //        pullSavedRecipes()
     }
     
@@ -56,12 +58,14 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @IBAction func savedRecipesButtonTapped(_ sender: Any) {
-        pullSavedRecipes()
+//        pullSavedRecipes()
+        FirebaseStuff.shared.getRecipeCollection()
         if savedRecipesTableView.isHidden {
             animateSaved(toggle: true)
         } else {
             animateSaved(toggle: false)
         }
+        savedRecipesTableView.reloadData()
     }
     
     func animateSaved(toggle: Bool) {
@@ -108,11 +112,12 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == savedRecipesTableView {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? recipeBookTableViewCell else {return UITableViewCell()}
+            let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath)
+//                as? recipeBookTableViewCell else {return UITableViewCell()}
             let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
-//            cell.textLabel?.text = savedRecipe.label
-//            cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
-            cell.savedRecipe = savedRecipe
+            cell.textLabel?.text = savedRecipe.label
+            cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
+//            cell.savedRecipe = savedRecipe
             return cell
         } else if tableView == uploadedRecipesTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath)
