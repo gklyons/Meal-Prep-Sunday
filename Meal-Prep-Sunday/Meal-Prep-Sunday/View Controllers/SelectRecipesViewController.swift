@@ -33,7 +33,7 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return RecipeController.shared.recipes.count
+            return RecipeController.shared.savedRecipes.count
         } else if section == 1 {
             return RecipeController.shared.uploadedRecipes.count
         } else { return 0 }
@@ -42,7 +42,7 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipesCell", for: indexPath)
         if indexPath.section == 0 {
-            let recipe = RecipeController.shared.recipes[indexPath.row]
+            let recipe = RecipeController.shared.savedRecipes[indexPath.row]
             cell.textLabel?.text = recipe.label
         } else if indexPath.section == 1 {
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]

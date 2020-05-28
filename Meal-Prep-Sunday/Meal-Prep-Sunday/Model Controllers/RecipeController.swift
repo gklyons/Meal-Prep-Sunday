@@ -12,8 +12,9 @@ import Firebase
 class RecipeController {
     
     static let shared = RecipeController()
-    var recipes: [Recipe] = [Recipe(label: "Chicken Nuggies", image: nil, directions: "Stuff", ingredients: [], yield: 0, totalTime: 20)]
-    var uploadedRecipes: [UploadedRecipe] = [UploadedRecipe(image: nil, title: "Pizza", manualIngredients: [], directions: "Pizza Stuff")]
+    var savedRecipes: [Recipe] = []
+    var uploadedRecipes: [UploadedRecipe] = []
+    var recipes: [Recipe] = []
     
     //    private init() {
     //    }
