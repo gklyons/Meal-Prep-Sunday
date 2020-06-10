@@ -21,8 +21,9 @@ class FirebaseStuff {
         let recipeDictionary: [String: Any] = ["title" : recipe.label,
                                                "image" : recipe.image ?? "",
                                                "directions" : recipe.directions,
-                                               "uid": recipeUID,
-                                               "ing"]
+                                               "yield" : recipe.yield,
+                                               "totalTime" : recipe.totalTime,
+                                               "uid": recipeUID]
 //        guard let uploadedRecipe = UploadedRecipe(recipe: recipe, ingredients: ingredients) else { return }
         for ingredient in ingredients {
             saveIngredient(ingredient: ingredient, recipeUID: recipeUID)
@@ -35,7 +36,7 @@ class FirebaseStuff {
     }
     
     func saveIngredient(ingredient: Ingredient, recipeUID: String) {
-        ingredient.recipeRefrence = uploadedRecipe.uid
+        ingredient.recipeRefrence = recipeUID
         let ingredientRefrence: [String: Any] = ["item" : ingredient.item,
                                                  "isChecked" : ingredient.isChecked,
                                                  "recipeRefrence" : ingredient.recipeRefrence]
