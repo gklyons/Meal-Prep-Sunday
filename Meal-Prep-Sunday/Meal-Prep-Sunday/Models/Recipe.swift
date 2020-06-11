@@ -42,6 +42,3 @@ struct Recipe: Codable {
         case uid
     }
 }
-
-
-

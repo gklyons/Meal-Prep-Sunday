@@ -122,7 +122,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         } else if tableView == uploadedRecipesTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath)
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
-            cell.textLabel?.text = uploadedRecipe.title
+            cell.textLabel?.text = uploadedRecipe.label
             return cell
         } else {
             return UITableViewCell()

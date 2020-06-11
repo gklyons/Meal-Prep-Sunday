@@ -24,39 +24,46 @@ class FirebaseStuff {
                                                "yield" : recipe.yield,
                                                "totalTime" : recipe.totalTime,
                                                "uid": recipeUID]
-//        guard let uploadedRecipe = UploadedRecipe(recipe: recipe, ingredients: ingredients) else { return }
         for ingredient in ingredients {
             saveIngredient(ingredient: ingredient, recipeUID: recipeUID)
         }
-//        let recipeRefrence: [String: Any] = ["title" : uploadedRecipe.title,
-//                                             "image" : uploadedRecipe.image,
-//                                             "directions" : uploadedRecipe.directions,
-//                                             "uid": uploadedRecipe.uid]
-        db.collection("recipesContainer").document(recipeUID).setData(recipeDictionary)
+        db.collection("savedRecipesContainer").document(recipeUID).setData(recipeDictionary)
     }
     
     func saveIngredient(ingredient: Ingredient, recipeUID: String) {
         ingredient.recipeRefrence = recipeUID
         let ingredientRefrence: [String: Any] = ["item" : ingredient.item,
                                                  "isChecked" : ingredient.isChecked,
-                                                 "recipeRefrence" : ingredient.recipeRefrence]
+                                                 "recipeRefrence" : ingredient.recipeRefrence ?? ""]
         db.collection("ingredientsContainer").document(ingredient.uid).setData(ingredientRefrence)
     }
     
-    func saveUploadedRecipes(uploadedRecipes: UploadedRecipe) {
-        let imageURL = uploadPhoto(image: uploadedRecipes.image) { (imageURL) in
-            let uploadedRecipeRefrence: [String: Any] = ["title" : uploadedRecipes.title,
-                                                         "imageURL" : imageURL,
-                                                         "directions" : uploadedRecipes.directions,
-                                                         "uid": uploadedRecipes.uid]
-            for ingredient in uploadedRecipes.manualIngredients {
-                let ingredientRefrence: [String: Any] = ["item" : ingredient.item,
-                                                         "isChecked" : ingredient.isChecked,
-                                                         "recipeRefrence" : ingredient.recipeRefrence]
-                self.db.collection("ingredientsContainer").document(ingredient.uid).setData(ingredientRefrence)
+    func saveUploadedRecipe(uploadedRecipe: UploadedRecipe) {
+        let ingredients = uploadedRecipe.manualIngredients.compactMap( { Ingredient(item: $0.item) })
+        let recipeUID = UUID().uuidString
+        let imageURL = uploadPhoto(image: uploadedRecipe.image) { (imageURL) in
+            let recipeDictionary: [String: Any] = ["title" : uploadedRecipe.label,
+                                                   "image" : imageURL ?? "",
+                                                   "directions" : uploadedRecipe.directions ?? [],
+                                                   "uid": recipeUID]
+            for ingredient in ingredients {
+                self.saveIngredient(ingredient: ingredient, recipeUID: recipeUID)
             }
-            self.db.collection("uploadedRecipesContainer").document(uploadedRecipes.uid).setData(uploadedRecipeRefrence)
+            self.db.collection("uploadRecipesContainer").document(recipeUID).setData(recipeDictionary)
         }
+//        let imageURL = uploadPhoto(image: uploadedRecipes.image) { (imageURL) in
+//            let uploadedRecipeRefrence: [String: Any] = ["title" : uploadedRecipes.title,
+//                                                         "imageURL" : imageURL,
+//                                                         "directions" : uploadedRecipes.directions,
+//                                                         "uid": uploadedRecipes.uid]
+//            for ingredient in uploadedRecipes.manualIngredients {
+//                let ingredientRefrence: [String: Any] = ["item" : ingredient.item,
+//                                                         "isChecked" : ingredient.isChecked,
+//                                                         "recipeRefrence" : ingredient.recipeRefrence]
+//                self.db.collection("ingredientsContainer").document(ingredient.uid).setData(ingredientRefrence)
+//            }
+//            self.db.collection("uploadedRecipesContainer").document(uploadedRecipes.uid).setData(uploadedRecipeRefrence)
+//        }
     }
     
     func getRecipeCollection() {

@@ -46,7 +46,7 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource {
             cell.textLabel?.text = recipe.label
         } else if indexPath.section == 1 {
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
-            cell.textLabel?.text = uploadedRecipe.title
+            cell.textLabel?.text = uploadedRecipe.label
         }
         return cell
     }
