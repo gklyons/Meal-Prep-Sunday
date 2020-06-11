@@ -11,7 +11,7 @@ import UIKit
 class UploadedRecipe {
     
     var image: UIImage?
-    var title: String
+    var label: String
     var manualIngredients: [Ingredient]
     var directions: String?
     var uid: String
@@ -20,7 +20,7 @@ class UploadedRecipe {
     init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString) {
         
         self.image = image
-        self.title = title
+        self.label = title
         self.manualIngredients = manualIngredients
         self.directions = directions
         self.uid = uid

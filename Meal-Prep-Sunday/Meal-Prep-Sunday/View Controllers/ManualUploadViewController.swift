@@ -62,7 +62,7 @@ class ManualUploadViewController: UIViewController, UITextFieldDelegate {
                 let image = middlePhotoImageView.image else {return}
         let uploadedRecipe = UploadedRecipe(image: image, title: title, manualIngredients: ingredients, directions: directions)
         // Save to firestore
-        FirebaseStuff.shared.saveUploadedRecipes(uploadedRecipes: uploadedRecipe)
+        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe)
         // Pop to uploaded recipes or "self.dismiss"
         navigationController?.popViewController(animated: true)
     }
