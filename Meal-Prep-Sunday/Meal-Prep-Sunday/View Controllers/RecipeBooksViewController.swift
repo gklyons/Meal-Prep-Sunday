@@ -27,9 +27,8 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         savedRecipesButton.layer.borderWidth = 0.8
         uploadedRecipesButton.layer.borderWidth = 0.8
         setTitle()
-        FirebaseStuff.shared.getRecipeCollection()
+        FirebaseStuff.shared.getSavedRecipeCollection()
         savedRecipesTableView.reloadData()
-//        pullSavedRecipes()
     }
     
     func setTitle() {
@@ -46,30 +45,18 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         self.uploadRecipeTableHeight.constant = self.uploadedRecipesTableView.contentSize.height
     }
     
-    func pullSavedRecipes() {
-        FirebaseStuff.shared.pullSavedRecipes { (completed) in
-            if completed {
-                DispatchQueue.main.async {
-                    self.savedRecipesTableView.reloadData()
-                }
-            }
-        }
-        print("Saved Recipes: \(RecipeController.shared.savedRecipes)")
-    }
-    
     @IBAction func savedRecipesButtonTapped(_ sender: Any) {
-//        pullSavedRecipes()
-        FirebaseStuff.shared.getRecipeCollection()
         if savedRecipesTableView.isHidden {
+            savedRecipesTableView.reloadData()
             animateSaved(toggle: true)
         } else {
+//            savedRecipesTableView.reloadData()
             animateSaved(toggle: false)
         }
-        savedRecipesTableView.reloadData()
     }
     
     func animateSaved(toggle: Bool) {
-        if toggle {
+        if toggle == true {
             UIView.animate(withDuration: 0.3) {
                 self.savedRecipesTableView.isHidden = false
             }
@@ -82,6 +69,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func uploadedRecipesButtonTapped(_ sender: Any) {
         if uploadedRecipesTableView.isHidden {
+            uploadedRecipesTableView.reloadData()
             animateUpload(toggle: true)
         } else {
             animateUpload(toggle: false)
@@ -113,11 +101,10 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == savedRecipesTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath)
-//                as? recipeBookTableViewCell else {return UITableViewCell()}
+            //                as? recipeBookTableViewCell else {return UITableViewCell()}
             let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
             cell.textLabel?.text = savedRecipe.label
             cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
-//            cell.savedRecipe = savedRecipe
             return cell
         } else if tableView == uploadedRecipesTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath)
