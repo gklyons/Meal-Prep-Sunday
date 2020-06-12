@@ -28,7 +28,10 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         uploadedRecipesButton.layer.borderWidth = 0.8
         setTitle()
         FirebaseStuff.shared.getSavedRecipeCollection()
-        savedRecipesTableView.reloadData()
+        FirebaseStuff.shared.getUploadRecipeCollection()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     func setTitle() {
@@ -50,13 +53,12 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
             savedRecipesTableView.reloadData()
             animateSaved(toggle: true)
         } else {
-//            savedRecipesTableView.reloadData()
             animateSaved(toggle: false)
         }
     }
     
     func animateSaved(toggle: Bool) {
-        if toggle == true {
+        if toggle {
             UIView.animate(withDuration: 0.3) {
                 self.savedRecipesTableView.isHidden = false
             }
@@ -98,16 +100,21 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == savedRecipesTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath)
-            //                as? recipeBookTableViewCell else {return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? SearchViewTableViewCell else {return UITableViewCell()}
             let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
-            cell.textLabel?.text = savedRecipe.label
-            cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
+            cell.recipe = savedRecipe
+//            cell.textLabel?.text = savedRecipe.label
+            //            cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
             return cell
         } else if tableView == uploadedRecipesTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath)
+//                as? SearchViewTableViewCell else {return UITableViewCell()}
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
             cell.textLabel?.text = uploadedRecipe.label
             return cell

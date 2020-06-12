@@ -105,6 +105,12 @@ extension ManualUploadViewController: UITableViewDataSource, UITableViewDelegate
             return UITableViewCell()
         }
     }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            IngredientController.delete
+//        }
+//    }
 }
 
 extension ManualUploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

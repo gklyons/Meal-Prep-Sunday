@@ -22,6 +22,7 @@
 		3542F66A2465C9FF0035250E /* ShoppingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6682465C9FF0035250E /* ShoppingListController.swift */; };
 		3542F66B2465C9FF0035250E /* MealPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542F6692465C9FF0035250E /* MealPlanController.swift */; };
 		354B9857247F20F1002CDA0C /* recipeBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B9856247F20F1002CDA0C /* recipeBookTableViewCell.swift */; };
+		3551059D2493C8F2002D2138 /* UploadedRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551059C2493C8F2002D2138 /* UploadedRecipeTableViewCell.swift */; };
 		3583C7302458EFE300D79193 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583C72F2458EFE300D79193 /* Ingredient.swift */; };
 		3583C75D246095B000D79193 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C75B246095B000D79193 /* Profile.storyboard */; };
 		3583C75F2460960B00D79193 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3583C75E2460960B00D79193 /* Home.storyboard */; };
@@ -76,6 +77,7 @@
 		3542F6682465C9FF0035250E /* ShoppingListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListController.swift; sourceTree = "<group>"; };
 		3542F6692465C9FF0035250E /* MealPlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealPlanController.swift; sourceTree = "<group>"; };
 		354B9856247F20F1002CDA0C /* recipeBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeBookTableViewCell.swift; sourceTree = "<group>"; };
+		3551059C2493C8F2002D2138 /* UploadedRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		3583C72F2458EFE300D79193 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		3583C75C246095B000D79193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		3583C75E2460960B00D79193 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = SOURCE_ROOT; };
@@ -234,6 +236,7 @@
 				EBA37E11246DB898006132B2 /* SelectRecipeTableViewCell.swift */,
 				D40569EA246B5F2B000B230B /* User Login Views */,
 				354B9856247F20F1002CDA0C /* recipeBookTableViewCell.swift */,
+				3551059C2493C8F2002D2138 /* UploadedRecipeTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				35425DBA246C6310002167EC /* User.swift in Sources */,
 				EBA37E0A246C5C12006132B2 /* MealPlanViewController.swift in Sources */,
 				EB5CF4DC24576F8600104F17 /* MealPlan.swift in Sources */,
+				3551059D2493C8F2002D2138 /* UploadedRecipeTableViewCell.swift in Sources */,
 				3527E4FB246E2B86005C9E67 /* IngredientController.swift in Sources */,
 				D40569E5246B5D1B000B230B /* SignUpViewController.swift in Sources */,
 				3542F6662465C98C0035250E /* SearchViewController.swift in Sources */,
