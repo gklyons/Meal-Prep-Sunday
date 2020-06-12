@@ -73,7 +73,7 @@ class FirebaseStuff {
             } else {
                 //Do try catch
                 for document in querySnapshot!.documents {
-                    let recipe = Recipe(label: ((document.data()["title"] as? String ?? "")),
+                    let recipe = Recipe(label: (document.data()["title"] as? String ?? ""),
                                         image: (document.data()["image"] as? String ?? ""),
                                         directions: (document.data()["directions"] as? String ?? ""),
                                         ingredients: (document.data()["ingredients"] as? [String] ?? []),
@@ -89,9 +89,24 @@ class FirebaseStuff {
         }
     }
     
-    func pullSavedRecipes(completion: @escaping (Bool) -> Void) {
-        
-        
+    func getUploadRecipeCollection() {
+        db.collection("uploadRecipesContainer").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let uploadRecipe = UploadedRecipe(image: (document.data()["image"] as? UIImage ?? nil),
+                                                      title: (document.data()["title"] as? String ?? ""),
+                                                      manualIngredients: (document.data()["manualIngredients"] as? [Ingredient] ?? []),
+                                                      directions: (document.data()["directions"] as? String ?? ""),
+                                                      uid: (document.data()["uid"] as? String ?? ""))
+                    
+                    RecipeController.shared.uploadedRecipes.append(uploadRecipe)
+                }
+            }
+        }
+    
+//    func pullSavedRecipes(completion: @escaping (Bool) -> Void) {
         //            guard let user = Auth.auth().currentUser?.uid else { return }
         //            db.collection("recipesContainer").whereField("users", arrayContains: user as Any).getDocuments { (querySnapshots, error) in
         //                if let error = error {

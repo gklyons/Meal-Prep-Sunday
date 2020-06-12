@@ -12,5 +12,5 @@ import FirebaseFirestore
 class IngredientController {
     
     static let shared = IngredientController()
-    
+
 }
