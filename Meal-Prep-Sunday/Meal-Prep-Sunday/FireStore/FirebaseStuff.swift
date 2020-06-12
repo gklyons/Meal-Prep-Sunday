@@ -66,15 +66,24 @@ class FirebaseStuff {
 //        }
     }
     
-    func getRecipeCollection() {
-        db.collection("recipesContainer").getDocuments { (querySnapshot, error) in
+    func getSavedRecipeCollection() {
+        db.collection("savedRecipesContainer").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
                 //Do try catch
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    let recipe = Recipe(label: ((document.data()["title"] as? String ?? "")),
+                                        image: (document.data()["image"] as? String ?? ""),
+                                        directions: (document.data()["directions"] as? String ?? ""),
+                                        ingredients: (document.data()["ingredients"] as? [String] ?? []),
+                                        yield: (document.data()["yield"] as? Int ?? 0),
+                                        totalTime: (document.data()["totalTime"] as? Int ?? 0),
+                                        users: (document.data()["users"] as? [String] ?? []),
+                                        uid: (document.data()["uid"] as? String ?? ""))
                     
+                    RecipeController.shared.savedRecipes.append(recipe)
+                    print("\(document.documentID) => \(document.data())")
                 }
             }
         }
