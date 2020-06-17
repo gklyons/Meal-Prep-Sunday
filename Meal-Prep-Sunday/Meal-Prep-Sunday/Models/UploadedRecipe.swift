@@ -15,16 +15,16 @@ class UploadedRecipe {
     var manualIngredients: [Ingredient]
     var directions: String?
     var uid: String
-//    var user: String
+    var imageEndpoint: String?
     
-    init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString) {
+    init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString, imageEndpoint: String? = nil) {
         
         self.image = image
         self.label = title
         self.manualIngredients = manualIngredients
         self.directions = directions
         self.uid = uid
-//        self.user = user
+        self.imageEndpoint = imageEndpoint
     }
 }// End of Class
 

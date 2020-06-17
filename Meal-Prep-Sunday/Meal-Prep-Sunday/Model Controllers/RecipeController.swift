@@ -73,34 +73,22 @@ class RecipeController {
         }.resume()
     }
     
-//    func fetchUploadRecipeImage(for uploadRecipe: UploadedRecipe, completion: @escaping (Result<UIImage, RecipeError>) -> Void) {
-//        guard let uploadRecipeImage = uploadRecipe.image else {
-//            return completion(.failure(.noData)) }
-//        print("Um... did you even add an image to your own recipe?")
-//        
-//        URLSession.shared.dataTask(with: uploadRecipeImage) { (data, response, error) in
-//            if let error = error {
-//                completion(.failure(.thrown(error)))
-//            }
-//            guard let data = data else {
-//                return completion(.failure(.noData))
-//            }
-//            guard let image = UIImage(data: data) else {
-//                return completion(.failure(.noData))
-//            }
-//            completion(.success(image))
-//        }.resume()
-//        
-//    }
-    
-    
-//    func createUploadedRecipe(recipeName: String) {
-////        guard let userUid = Auth.auth().currentUser?.uid else {return}
-////        let image = String
-//        let uploadedRecipe = UploadedRecipe(image: "image", title: "title", manualIngredients: [], directions: "directions")
-//        uploadedRecipes.append(uploadedRecipe)
-//        FirebaseStuff.shared.saveUploadedRecipe(uploadedRecipe: uploadedRecipe, completion: uploadedRecipe)
-//    }
-
-
+    func fetchUploadRecipeImage(for uploadedRecipe: UploadedRecipe, completion: @escaping (Result<UIImage, RecipeError>) -> Void) {
+        guard let uploadRecipeImage = URL(string: uploadedRecipe.imageEndpoint ?? "")
+            else { return completion(.failure(.noData)) }
+                print("Um... did you even add an image to your own recipe?")
+        
+        URLSession.shared.dataTask(with: uploadRecipeImage) { (data, response, error) in
+            if let error = error {
+                completion(.failure(.thrown(error)))
+            }
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            guard let image = UIImage(data: data) else {
+                return completion(.failure(.noData))
+            }
+            completion(.success(image))
+        }.resume()
+    }
 }//End of Class

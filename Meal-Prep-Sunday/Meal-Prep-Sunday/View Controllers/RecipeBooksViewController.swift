@@ -27,11 +27,11 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
         savedRecipesButton.layer.borderWidth = 0.8
         uploadedRecipesButton.layer.borderWidth = 0.8
         setTitle()
-        FirebaseStuff.shared.getSavedRecipeCollection()
-        FirebaseStuff.shared.getUploadRecipeCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        FirebaseStuff.shared.getSavedRecipeCollection()
+        FirebaseStuff.shared.getUploadRecipeCollection()
     }
     
     func setTitle() {
@@ -113,10 +113,11 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
             //            cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
             return cell
         } else if tableView == uploadedRecipesTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
 //                as? SearchViewTableViewCell else {return UITableViewCell()}
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
-            cell.textLabel?.text = uploadedRecipe.label
+            cell.uploadRecipe = uploadedRecipe
+//            cell.textLabel?.text = uploadedRecipe.label
             return cell
         } else {
             return UITableViewCell()

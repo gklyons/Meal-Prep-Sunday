@@ -41,9 +41,9 @@ class FirebaseStuff {
     func saveUploadedRecipe(uploadedRecipe: UploadedRecipe) {
         let ingredients = uploadedRecipe.manualIngredients.compactMap( { Ingredient(item: $0.item) })
         let recipeUID = UUID().uuidString
-        let imageURL = uploadPhoto(image: uploadedRecipe.image) { (imageURL) in
+        uploadPhoto(image: uploadedRecipe.image) { (imageEndpoint) in
             let recipeDictionary: [String: Any] = ["title" : uploadedRecipe.label,
-                                                   "image" : imageURL ?? "",
+                                                   "imageEndpoint" : imageEndpoint ?? "",
                                                    "directions" : uploadedRecipe.directions ?? [],
                                                    "uid": recipeUID]
             for ingredient in ingredients {
@@ -51,22 +51,23 @@ class FirebaseStuff {
             }
             self.db.collection("uploadRecipesContainer").document(recipeUID).setData(recipeDictionary)
         }
-//        let imageURL = uploadPhoto(image: uploadedRecipes.image) { (imageURL) in
-//            let uploadedRecipeRefrence: [String: Any] = ["title" : uploadedRecipes.title,
-//                                                         "imageURL" : imageURL,
-//                                                         "directions" : uploadedRecipes.directions,
-//                                                         "uid": uploadedRecipes.uid]
-//            for ingredient in uploadedRecipes.manualIngredients {
-//                let ingredientRefrence: [String: Any] = ["item" : ingredient.item,
-//                                                         "isChecked" : ingredient.isChecked,
-//                                                         "recipeRefrence" : ingredient.recipeRefrence]
-//                self.db.collection("ingredientsContainer").document(ingredient.uid).setData(ingredientRefrence)
-//            }
-//            self.db.collection("uploadedRecipesContainer").document(uploadedRecipes.uid).setData(uploadedRecipeRefrence)
-//        }
+        //        let imageURL = uploadPhoto(image: uploadedRecipes.image) { (imageURL) in
+        //            let uploadedRecipeRefrence: [String: Any] = ["title" : uploadedRecipes.title,
+        //                                                         "imageURL" : imageURL,
+        //                                                         "directions" : uploadedRecipes.directions,
+        //                                                         "uid": uploadedRecipes.uid]
+        //            for ingredient in uploadedRecipes.manualIngredients {
+        //                let ingredientRefrence: [String: Any] = ["item" : ingredient.item,
+        //                                                         "isChecked" : ingredient.isChecked,
+        //                                                         "recipeRefrence" : ingredient.recipeRefrence]
+        //                self.db.collection("ingredientsContainer").document(ingredient.uid).setData(ingredientRefrence)
+        //            }
+        //            self.db.collection("uploadedRecipesContainer").document(uploadedRecipes.uid).setData(uploadedRecipeRefrence)
+        //        }
     }
     
     func getSavedRecipeCollection() {
+        RecipeController.shared.savedRecipes = []
         db.collection("savedRecipesContainer").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -90,87 +91,24 @@ class FirebaseStuff {
     }
     
     func getUploadRecipeCollection() {
+        RecipeController.shared.uploadedRecipes = []
         db.collection("uploadRecipesContainer").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    let uploadRecipe = UploadedRecipe(image: (document.data()["image"] as? UIImage ?? nil),
+                    let uploadRecipe = UploadedRecipe(image: nil,
                                                       title: (document.data()["title"] as? String ?? ""),
                                                       manualIngredients: (document.data()["manualIngredients"] as? [Ingredient] ?? []),
                                                       directions: (document.data()["directions"] as? String ?? ""),
-                                                      uid: (document.data()["uid"] as? String ?? ""))
+                                                      uid: (document.data()["uid"] as? String ?? ""),
+                                                      imageEndpoint: (document.data()["imageEndpoint"] as? String ?? ""))
                     
                     RecipeController.shared.uploadedRecipes.append(uploadRecipe)
                 }
             }
         }
-    
-//    func pullSavedRecipes(completion: @escaping (Bool) -> Void) {
-        //            guard let user = Auth.auth().currentUser?.uid else { return }
-        //            db.collection("recipesContainer").whereField("users", arrayContains: user as Any).getDocuments { (querySnapshots, error) in
-        //                if let error = error {
-        //                    print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
-        //                    completion(false)
-        //                } else {
-        //                    let group = DispatchGroup()
-        //                    for documents in querySnapshots!.documents {
-        //                        group.enter()
-        //                        //TODO: - change to uploaded recipe and refactor
-        //                        let recipe = Recipe(label: ((documents.data()["label"] as! String)), image: (documents.data()["image"] as! String), directions: (documents.data()["directions"] as! String), ingredients: (documents.data()["ingredients"] as! [String]), yield: (documents.data()["yield"] as! Int), totalTime: (documents.data()["totalTime"] as! Int), users: (documents.data()["users"] as! [String]), uid: (documents.data()["uid"] as! String))
-        //                        group.leave()
-        //                        RecipeController.shared.savedRecipes.append(recipe)
-        //                    }
-        //                    group.notify(queue: .main) {
-        //                        completion(true)
-        //                    }
-        //                }
-        //            }
     }
-    
-    //    func pullBubbles(completion: @escaping (Bool) -> Void){
-    //        guard let user = Auth.auth().currentUser?.uid else {return}
-    //        db.collection("BubbleRooms").whereField("users", arrayContains: user as Any).getDocuments() { (querySnapshots, error) in
-    //            if let error = error{
-    //                print("Error in \(#function) : \(error.localizedDescription) /n--/n \(error)")
-    //                completion(false)
-    //            } else {
-    //                for documents in querySnapshots!.documents {
-    //
-    //                    let bubble = Bubble(lastChanged: (documents.data()["lastChanged"] as! Timestamp).dateValue(), projectName: documents.data()["projectName"] as! String, bubbles: documents.data()["bubbles"] as! [String], users: documents.data()["users"] as! [String])
-    //
-    //                    BubbleController.shared.bubbles.append(bubble)
-    //                }
-    //                completion(true)
-    //            }
-    //        }
-    //    }
-    //
-    //    func pullUploadedRecipes(completion: @escaping (Bool) -> Void) {
-    //        guard let user = Auth.auth().currentUser?.uid else { return }
-    //        db.collection("uploadedRecipesContainer").whereField("uploadedRecipes", arrayContains: user as Any).getDocuments { (querySnapshots, error) in
-    //            if let error = error {
-    //                print("Error in \(#function) : \(error.localizedDescription) \n---/n \(error)")
-    //                completion(false)
-    //            } else {
-    //                let dispatchGroup = DispatchGroup()
-    //                for documents in querySnapshots!.documents {
-    //                    dispatchGroup.enter()
-    //                    //  guard let uploadedRecipes = UploadedRecipe(image: (documents.data()["image"] as? UIImage?), title: (documents.data()["title"] as? String), manualIngredients: (documents.data()["ingredients"] as? [Ingredient]), directions: (documents.data()["directions"] as? String?), uid: (documents.data()["uid"] as? String)) else { continue }
-    //                    fetchIngredientsForRecipe(recipe: uploadedRecipes) { (ingredient) in
-    //                        if let ingredient = ingredient {
-    //                            uploadedRecipes.manualIngredients = ingredient
-    //                            dispatchGroup.leave()
-    //                        }
-    //                    }
-    //                    RecipeController.shared.uploadedRecipes.append(uploadedRecipes)
-    //                }
-    //                dispatchGroup.notify(queue: .main) {
-    //                    completion(true)
-    //                }
-    //            }
-    //        }
-    //    }
     
     fileprivate func fetchIngredientsForRecipe(recipe: UploadedRecipe, completion: @escaping ([Ingredient]?) -> Void) {
         db.collection("ingredientsContainer").whereField("recipeRefrence", isEqualTo: recipe.uid).getDocuments { (querrySnapshots, error) in
@@ -189,11 +127,13 @@ class FirebaseStuff {
     }
     
     fileprivate func uploadPhoto(image: UIImage?, completion: @escaping (String?) -> Void) {
-        guard let image = image, let data = image.jpegData(compressionQuality: 1.0) else {
-            print("error!")
-            return completion(nil)
+        guard let image = image,
+            let data = image.jpegData(compressionQuality: 1.0)
+            else {
+                print("error!")
+                return completion(nil)
         }
-        var imageURL: String? = nil
+        var imageEndpoint: String? = nil
         let imageName = UUID().uuidString
         let imageRef = Storage.storage().reference().child("images").child(imageName)
         let dispatchGroup = DispatchGroup()
@@ -213,13 +153,13 @@ class FirebaseStuff {
                     print("Error: Something went wrong")
                     return completion(nil)
                 }
-                imageURL = url.absoluteString
+                imageEndpoint = url.absoluteString
                 dispatchGroup.leave()
             }
             dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: .main) {
-            return completion(imageURL)
+            return completion(imageEndpoint)
         }
     }
 }// End of Class
