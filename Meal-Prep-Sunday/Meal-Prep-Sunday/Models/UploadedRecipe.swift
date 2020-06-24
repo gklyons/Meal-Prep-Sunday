@@ -50,3 +50,9 @@ extension UploadedRecipe {
 //        self.init(title: title, uid: uid, directions: directions)
 //    }
 }
+
+extension UploadedRecipe: Equatable {
+    static func == (lhs: UploadedRecipe, rhs: UploadedRecipe) -> Bool {
+        return lhs === rhs
+    }
+}

@@ -41,11 +41,10 @@ class ShoppingListTableViewCell: UITableViewCell {
 
     }
 
-    func populateCell(ingrediant: Ingredient) {
+    func populateCell(ingredient: Ingredient) {
 //        ingredientTextField.isUserInteractionEnabled.toggle()
-        ingredientTextField.text = ingrediant.item
+        ingredientTextField.text = ingredient.item
 //        ingredientTextField.text = "\(ShoppingListController.shared.updateIngredient(ingredient: ingrediant, item: ingrediant.item))"
-        checkBoxButton.setImage(ingrediant.isChecked ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+        checkBoxButton.setImage(ingredient.isChecked ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
     }
-    
 }

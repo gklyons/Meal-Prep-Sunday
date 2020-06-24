@@ -91,4 +91,9 @@ class RecipeController {
             completion(.success(image))
         }.resume()
     }
+    
+//    func toggleSavedRecipeChecked(recipe: Recipe) {
+//        recipe.isChecked.toggle()
+//    }
+    
 }//End of Class

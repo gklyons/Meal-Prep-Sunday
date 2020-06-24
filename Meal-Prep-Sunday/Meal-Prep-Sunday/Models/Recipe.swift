@@ -30,6 +30,7 @@ struct Recipe: Codable {
     let totalTime: Int
     var users: [String]?
     var uid: String?
+    var isChecked: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case label
@@ -40,5 +41,11 @@ struct Recipe: Codable {
         case totalTime
         case users
         case uid
+    }
+}
+
+extension Recipe: Equatable {
+    static func == (lhs: Recipe, rhs: Recipe) -> Bool {
+        return lhs.uid == rhs.uid
     }
 }

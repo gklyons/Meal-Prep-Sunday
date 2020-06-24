@@ -54,7 +54,7 @@ class ShoppingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
         let ingrediant = testArray[indexPath.row]
-        cell.populateCell(ingrediant: ingrediant)
+        cell.populateCell(ingredient: ingrediant)
         cell.delegate = self
         
         return cell
@@ -111,7 +111,7 @@ extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
         guard let index = tableView.indexPath(for: sender) else { return }
         let item = testArray[index.row] //ShoppingListController.shared.shoppingList[index.row]
         ShoppingListController.shared.toggleItemChecked(ingredient: item)
-        sender.populateCell(ingrediant: item)
+        sender.populateCell(ingredient: item)
         
     }
     

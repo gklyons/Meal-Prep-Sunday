@@ -8,17 +8,28 @@
 
 import UIKit
 
-class SelectRecipesViewController: UIViewController, UITableViewDataSource {
+class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
     
     // MARK: - Outlets
-    @IBOutlet weak var recipeSelectedButton: NSLayoutConstraint!
+    //    @IBOutlet weak var recipeSelectedButton: NSLayoutConstraint!
+    @IBOutlet weak var savedRecipesDropDownButton: UIButton!
+    @IBOutlet weak var savedRecipeTableView: UITableView!
+    @IBOutlet weak var uploadedRecipesDropDownButton: UIButton!
+    @IBOutlet weak var uploadedRecipeTableView: UITableView!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        savedRecipeTableView.isHidden = true
+        uploadedRecipeTableView.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        FirebaseStuff.shared.getSavedRecipeCollection()
+        FirebaseStuff.shared.getUploadRecipeCollection()
     }
     
     // MARK: - Actions
@@ -26,29 +37,89 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource {
     //in controller func saveMealPlan with [Recipe] to tempMealPlan then save tempMealPlan to fireStore
     // nil out the tempMealPlan after siaving
     // add it to mealPlans in the mealPlanController (append it)
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    @IBAction func savedRecipeButtonTapped(_ sender: Any) {
+        if savedRecipeTableView.isHidden {
+            savedRecipeTableView.reloadData()
+            animateSaved(toggle: true)
+        } else {
+            animateSaved(toggle: false)
+        }
     }
     
+    func animateSaved(toggle: Bool) {
+        if toggle {
+            UIView.animate(withDuration: 0.3) {
+                self.savedRecipeTableView.isHidden = false
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.savedRecipeTableView.isHidden = true
+            }
+        }
+    }
+    
+    @IBAction func uploadedRecipeButtonTapped(_ sender: Any) {
+        if uploadedRecipeTableView.isHidden {
+            uploadedRecipeTableView.reloadData()
+            animateUpload(toggle: true)
+        } else {
+            animateUpload(toggle: false)
+        }
+    }
+    
+    func animateUpload(toggle: Bool) {
+        if toggle {
+            UIView.animate(withDuration: 0.3) {
+                self.uploadedRecipeTableView.isHidden = false
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.uploadedRecipeTableView.isHidden = true
+            }
+        }
+    }
+    
+    @IBAction func savedRecipeCheckBoxTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func uploadedRecipeCheckBoxTapped(_ sender: Any) {
+    }
+    
+    
+    
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return 2
+    //    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if tableView == savedRecipeTableView {
             return RecipeController.shared.savedRecipes.count
-        } else if section == 1 {
+        } else if tableView == uploadedRecipeTableView {
             return RecipeController.shared.uploadedRecipes.count
-        } else { return 0 }
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipesCell", for: indexPath)
-        if indexPath.section == 0 {
-            let recipe = RecipeController.shared.savedRecipes[indexPath.row]
-            cell.textLabel?.text = recipe.label
-        } else if indexPath.section == 1 {
+        if tableView == savedRecipeTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? SelectRecipeTableViewCell else {return UITableViewCell()}
+            let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
+            cell.recipe = savedRecipe
+            return cell
+        } else if tableView == uploadedRecipeTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
-            cell.textLabel?.text = uploadedRecipe.label
+            cell.uploadRecipe = uploadedRecipe
+            return cell
+        } else {
+            return UITableViewCell()
         }
-        return cell
     }
     
     /*
@@ -62,3 +133,10 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource {
      */
     
 }
+//extension SelectRecipesViewController: SelectRecipeTableViewCellDelegate {
+//    func toggleRecipeChecked(_ sender: SelectRecipeTableViewCell) {
+//        guard let index = tableView.indexPath(for: sender) else {return}
+//    }
+//    
+//    
+//}
