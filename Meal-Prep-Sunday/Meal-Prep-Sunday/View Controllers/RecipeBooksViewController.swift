@@ -18,7 +18,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var savedRecipeTableHeight: NSLayoutConstraint!
     @IBOutlet weak var uploadRecipeTableHeight: NSLayoutConstraint!
     
-    static let shared = RecipeBookViewController()
+//    static let shared = RecipeBookViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,7 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         FirebaseStuff.shared.getSavedRecipeCollection()
         FirebaseStuff.shared.getUploadRecipeCollection()
     }
@@ -109,15 +110,11 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? SearchViewTableViewCell else {return UITableViewCell()}
             let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
             cell.recipe = savedRecipe
-//            cell.textLabel?.text = savedRecipe.label
-            //            cell.textLabel?.font = UIFont(name: "Palatino", size: 15)
             return cell
         } else if tableView == uploadedRecipesTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
-//                as? SearchViewTableViewCell else {return UITableViewCell()}
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
             cell.uploadRecipe = uploadedRecipe
-//            cell.textLabel?.text = uploadedRecipe.label
             return cell
         } else {
             return UITableViewCell()
@@ -125,7 +122,12 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let selectedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(identifier: "RecipeDetailViewController") as? RecipeDetailViewController {
+            viewController.uploadedRecipe = selectedRecipe
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
 }//End of class

@@ -11,6 +11,7 @@ import UIKit
 class RecipeDetailViewController: UIViewController {
     
     var recipe: Recipe?
+    var uploadedRecipe: UploadedRecipe?
     //    var ingredients: [Ingredient] = []
     
     @IBOutlet weak var recipeIngredientsListTV: UITableView!
@@ -24,6 +25,8 @@ class RecipeDetailViewController: UIViewController {
         recipeIngredientsListTV.dataSource = self
         guard let recipe = recipe else { return }
         fetchImageAndUpdateViews(recipe: recipe)
+        guard let uploadedRecipe = uploadedRecipe else { return }
+        fetchUploadedImageandUpdateViews(uploadedRecipe: uploadedRecipe)
     }
     
     func fetchImageAndUpdateViews(recipe: Recipe) {
@@ -41,11 +44,34 @@ class RecipeDetailViewController: UIViewController {
         }
     }
     
+    func fetchUploadedImageandUpdateViews(uploadedRecipe: UploadedRecipe) {
+        RecipeController.shared.fetchUploadRecipeImage(for: uploadedRecipe) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self.recipeImage.image = image
+                    self.recipeName.text = uploadedRecipe.label
+                    self.recipeCookTime.text = nil
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     @IBAction func seeDirectionsButtonTapped(_ sender: Any) {
-        guard let recipe = recipe else {return}
-        if let url = URL(string: recipe.directions) {
-            UIApplication.shared.canOpenURL(url)
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if recipe == recipe {
+            guard let recipe = recipe else {return}
+            if let url = URL(string: recipe.directions) {
+                UIApplication.shared.canOpenURL(url)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else if uploadedRecipe == uploadedRecipe {
+            guard let recipe = uploadedRecipe else {return}
+            if let url = URL(string: recipe.directions!) {
+                UIApplication.shared.canOpenURL(url)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
     
@@ -65,7 +91,8 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
             guard let recipe = recipe else { return 0}
             return recipe.ingredients.count
         } else {
-            return 0
+            guard let uploadedRecipe = uploadedRecipe else {return 0}
+            return uploadedRecipe.manualIngredients.count
         }
     }
     

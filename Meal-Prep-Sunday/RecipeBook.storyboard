@@ -289,7 +289,6 @@
                                                     <constraint firstAttribute="bottom" secondItem="wC4-ZU-yeF" secondAttribute="bottom" id="MrH-zp-x4y"/>
                                                     <constraint firstItem="wC4-ZU-yeF" firstAttribute="leading" secondItem="7wM-GE-lOV" secondAttribute="leading" id="NYg-OT-URH"/>
                                                     <constraint firstItem="wC4-ZU-yeF" firstAttribute="top" secondItem="igO-jf-4tL" secondAttribute="bottom" id="bsP-Bp-7AS"/>
-                                                    <constraint firstItem="wC4-ZU-yeF" firstAttribute="top" secondItem="igO-jf-4tL" secondAttribute="bottom" id="mUP-Va-fgt"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-gN-eDh">

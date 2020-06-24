@@ -12,13 +12,13 @@ class UploadedRecipeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var uploadRecipeNameLabel: UILabel!
     @IBOutlet weak var uploadRecipeImageView: UIImageView!
+    @IBOutlet weak var uploadRecipeCheckBox: UIButton!
     
 
    var uploadRecipe: UploadedRecipe? {
        didSet {
            guard let uploadRecipe = uploadRecipe else {return}
            uploadRecipeNameLabel.text = uploadRecipe.label
-//           uploadRecipeCookTimeLabel.text = "\(recipe.totalTime) min"
            
         RecipeController.shared.fetchUploadRecipeImage(for: uploadRecipe) { (result) in
                switch result {
@@ -32,4 +32,14 @@ class UploadedRecipeTableViewCell: UITableViewCell {
            }
        }
    }
+    
+    fileprivate func checkBoxChecked(_ isComplete: Bool) {
+        uploadRecipeCheckBox.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+    }
+    
+    @IBAction func checkBoxChecked(_ sender: Any) {
+        checkBoxChecked(true)
+        
+    }
+    
 }

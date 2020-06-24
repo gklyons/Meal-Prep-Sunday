@@ -249,7 +249,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rm-3A-Pe1">
-                                <rect key="frame" x="30" y="760" width="354" height="31"/>
+                                <rect key="frame" x="30" y="757" width="354" height="34"/>
                                 <color key="backgroundColor" name="darkGreen"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Save Recipes">
@@ -261,10 +261,13 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vYf-d4-7L1">
-                                <rect key="frame" x="0.0" y="144" width="414" height="594"/>
+                                <rect key="frame" x="0.0" y="214" width="414" height="171"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="171" id="rcE-ZR-jhb"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipesCell" rowHeight="102" id="cgd-Zo-8oP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipesCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="saveCell" rowHeight="102" id="cgd-Zo-8oP" customClass="SelectRecipeTableViewCell" customModule="Meal_Prep_Sunday" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cgd-Zo-8oP" id="kne-sn-M7A">
@@ -278,6 +281,9 @@
                                                         <constraint firstAttribute="width" secondItem="zBh-nx-vVe" secondAttribute="height" multiplier="1:1" id="ns0-1l-gkg"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="Empty Checkbox 1x"/>
+                                                    <connections>
+                                                        <action selector="checkBoxChecked:" destination="cgd-Zo-8oP" eventType="touchUpInside" id="7Hc-TW-BPM"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ukQ-So-v4F">
                                                     <rect key="frame" x="40" y="11" width="80" height="80"/>
@@ -314,6 +320,12 @@
                                                 <constraint firstItem="zBh-nx-vVe" firstAttribute="leading" secondItem="kne-sn-M7A" secondAttribute="leading" constant="10" id="uwR-Jv-m71"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="savedRecipeCheckBoxChecked" destination="zBh-nx-vVe" id="Clc-Vd-ODE"/>
+                                            <outlet property="savedRecipeCookTimeLabel" destination="MlU-ug-aFl" id="j7c-KR-cuP"/>
+                                            <outlet property="savedRecipeImageView" destination="ukQ-So-v4F" id="9a1-mv-VCX"/>
+                                            <outlet property="savedRecipeNameLabel" destination="Xva-1i-AZV" id="qwU-70-jdo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -321,24 +333,127 @@
                                     <outlet property="delegate" destination="MVV-dz-vtb" id="yRd-cH-8KS"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-Pr-1Ok">
+                                <rect key="frame" x="-1" y="174" width="416" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="yU6-g1-iuf"/>
+                                </constraints>
+                                <state key="normal" title="    My Saved Recipes">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="savedRecipeButtonTapped:" destination="MVV-dz-vtb" eventType="touchUpInside" id="Ro0-JV-LJa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4q-ql-LsV">
+                                <rect key="frame" x="-1" y="415" width="416" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="76o-2B-kxA"/>
+                                </constraints>
+                                <state key="normal" title="    My Uploaded Recipes">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadedRecipeButtonTapped:" destination="MVV-dz-vtb" eventType="touchUpInside" id="Vzg-By-sDD"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sRV-hb-caJ">
+                                <rect key="frame" x="0.0" y="455" width="414" height="171"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="171" id="KFG-t6-jAd"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="uploadCell" rowHeight="102" id="kqE-MN-LJX" customClass="UploadedRecipeTableViewCell" customModule="Meal_Prep_Sunday" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kqE-MN-LJX" id="rBp-zW-tj1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uGc-hg-Fca">
+                                                    <rect key="frame" x="140" y="39" width="121" height="24"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3R-yk-URY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="121" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIn-f1-VyD">
+                                                    <rect key="frame" x="10" y="41" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="85r-eg-ghm"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="S5F-nO-EBQ"/>
+                                                        <constraint firstAttribute="height" constant="20" id="jIs-DM-aIt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="Empty Checkbox 1x"/>
+                                                    <connections>
+                                                        <action selector="checkBoxChecked:" destination="kqE-MN-LJX" eventType="touchUpInside" id="VmX-DC-d6E"/>
+                                                        <action selector="uploadedRecipeCheckBoxTapped:" destination="MVV-dz-vtb" eventType="touchUpInside" id="Tgg-9e-4QX"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qJU-wI-XUh">
+                                                    <rect key="frame" x="40" y="11" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="S0X-Zs-PUk"/>
+                                                        <constraint firstAttribute="height" constant="80" id="aSQ-XP-XGy"/>
+                                                        <constraint firstAttribute="width" secondItem="qJU-wI-XUh" secondAttribute="height" multiplier="1:1" id="uhC-Td-VRm"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uGc-hg-Fca" firstAttribute="centerY" secondItem="rBp-zW-tj1" secondAttribute="centerY" id="2rs-jj-s40"/>
+                                                <constraint firstItem="rIn-f1-VyD" firstAttribute="centerY" secondItem="rBp-zW-tj1" secondAttribute="centerY" id="MRu-EY-h69"/>
+                                                <constraint firstItem="uGc-hg-Fca" firstAttribute="leading" secondItem="qJU-wI-XUh" secondAttribute="trailing" constant="20" id="VDf-zr-p1d"/>
+                                                <constraint firstItem="qJU-wI-XUh" firstAttribute="leading" secondItem="rIn-f1-VyD" secondAttribute="trailing" constant="10" id="dO5-X0-gP6"/>
+                                                <constraint firstItem="rIn-f1-VyD" firstAttribute="leading" secondItem="rBp-zW-tj1" secondAttribute="leading" constant="10" id="fHS-GO-2a1"/>
+                                                <constraint firstItem="qJU-wI-XUh" firstAttribute="centerY" secondItem="rIn-f1-VyD" secondAttribute="centerY" id="kba-eP-wLh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBoxChecked" destination="rIn-f1-VyD" id="3B6-na-PBk"/>
+                                            <outlet property="uploadRecipeCheckBox" destination="rIn-f1-VyD" id="NoH-mi-dlM"/>
+                                            <outlet property="uploadRecipeImageView" destination="qJU-wI-XUh" id="oav-V3-QON"/>
+                                            <outlet property="uploadRecipeLabel" destination="g3R-yk-URY" id="Apd-Jz-bMe"/>
+                                            <outlet property="uploadRecipeNameLabel" destination="g3R-yk-URY" id="4y3-1x-I4H"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Z33-7T-tlF" firstAttribute="trailing" secondItem="0Rm-3A-Pe1" secondAttribute="trailing" constant="30" id="543-6E-U9K"/>
-                            <constraint firstItem="0Rm-3A-Pe1" firstAttribute="top" secondItem="vYf-d4-7L1" secondAttribute="bottom" constant="22" id="DlD-Al-eIe"/>
-                            <constraint firstItem="vYf-d4-7L1" firstAttribute="trailing" secondItem="Z33-7T-tlF" secondAttribute="trailing" id="E1T-Qj-Qxa"/>
-                            <constraint firstItem="vYf-d4-7L1" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" id="EqQ-im-CAd"/>
-                            <constraint firstItem="vYf-d4-7L1" firstAttribute="top" secondItem="ILf-MR-KH7" secondAttribute="bottom" id="F0y-km-lFf"/>
+                            <constraint firstItem="i9H-Pr-1Ok" firstAttribute="top" secondItem="ILf-MR-KH7" secondAttribute="bottom" constant="30" id="7vO-a2-5IQ"/>
                             <constraint firstItem="ILf-MR-KH7" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" id="Gde-0p-1Bk"/>
+                            <constraint firstItem="Z33-7T-tlF" firstAttribute="trailing" secondItem="v4q-ql-LsV" secondAttribute="trailing" constant="-1" id="MeF-mh-eAc"/>
+                            <constraint firstItem="v4q-ql-LsV" firstAttribute="top" secondItem="vYf-d4-7L1" secondAttribute="bottom" constant="30" id="O1Q-lU-dHN"/>
+                            <constraint firstItem="sRV-hb-caJ" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" id="Paf-q2-XZ5"/>
                             <constraint firstItem="ILf-MR-KH7" firstAttribute="top" secondItem="Z33-7T-tlF" secondAttribute="top" id="Rtd-Az-6ze"/>
+                            <constraint firstItem="Z33-7T-tlF" firstAttribute="trailing" secondItem="i9H-Pr-1Ok" secondAttribute="trailing" constant="-1" id="Sbn-1q-fAo"/>
                             <constraint firstItem="ILf-MR-KH7" firstAttribute="trailing" secondItem="Z33-7T-tlF" secondAttribute="trailing" id="b7r-Z1-xV2"/>
                             <constraint firstItem="Z33-7T-tlF" firstAttribute="bottom" secondItem="0Rm-3A-Pe1" secondAttribute="bottom" constant="22" id="bru-rE-cxn"/>
-                            <constraint firstItem="Z33-7T-tlF" firstAttribute="bottom" secondItem="vYf-d4-7L1" secondAttribute="bottom" constant="75" id="jFN-49-bvX"/>
+                            <constraint firstItem="i9H-Pr-1Ok" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" constant="-1" id="eST-hX-rNw"/>
+                            <constraint firstItem="sRV-hb-caJ" firstAttribute="top" secondItem="v4q-ql-LsV" secondAttribute="bottom" id="fys-QX-tN3"/>
+                            <constraint firstItem="vYf-d4-7L1" firstAttribute="top" secondItem="i9H-Pr-1Ok" secondAttribute="bottom" id="nQ5-l2-rX0"/>
+                            <constraint firstItem="Z33-7T-tlF" firstAttribute="trailing" secondItem="sRV-hb-caJ" secondAttribute="trailing" id="qdg-lE-dTc"/>
                             <constraint firstItem="0Rm-3A-Pe1" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" constant="30" id="v8f-YA-Llx"/>
+                            <constraint firstItem="vYf-d4-7L1" firstAttribute="trailing" secondItem="Z33-7T-tlF" secondAttribute="trailing" id="vDN-Gp-IUy"/>
+                            <constraint firstItem="v4q-ql-LsV" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" constant="-1" id="x7h-cS-iE5"/>
+                            <constraint firstItem="vYf-d4-7L1" firstAttribute="leading" secondItem="Z33-7T-tlF" secondAttribute="leading" id="yLJ-fY-6D9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z33-7T-tlF"/>
                     </view>
                     <navigationItem key="navigationItem" id="kkw-db-kW8"/>
+                    <connections>
+                        <outlet property="savedRecipeTableView" destination="vYf-d4-7L1" id="dLg-Dm-j08"/>
+                        <outlet property="savedRecipesDropDownButton" destination="i9H-Pr-1Ok" id="HAS-fh-YY6"/>
+                        <outlet property="uploadedRecipeTableView" destination="sRV-hb-caJ" id="los-SQ-SwM"/>
+                        <outlet property="uploadedRecipesDropDownButton" destination="v4q-ql-LsV" id="oWP-yb-XmE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94R-RA-l86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
