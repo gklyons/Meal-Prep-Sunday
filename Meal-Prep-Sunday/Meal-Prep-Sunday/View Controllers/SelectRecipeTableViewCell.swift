@@ -44,13 +44,12 @@ class SelectRecipeTableViewCell: UITableViewCell {
     }
     
     fileprivate func checkBoxChecked(_ isComplete: Bool) {
-        savedRecipeCheckBoxChecked.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
-        
+         savedRecipeCheckBoxChecked.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
     }
     
     @IBAction func checkBoxChecked(_ sender: Any) {
         checkBoxChecked(true)
-        delegate?.toggleRecipeChecked(self)
+//        delegate?.toggleRecipeChecked(self)
     }
     
     

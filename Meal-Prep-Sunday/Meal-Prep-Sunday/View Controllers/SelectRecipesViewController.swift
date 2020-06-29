@@ -133,10 +133,13 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
      */
     
 }
-//extension SelectRecipesViewController: SelectRecipeTableViewCellDelegate {
-//    func toggleRecipeChecked(_ sender: SelectRecipeTableViewCell) {
-//        guard let index = tableView.indexPath(for: sender) else {return}
-//    }
-//    
-//    
-//}
+extension SelectRecipesViewController: SelectRecipeTableViewCellDelegate {
+    func toggleRecipeChecked(_ sender: SelectRecipeTableViewCell) {
+//        guard let indexPath = tableView.indexPath(for: sender) else {return}
+//        let recipe = RecipeController.shared.
+//        let recipe = RecipeController.shared.fet
+//        RecipeController.shared.toggleSavedRecipeChecked(recipe: recipe)
+    }
+    
+    
+}

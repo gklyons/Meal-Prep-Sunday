@@ -92,8 +92,9 @@ class RecipeController {
         }.resume()
     }
     
-//    func toggleSavedRecipeChecked(recipe: Recipe) {
+    func toggleSavedRecipeChecked(recipe: Recipe) {
 //        recipe.isChecked.toggle()
-//    }
+        recipe.isChecked = !recipe.isChecked
+    }
     
 }//End of Class
