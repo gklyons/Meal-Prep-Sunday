@@ -21,7 +21,7 @@ struct RecipeContainer: Codable {
     let recipe: Recipe
 }
 
-struct Recipe: Codable {
+class Recipe: Codable {
     let label: String
     let image: String?
     let directions: String
@@ -31,6 +31,18 @@ struct Recipe: Codable {
     var users: [String]?
     var uid: String?
     var isChecked: Bool = false
+    
+    init(label: String, image: String?, directions: String, ingredients: [String], yield: Int, totalTime: Int, users: [String]?, uid: String?, isChecked: Bool = false) {
+        self.label = label
+        self.image = image
+        self.directions = directions
+        self.ingredients = ingredients
+        self.yield = yield
+        self.totalTime = totalTime
+        self.users = users
+        self.uid = uid
+        self.isChecked = isChecked
+    }
     
     enum CodingKeys: String, CodingKey {
         case label
