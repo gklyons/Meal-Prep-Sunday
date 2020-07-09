@@ -106,6 +106,7 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
             let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
             cell.recipe = savedRecipe
             RecipeController.shared.toggleSavedRecipeChecked(recipe: savedRecipe)
+            cell.delegate = self
             return cell
         } else if tableView == uploadedRecipeTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
