@@ -112,7 +112,5 @@ extension ShoppingListTableViewController: ShoppingListTableViewCellDelegate {
         let item = testArray[index.row] //ShoppingListController.shared.shoppingList[index.row]
         ShoppingListController.shared.toggleItemChecked(ingredient: item)
         sender.populateCell(ingredient: item)
-        
     }
-    
 }

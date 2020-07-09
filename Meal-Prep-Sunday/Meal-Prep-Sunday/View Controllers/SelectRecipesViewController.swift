@@ -86,12 +86,6 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
     @IBAction func uploadedRecipeCheckBoxTapped(_ sender: Any) {
     }
     
-    
-    
-    //    func numberOfSections(in tableView: UITableView) -> Int {
-    //        return 2
-    //    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == savedRecipeTableView {
             return RecipeController.shared.savedRecipes.count
@@ -101,16 +95,17 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
             return 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == savedRecipeTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? SelectRecipeTableViewCell else {return UITableViewCell()}
             let savedRecipe = RecipeController.shared.savedRecipes[indexPath.row]
             cell.recipe = savedRecipe
+            RecipeController.shared.toggleSavedRecipeChecked(recipe: savedRecipe)
             return cell
         } else if tableView == uploadedRecipeTableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
@@ -132,14 +127,14 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
      }
      */
     
+    
 }
+
 extension SelectRecipesViewController: SelectRecipeTableViewCellDelegate {
     func toggleRecipeChecked(_ sender: SelectRecipeTableViewCell) {
-//        guard let indexPath = tableView.indexPath(for: sender) else {return}
-//        let recipe = RecipeController.shared.
-//        let recipe = RecipeController.shared.fet
-//        RecipeController.shared.toggleSavedRecipeChecked(recipe: recipe)
+        guard let index = savedRecipeTableView.indexPath(for: sender) else {return}
+        let recipe = RecipeController.shared.savedRecipes[index.row]
+        RecipeController.shared.toggleSavedRecipeChecked(recipe: recipe)
+        sender.update(withRecipe: recipe)
     }
-    
-    
 }
