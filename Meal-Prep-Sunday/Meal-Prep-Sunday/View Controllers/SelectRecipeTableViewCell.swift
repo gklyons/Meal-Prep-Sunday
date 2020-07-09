@@ -29,6 +29,7 @@ class SelectRecipeTableViewCell: UITableViewCell {
             guard let recipe = recipe else {return}
             savedRecipeNameLabel.text = recipe.label
             savedRecipeCookTimeLabel.text = "\(recipe.totalTime) min"
+//            update(withRecipe: recipe)
             
             RecipeController.shared.fetchImage(for: recipe) { (result) in
                 switch result {
@@ -43,14 +44,12 @@ class SelectRecipeTableViewCell: UITableViewCell {
         }
     }
     
-    fileprivate func checkBoxChecked(_ isComplete: Bool) {
-         savedRecipeCheckBoxChecked.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x"): #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+    func update(withRecipe recipe: Recipe) {
+        savedRecipeCheckBoxChecked.setImage(recipe.isChecked ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
     }
     
     @IBAction func checkBoxChecked(_ sender: Any) {
-        checkBoxChecked(true)
-//        delegate?.toggleRecipeChecked(self)
+        delegate?.toggleRecipeChecked(self)
+//        update(withRecipe: recipe!)
     }
-    
-    
 }
