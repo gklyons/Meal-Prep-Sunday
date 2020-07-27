@@ -8,8 +8,17 @@
 
 import UIKit
 
+// Mark: - Protocols
+protocol UploadedRecipeTableViewCellDelegate: class {
+    func toggleUploadRecipeChecked(_ sender: UploadedRecipeTableViewCell)
+}
+
 class UploadedRecipeTableViewCell: UITableViewCell {
     
+    // Mark: - Properties
+    var delegate: UploadedRecipeTableViewCellDelegate?
+    
+    // Mark: - Outlets
     @IBOutlet weak var uploadRecipeNameLabel: UILabel!
     @IBOutlet weak var uploadRecipeImageView: UIImageView!
     @IBOutlet weak var uploadRecipeCheckBox: UIButton!
@@ -33,13 +42,15 @@ class UploadedRecipeTableViewCell: UITableViewCell {
        }
    }
     
-    fileprivate func isRecipeSelected(_ isComplete: Bool) {
-        uploadRecipeCheckBox.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
-    }
+//    fileprivate func isRecipeSelected(_ isComplete: Bool) {
+//        uploadRecipeCheckBox.setImage(isComplete ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+//    }
     
+    func update(with uploadedRecipe: UploadedRecipe) {
+        uploadRecipeCheckBox.setImage(uploadedRecipe.isChecked ? #imageLiteral(resourceName: "Checked Box 1x") : #imageLiteral(resourceName: "Empty Checkbox 1x"), for: .normal)
+    }
+
     @IBAction func checkBoxChecked(_ sender: Any) {
-        isRecipeSelected(true)
-        
+        delegate?.toggleUploadRecipeChecked(self)
     }
-    
 }

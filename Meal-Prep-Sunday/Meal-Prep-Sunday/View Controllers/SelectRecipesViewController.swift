@@ -12,6 +12,7 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
     
     // MARK: - Properties
     
+    
     // MARK: - Outlets
     //    @IBOutlet weak var recipeSelectedButton: NSLayoutConstraint!
     @IBOutlet weak var savedRecipesDropDownButton: UIButton!
@@ -24,6 +25,8 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         savedRecipeTableView.isHidden = true
         uploadedRecipeTableView.isHidden = true
+        uploadedRecipeTableView.dataSource = self
+        uploadedRecipeTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,12 +82,12 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    @IBAction func savedRecipeCheckBoxTapped(_ sender: Any) {
-        
-    }
-    
-    @IBAction func uploadedRecipeCheckBoxTapped(_ sender: Any) {
-    }
+//    @IBAction func savedRecipeCheckBoxTapped(_ sender: Any) {
+//
+//    }
+//
+//    @IBAction func uploadedRecipeCheckBoxTapped(_ sender: Any) {
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == savedRecipeTableView {
@@ -109,9 +112,11 @@ class SelectRecipesViewController: UIViewController, UITableViewDataSource, UITa
             cell.delegate = self
             return cell
         } else if tableView == uploadedRecipeTableView {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "uploadRecipeCell", for: indexPath) as? UploadedRecipeTableViewCell else {return UITableViewCell()}
             let uploadedRecipe = RecipeController.shared.uploadedRecipes[indexPath.row]
             cell.uploadRecipe = uploadedRecipe
+//            RecipeController.shared.toggleUploadedRecipeChecked(uploadedRecipe: uploadedRecipe)
+//            cell.delegate = self
             return cell
         } else {
             return UITableViewCell()
@@ -137,5 +142,14 @@ extension SelectRecipesViewController: SelectRecipeTableViewCellDelegate {
         let recipe = RecipeController.shared.savedRecipes[index.row]
         RecipeController.shared.toggleSavedRecipeChecked(recipe: recipe)
         sender.update(withRecipe: recipe)
+    }
+}
+
+extension SelectRecipesViewController: UploadedRecipeTableViewCellDelegate {
+    func toggleUploadRecipeChecked(_ sender: UploadedRecipeTableViewCell) {
+        guard let index = uploadedRecipeTableView.indexPath(for: sender) else {return}
+        let uploadedRecipe = RecipeController.shared.uploadedRecipes[index.row]
+        RecipeController.shared.toggleUploadRecipeChecked(uploadedRecipe: uploadedRecipe)
+        sender.update(with: uploadedRecipe)
     }
 }

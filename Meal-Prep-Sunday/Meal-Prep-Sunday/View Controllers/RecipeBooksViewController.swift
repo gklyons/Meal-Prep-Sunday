@@ -129,7 +129,6 @@ class RecipeBookViewController: UIViewController, UITableViewDataSource, UITable
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
-    
 }//End of class
 
 

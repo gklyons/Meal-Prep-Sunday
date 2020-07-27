@@ -16,8 +16,9 @@ class UploadedRecipe {
     var directions: String?
     var uid: String
     var imageEndpoint: String?
+    var isChecked: Bool = false
     
-    init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString, imageEndpoint: String? = nil) {
+    init(image: UIImage?, title: String, manualIngredients: [Ingredient], directions: String?, uid: String = UUID().uuidString, imageEndpoint: String? = nil, isChecked: Bool = false) {
         
         self.image = image
         self.label = title
@@ -25,6 +26,7 @@ class UploadedRecipe {
         self.directions = directions
         self.uid = uid
         self.imageEndpoint = imageEndpoint
+        self.isChecked = isChecked
     }
 }// End of Class
 

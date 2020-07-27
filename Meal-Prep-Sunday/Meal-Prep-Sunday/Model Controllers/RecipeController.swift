@@ -97,4 +97,7 @@ class RecipeController {
         recipe.isChecked = !recipe.isChecked
     }
     
+    func toggleUploadRecipeChecked(uploadedRecipe: UploadedRecipe) {
+        uploadedRecipe.isChecked = !uploadedRecipe.isChecked
+    }
 }//End of Class
